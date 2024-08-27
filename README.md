@@ -1,4 +1,21 @@
-# Demystifying Grouped-Query Attention
+# Beyond Uniform Query Distribution: Key-Driven Grouped Query Attention
+
+Official implementation of Key-Driven GQA as presented in our paper:
+**Beyond Uniform Query Distribution: Key-Driven Grouped Query Attention** </br>
+*Zohaib Khan\*, Muhammad Khaquan\*, Omer Tafveez, Burhanuddin Samiwala, Agha Ali Raza (* indicates equal contribution) <br>
+Carnegie Mellon University, Meta AI Research and Bosch Center for AI  <br>
+
+```bibtex
+@misc{khan2024uniformquerydistributionkeydriven,
+      title={Beyond Uniform Query Distribution: Key-Driven Grouped Query Attention}, 
+      author={Zohaib Khan and Muhammad Khaquan and Omer Tafveez and Agha Ali Raza},
+      year={2024},
+      eprint={2408.08454},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2408.08454}, 
+}
+```
 
 ## Setup
 
@@ -32,3 +49,4 @@ Use `train.py` and provide arguments:
 - `--pretrained_ckpt`: path to the checkpoint, if any, to use for the training (could be for uptraining or fine-tuning)
 
 Example usage: `python train.py --config path/to/config.yaml --out_dir output_dir/ --save_model True --pretrained-ckpt path/to/ckpt.pth`
+
