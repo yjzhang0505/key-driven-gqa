@@ -3,7 +3,7 @@
 Official implementation of Key-Driven GQA as presented in our paper:
 **Beyond Uniform Query Distribution: Key-Driven Grouped Query Attention** </br>
 *Zohaib Khan\*, Muhammad Khaquan\*, Omer Tafveez, Burhanuddin Samiwala, Agha Ali Raza (* indicates equal contribution) <br>
-Carnegie Mellon University, Meta AI Research and Bosch Center for AI  <br>
+Lahore University of Management Sciences  <br>
 
 ```bibtex
 @misc{khan2024uniformquerydistributionkeydriven,
