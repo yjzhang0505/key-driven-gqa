@@ -50,3 +50,4 @@ Use `train.py` and provide arguments:
 
 Example usage: `python train.py --config path/to/config.yaml --out_dir output_dir/ --save_model True --pretrained-ckpt path/to/ckpt.pth`
 
+Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar.yaml --out_dir output_dgqa_diff_lr-5/ --save_model True --pretrained-ckpt path/to/ckpt.pth`
