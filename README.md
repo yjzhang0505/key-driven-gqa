@@ -5,17 +5,6 @@ Official implementation of Key-Driven GQA as presented in our paper:
 *Zohaib Khan\*, Muhammad Khaquan\*, Omer Tafveez, Burhanuddin Samiwala, Agha Ali Raza (* indicates equal contribution) <br>
 Lahore University of Management Sciences  <br>
 
-```bibtex
-@misc{khan2024uniformquerydistributionkeydriven,
-      title={Beyond Uniform Query Distribution: Key-Driven Grouped Query Attention}, 
-      author={Zohaib Khan and Muhammad Khaquan and Omer Tafveez and Agha Ali Raza},
-      year={2024},
-      eprint={2408.08454},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV},
-      url={https://arxiv.org/abs/2408.08454}, 
-}
-```
 
 ## Setup
 
@@ -29,15 +18,15 @@ Run `pip install -r requirements.txt`
 
 We use `yaml` files to create our configurations. We expect the following structure:
 ```yaml
-dataset: 					# 'cifar10' # one of {cifar10, cifar100, food101, tiny-imagenet-200}
+dataset: cifar10   # 'cifar10' # one of {cifar10, cifar100, food101, tiny-imagenet-200}
 in_chans: 3
-size: 'b'					# one of {s,b,l}
-att_scheme: 'gqa'				# one of {gqa, kdgqa, dgqa_diff, dgqa_ema, pgqa}
+size: 'b'   # one of {s,b,l}
+att_scheme: 'dgqa_diff'   # one of {gqa, kdgqa, dgqa_diff, dgqa_ema, pgqa}
 num_classes: 10
-pretrained: True
-window_size: 300
-num_kv_heads: 6					# dependent on the model size, and its number of heads
-out_dir: "cifar10-base-gqa-pretrained"		# directory to which the outputs are saved
+pretrained: False
+window_size: 2
+num_kv_heads: 6   # dependent on the model size, and its number of heads
+out_dir: "cifar10-base-gqa-pretrained"   # directory to which the outputs are saved
 ```
 
 ## Running
@@ -50,4 +39,4 @@ Use `train.py` and provide arguments:
 
 Example usage: `python train.py --config path/to/config.yaml --out_dir output_dir/ --save_model True --pretrained-ckpt path/to/ckpt.pth`
 
-Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar.yaml --out_dir output_dgqa_diff_lr-5/ --save_model True --pretrained-ckpt path/to/ckpt.pth`
+Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar.yaml --out_dir output_dgqa_diff_lr-5/ --save_model True`
