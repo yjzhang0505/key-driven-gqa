@@ -1,0 +1,9 @@
+dataset: cifar10   # 'cifar10' # one of {cifar10, cifar100, food101, tiny-imagenet-200}
+in_chans: 3
+size: 'b'   # one of {s,b,l}
+att_scheme: 'dgqa_diff'   # one of {gqa, kdgqa, dgqa_diff, dgqa_ema, pgqa}
+num_classes: 10
+pretrained: False
+window_size: 2
+num_kv_heads: 6   # dependent on the model size, and its number of heads
+out_dir: "cifar10-base-gqa-pretrained"   # directory to which the outputs are saved
