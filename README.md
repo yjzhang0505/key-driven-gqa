@@ -10,6 +10,7 @@ Lahore University of Management Sciences  <br>
 
 Run `pip install -r requirements.txt`
 
+* Python == 3.9
 * Download tiny-imagenet-200 from [here](http://cs231n.stanford.edu/tiny-imagenet-200.zip)
 * Download CINIC-10 from [here](https://datashare.is.ed.ac.uk/bitstream/handle/10283/3192/CINIC-10.tar.gz)
 * To use ImageNet-1k, you would have to log in to HuggingFace and provide a token - the simplest way is through `huggingface-cli login` on your terminal.
