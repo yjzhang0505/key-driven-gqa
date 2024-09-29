@@ -32,6 +32,7 @@ out_dir: "cifar10-base-gqa-pretrained"   # directory to which the outputs are sa
 ## 小记
 - 本地检查点位置在model.py的checkpoint_path，目前只改了b的模型
 - 训练检查点时要改一下路径
+- 用预训练的时候要把config中的pretrained改为True
 
 
 ## Running
