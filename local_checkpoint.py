@@ -122,7 +122,7 @@ def validate_model(model, val_loader, criterion, device):
 if __name__ == "__main__":
     # 参数设置
     # checkpoint_path = '/data/yjzhang/desktop/checkpoint/pytorch_model.bin'
-    checkpoint_path = './checkpoint/finetuned_vit_base_patch16_224.pth'
+    checkpoint_path = '/data/yjzhang/desktop/try/local_checkpoint/finetuned_vit_base_patch16_224.pth'
     num_epochs = 10
     batch_size = 32
     learning_rate = 1e-5
@@ -136,8 +136,8 @@ if __name__ == "__main__":
     ])
 
     # 使用示例数据集 (CIFAR-10)
-    train_dataset = datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
-    val_dataset = datasets.CIFAR10(root='./data', train=False, download=True, transform=transform)
+    train_dataset = datasets.CIFAR10(root='./cifar10', train=True, download=True, transform=transform)
+    val_dataset = datasets.CIFAR10(root='./cifar10', train=False, download=True, transform=transform)
     
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
