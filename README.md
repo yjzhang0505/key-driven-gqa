@@ -29,6 +29,10 @@ window_size: 2
 num_kv_heads: 6   # dependent on the model size, and its number of heads
 out_dir: "cifar10-base-gqa-pretrained"   # directory to which the outputs are saved
 ```
+## 小记
+- 本地检查点位置在model.py的checkpoint_path，目前只改了b的模型
+- 训练检查点时要改一下路径
+
 
 ## Running
 
