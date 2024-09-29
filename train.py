@@ -94,6 +94,7 @@ def train_step(model, dataloader, criterion, optimizer, device):
 
         y_pred = torch.argmax(logits.detach(), dim=1)
         train_acc += ((y_pred == y).sum().item() / len(y))
+        # print(f"Epoch [{epoch+1}/{epochs}], Train Loss: {train_loss:.4f}, Train Accuracy: {train_acc:.2f}%")
 
     train_loss = train_loss / len(dataloader)
     train_acc = train_acc / len(dataloader)

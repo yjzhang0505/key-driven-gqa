@@ -193,12 +193,16 @@ def vit_small_patch16_224(
     )
 
     if pretrained:
-        ckpt = 'vit_small_patch16_224'
-        if in_chans != 3:
-            raise ValueError(f"Cannot load in checkpoint with {in_chans=}")
+        # ckpt = 'vit_small_patch16_224'
+        # if in_chans != 3:
+        #     raise ValueError(f"Cannot load in checkpoint with {in_chans=}")
         print(f'Using checkpoint {ckpt}...')
-        hf_model = timm.create_model(ckpt, pretrained=True)
-        model.load_pretrained_weights(hf_model.state_dict())
+        model = timm.create_model('vit_base_patch16_224', pretrained=False, num_classes=1000)
+        checkpoint_path = '/data/yjzhang/desktop/try/local_checkpoint/finetuned_vit_base_patch16_224.pth'
+        checkpoint = torch.load(checkpoint_path)
+        model.load_state_dict(checkpoint, strict=False)
+        # hf_model = timm.create_model(ckpt, pretrained=True)
+        # model.load_pretrained_weights(hf_model.state_dict())
     
     return model
 
@@ -229,8 +233,12 @@ def vit_base_patch16_224(
         if in_chans != 3:
             raise ValueError(f"Cannot load in checkpoint with {in_chans=}")
         print(f'Using checkpoint {ckpt}...')
-        hf_model = timm.create_model(ckpt, pretrained=True)
-        model.load_pretrained_weights(hf_model.state_dict())
+        # hf_model = timm.create_model(ckpt, pretrained=True)
+        # model.load_pretrained_weights(hf_model.state_dict())
+        model = timm.create_model('vit_base_patch16_224', pretrained=False, num_classes=1000)
+        checkpoint_path = '/data/yjzhang/desktop/try/local_checkpoint/finetuned_vit_base_patch16_224.pth'
+        checkpoint = torch.load(checkpoint_path)
+        model.load_state_dict(checkpoint, strict=False)
     
     return model
 
