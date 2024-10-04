@@ -96,6 +96,7 @@ class Block(nn.Module):
             raise ValueError('Invalid attention scheme - please look into block.py')
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # print("block_forward", flush=True)
         x = x + self.attn(self.norm1(x))
         x = x + self.mlp(self.norm2(x))
         return x

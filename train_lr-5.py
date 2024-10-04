@@ -84,6 +84,7 @@ def train_step(model, dataloader, criterion, optimizer, device):
         set_training_step(step)
         X, y = X.to(device), y.to(device)
 
+        # print("logits")
         logits = model(X)
         loss = criterion(logits, y)
 
@@ -179,6 +180,8 @@ if __name__ == "__main__":
         num_layers=config.get('num_layers', None),
         num_heads=config.get('num_heads', None)
     )
+
+    print(f"Model type: {type(model)}", flush=True)
 
     # Load in pretrained weight if any
     if args.pretrained_ckpt:
