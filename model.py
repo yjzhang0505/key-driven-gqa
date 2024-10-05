@@ -180,6 +180,7 @@ def vit_small_patch16_224(
         ):
     
     model = VisionTransformer(
+        exp_num = exp_num,
         img_size=224,
         patch_size=16,
         in_chans=in_chans,
@@ -217,11 +218,7 @@ def vit_base_patch16_224(
         att_scheme: str = 'mhsa',
         window_size: int = 10,
         num_kv_heads: int = 3,
-        in_chans: int = 3,
-        drop_rate: float = 0,
-        pos_drop_rate: float = 0,
-        attn_drop_rate: float = 0,
-        proj_drop_rate: float = 0.
+        in_chans: int = 3
         ):
     
     model = VisionTransformer(
@@ -230,52 +227,27 @@ def vit_base_patch16_224(
         patch_size=16,
         in_chans=in_chans,
         num_classes=num_classes,
-        embed_dim=768,  # 改为768与预训练模型一致
-        num_heads=12,   # 改为12与预训练模型一致
+        embed_dim=768,
+        num_heads=12,
         depth=12,
         num_kv_heads=num_kv_heads,
         att_scheme=att_scheme,
-        window_size=window_size,
-        drop_rate=drop_rate,
-        pos_drop_rate=pos_drop_rate,
-        attn_drop_rate=attn_drop_rate,
-        proj_drop_rate=proj_drop_rate
+        window_size=window_size
     )
-
 
     if pretrained:
         ckpt = 'vit_base_patch16_224'
         if in_chans != 3:
             raise ValueError(f"Cannot load in checkpoint with {in_chans=}")
         print(f'Using checkpoint {ckpt}...')
-        # hf_model = timm.create_model(ckpt, pretrained=True)
-        # model.load_pretrained_weights(hf_model.state_dict())
-        # model = VisionTransformer(
-        #     img_size=224,
-        #     patch_size=16,
-        #     in_chans=in_chans,
-        #     num_classes=num_classes,
-        #     embed_dim=embed_dim if embed_dim is not None else 768,  # 根据 size 参数调整 embed_dim
-        #     num_heads=num_heads if num_heads is not None else 12,  # 根据 size 参数调整 num_heads
-        #     depth=num_layers if num_layers is not None else 12,  # 根据 size 参数调整深度
-        #     mlp_ratio=4.0,  # 假设使用的 mlp_ratio
-        #     qkv_bias=True,
-        #     window_size=window_size,
-        #     att_scheme=att_scheme,
-        #     num_kv_heads=num_kv_heads
-        # )
-        # model = timm.create_model('vit_base_patch16_224', pretrained=False, num_classes=1000)
+
+        model = timm.create_model('vit_base_patch16_224', pretrained=False, num_classes=1000)
         checkpoint_path = '/data/yjzhang/desktop/try/local_checkpoint/finetuned_vit_base_patch16_224.pth'
         checkpoint = torch.load(checkpoint_path)
-        state_dict = checkpoint['state_dict'] if 'state_dict' in checkpoint else checkpoint
-
-        # 过滤掉不匹配的层，比如分类头
-        filtered_state_dict = {k: v for k, v in state_dict.items() if 'head' not in k and 'mlp.fc' not in k}
-
-        model.load_state_dict(filtered_state_dict, strict=False)
-
+        model.load_state_dict(checkpoint, strict=False)
     
     return model
+    
 
 def vit_large_patch16_224(
         num_classes: int = 10,
