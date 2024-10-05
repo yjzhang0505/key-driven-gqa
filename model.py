@@ -13,6 +13,7 @@ class VisionTransformer(nn.Module):
 
     def __init__(
             self,
+            exp_num: int,
             img_size: Union[int, Tuple[int, int]] = 224,
             patch_size: Union[int, Tuple[int, int]] = 16,
             in_chans: int = 3,
@@ -35,7 +36,7 @@ class VisionTransformer(nn.Module):
             block_fn: Type[nn.Module] = Block,
             mlp_layer: Type[nn.Module] = Mlp,
             att_scheme: str = 'mhsa',
-            window_size: int = 1,
+            window_size: int = 1 
     ) -> None:
         """
         Args:
@@ -60,6 +61,7 @@ class VisionTransformer(nn.Module):
         super().__init__()
         norm_layer = partial(nn.LayerNorm, eps=1e-6) if norm_layer is None else norm_layer
         act_layer = nn.GELU if act_layer is None else act_layer
+        self.exp_num = exp_num
 
         self.num_classes = num_classes
         self.num_features = self.head_hidden_size = self.embed_dim = embed_dim  # for consistency with other models
@@ -88,16 +90,17 @@ class VisionTransformer(nn.Module):
             block_fn(
                 dim=embed_dim,
                 num_heads=num_heads,
+                num_kv_heads=num_kv_heads,
                 mlp_ratio=mlp_ratio,
                 qkv_bias=qkv_bias,
                 proj_drop=proj_drop_rate,
                 attn_drop=attn_drop_rate,
                 norm_layer=norm_layer,
-                act_layer=act_layer,
-                num_kv_heads=num_kv_heads,
+                act_layer=act_layer,               
                 mlp_layer=mlp_layer,
                 att_scheme=att_scheme,
-                window_size=window_size
+                window_size=window_size,
+                exp_num=exp_num
             )
             for i in range(depth)])
         self.feature_info = [
@@ -208,6 +211,7 @@ def vit_small_patch16_224(
     return model
 
 def vit_base_patch16_224(
+        exp_num: int,
         num_classes: int = 10,
         pretrained: bool = False,
         att_scheme: str = 'mhsa',
@@ -221,6 +225,7 @@ def vit_base_patch16_224(
         ):
     
     model = VisionTransformer(
+        exp_num = exp_num,
         img_size=224,
         patch_size=16,
         in_chans=in_chans,

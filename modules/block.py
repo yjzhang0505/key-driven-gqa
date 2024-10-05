@@ -12,19 +12,21 @@ class Block(nn.Module):
             self,
             dim: int,
             num_heads: int,
+            num_kv_heads: int ,
             mlp_ratio: float = 4.,
             qkv_bias: bool = False,
             proj_drop: float = 0.,
-            attn_drop: float = 0.,
-            num_kv_heads: Optional[int] = None,
+            attn_drop: float = 0.,           
             act_layer: nn.Module = nn.GELU,
             norm_layer: nn.Module = nn.LayerNorm,
             mlp_layer: nn.Module = Mlp,
             att_scheme: str = 'mhsa',
-            window_size: int = 1
+            window_size: int = 1,
+            exp_num: int = 3
     ) -> None:
         super().__init__()
         
+        self.exp_num = exp_num
         self.norm1 = norm_layer(dim)
         self.norm2 = norm_layer(dim)
 
@@ -46,11 +48,11 @@ class Block(nn.Module):
         elif att_scheme == 'gqa':
             self.attn = GQA(
                 dim=dim,
+                num_kv_heads=num_kv_heads,
                 num_heads=num_heads,
                 qkv_bias=qkv_bias,
                 attn_drop=attn_drop,
-                proj_drop=proj_drop,
-                num_kv_heads=num_kv_heads
+                proj_drop=proj_drop                
             )
         elif att_scheme == 'dgqa_ema':
             self.attn = DGQA(
@@ -97,7 +99,7 @@ class Block(nn.Module):
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         # print("block_forward", flush=True)
-        x = x + self.attn(self.norm1(x))
+        x = x + self.attn(self.norm1(x), self.exp_num)
         x = x + self.mlp(self.norm2(x))
         return x
     

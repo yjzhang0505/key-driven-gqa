@@ -25,12 +25,13 @@ def set_seed(seed=42):
     torch.backends.cudnn.benchmark = False
 
 def get_model(
+            exp_num: int,
             size: int = 'b',
             num_classes: int = 10,
             pretrained: bool = False,
             att_scheme: str = 'gqa',
             window_size: int = 10,
-            num_kv_heads: int = 2,
+            num_kv_heads: int = 4,
             in_chans: int = 3,
             embed_dim: Optional[int] = None,
             num_layers: Optional[int] = None,
@@ -39,7 +40,7 @@ def get_model(
     '''
     Model factory function for loading in models according to pretrained checkpoints or a custom model to be trained from scratch    
     '''
-    args = dict(num_classes=num_classes, pretrained=pretrained, att_scheme=att_scheme, window_size=window_size, num_kv_heads=num_kv_heads, in_chans=in_chans)
+    args = dict(num_classes=num_classes, pretrained=pretrained, att_scheme=att_scheme, window_size=window_size, num_kv_heads=num_kv_heads, in_chans=in_chans, exp_num=exp_num)
     if size == 's':
         print(f"Loaded in small ViT with args {args}")
         return vit_small_patch16_224(**args)
@@ -132,31 +133,28 @@ if __name__ == "__main__":
     parser.add_argument('--out_dir', type=str, required=True, help='Path to the directory where new experiment runs will be tracked')
     parser.add_argument('--save_model', type=bool, default=False, help='Save the model at the end of the training run.')
     parser.add_argument('--pretrained_ckpt', type=str, default=None, help='Path to .pth file to load in for the training run.')
+    parser.add_argument('--exp_number', type=int, default=0, help='Num of group.txt file to load in for the training run.')
+    parser.add_argument('--num_kv_heads', type=int, default=2)
     args = parser.parse_args()
 
     config = load_config(args.config)
-    
-    OUT_DIR_ROOT = args.out_dir
-    exp_name = os.path.basename(args.config)
-    exp_name = os.path.splitext(exp_name)[0]
-    out_dir = os.path.join(OUT_DIR_ROOT,
-                           exp_name)
-    os.makedirs(os.path.join(out_dir),
-                exist_ok=True)
+
+    # OUT_DIR_ROOT = args.out_dir
+    # exp_name = os.path.basename(args.config)
+    # exp_name = os.path.splitext(exp_name)[0]
+    # out_dir = os.path.join(OUT_DIR_ROOT, exp_name)
+    out_dir = args.out_dir
+    os.makedirs(os.path.join(out_dir), exist_ok=True)
     print(f"Results for {os.path.basename(args.config)} being saved to {out_dir}...")
 
     if args.save_model:
         print("Going to save model at end of run...")
 
-    # Copy over the yaml file
-    shutil.copyfile(
-        args.config,
-        os.path.join(out_dir, 'config.yaml')
-    )
-    
+    shutil.copyfile(args.config, os.path.join(out_dir, 'config.yaml'))
+
     # Set seed for reproducibility
     set_seed()
-    
+
     # Data setup
     dataset_name = config['dataset']
     batch_size = 32
@@ -169,16 +167,17 @@ if __name__ == "__main__":
 
     # Model, optimizer, loss function setup
     model = get_model(
+        exp_num=args.exp_number,  # 使用命令行参数
         size=config['size'], 
         num_classes=config['num_classes'], 
         pretrained=config['pretrained'], 
         att_scheme=config['att_scheme'],
         window_size=config['window_size'],
-        num_kv_heads=config['num_kv_heads'],
+        num_kv_heads=args.num_kv_heads,
         in_chans=config['in_chans'],
         embed_dim=config.get('embed_dim', None),
         num_layers=config.get('num_layers', None),
-        num_heads=config.get('num_heads', None)
+        num_heads=config.get('num_heads', None) 
     )
 
     print(f"Model type: {type(model)}", flush=True)
