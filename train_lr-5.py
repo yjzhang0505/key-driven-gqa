@@ -73,19 +73,26 @@ def get_model(
     else:
         raise ValueError(f'Expected one of s/b/l/c for size - got {size}')
     
+from tqdm import tqdm
+
+from tqdm import tqdm
+
 def train_step(model, dataloader, criterion, optimizer, device):
-    '''Train for one epoch'''
+    '''训练一个epoch'''
 
     model.train()
 
     train_loss = 0.
     train_acc = 0.
 
-    for step, (X, y) in tqdm(enumerate(dataloader), desc="Training", leave=False):
-        set_training_step(step)
+    # 使用tqdm进度条，并在每次更新时显示当前批次的精度和损失
+    progress_bar = tqdm(enumerate(dataloader), desc="训练中", leave=False, total=len(dataloader))
+
+    for step, (X, y) in progress_bar:
+        set_training_step(step)  # 假设您已经定义了set_training_step函数
         X, y = X.to(device), y.to(device)
 
-        # print("logits")
+        # 前向传播
         logits = model(X)
         loss = criterion(logits, y)
 
@@ -93,16 +100,30 @@ def train_step(model, dataloader, criterion, optimizer, device):
 
         optimizer.zero_grad()
 
+        # 反向传播
         loss.backward()
 
         optimizer.step()
 
+        # 计算当前批次的准确率
         y_pred = torch.argmax(logits.detach(), dim=1)
-        train_acc += ((y_pred == y).sum().item() / len(y))
+        batch_acc = (y_pred == y).sum().item() / len(y)
+        train_acc += batch_acc
 
+        # 更新进度条描述信息，显示当前批次的准确率和平均损失
+        progress_bar.set_postfix({
+            "loss": train_loss / (step + 1),  # 平均损失
+            "accuracy": train_acc / (step + 1)  # 平均精度
+        })
+
+    # 计算平均损失和准确率
     train_loss = train_loss / len(dataloader)
     train_acc = train_acc / len(dataloader)
+
     return train_loss, train_acc
+
+
+
 
 @torch.inference_mode()
 def eval_step(model, dataloader, criterion, device):
