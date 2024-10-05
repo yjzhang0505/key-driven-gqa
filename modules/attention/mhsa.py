@@ -32,7 +32,7 @@ class MHSA(nn.Module):
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop)
 
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
+    def forward(self, x: torch.Tensor, exp_num: int) -> torch.Tensor:
         B, P, C = x.shape
         H = self.num_heads
         q = self.q(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)

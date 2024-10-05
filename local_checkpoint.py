@@ -6,33 +6,26 @@ import timm
 from torchvision import datasets, transforms
 from tqdm import tqdm  # 导入 tqdm 用于显示进度条
 
+
 def train_vit_from_checkpoint(checkpoint_path, train_loader, val_loader, num_epochs=10, lr=1e-4, device='cuda'):
     """
-    加载本地 ViT-base-patch16-224 的检查点，并在其基础上继续训练。
-    
-    Args:
-        checkpoint_path (str): 本地存储的检查点路径 (如 '/path/to/pytorch_model.bin')
-        train_loader (DataLoader): 训练集的数据加载器
-        val_loader (DataLoader): 验证集的数据加载器
-        num_epochs (int): 训练的轮数
-        lr (float): 学习率
-        device (str): 设备，'cuda' 或 'cpu'
-        
-    Returns:
-        model (torch.nn.Module): 经过训练后的模型
+    从本地 ViT-base-patch16-224 的检查点继续训练。
     """
-    # 1. 创建 ViT-base-patch16-224 模型
-    model = timm.create_model('vit_base_patch16_224', pretrained=False, num_classes=1000)
+    # 1. 创建标准的 ViT-base-patch16-224 模型，num_classes 设置为 10 (适应 CIFAR-10)
+    model = timm.create_model('vit_base_patch16_224', pretrained=False, num_classes=10)
     
-    # 2. 加载本地检查点
-    checkpoint = torch.load(checkpoint_path, map_location=device)
-    model.load_state_dict(checkpoint, strict=False)  # 加载权重到模型中
+    # 2. 从本地加载检查点
+    if checkpoint_path is not None:
+        print(f"Loading checkpoint from {checkpoint_path}...")
+        checkpoint = torch.load(checkpoint_path, map_location=device)
+        model.load_state_dict(checkpoint)
+        print("Checkpoint loaded successfully.")
     
     # 3. 将模型移到设备（CPU 或 GPU）
     model = model.to(device)
     
     # 4. 定义损失函数和优化器
-    criterion = nn.CrossEntropyLoss()  # 假设任务是分类任务
+    criterion = nn.CrossEntropyLoss()  # CIFAR-10 是分类任务，使用交叉熵损失
     optimizer = optim.Adam(model.parameters(), lr=lr)
     
     # 5. 训练循环
@@ -63,8 +56,8 @@ def train_vit_from_checkpoint(checkpoint_path, train_loader, val_loader, num_epo
                 correct_train += (predicted == labels).sum().item()
                 total_train += labels.size(0)
 
-                # 每个 batch 更新进度条显示的损失
-                tepoch.set_postfix(loss=running_loss / (total_train), accuracy=100. * correct_train / total_train)
+                # 每个 batch 更新进度条显示的损失和精度
+                tepoch.set_postfix(loss=running_loss / total_train, accuracy=100. * correct_train / total_train)
         
         # 计算每个 epoch 的平均损失和精度
         train_loss = running_loss / len(train_loader)
@@ -77,19 +70,10 @@ def train_vit_from_checkpoint(checkpoint_path, train_loader, val_loader, num_epo
     
     return model
 
+
 def validate_model(model, val_loader, criterion, device):
     """
     验证模型性能。
-    
-    Args:
-        model (torch.nn.Module): 要验证的模型
-        val_loader (DataLoader): 验证集的数据加载器
-        criterion (Loss): 损失函数
-        device (str): 设备，'cuda' 或 'cpu'
-    
-    Returns:
-        val_loss (float): 验证集的平均损失
-        val_acc (float): 验证集的准确率
     """
     model.eval()  # 设置模型为评估模式
     val_loss = 0.0
@@ -119,18 +103,18 @@ def validate_model(model, val_loader, criterion, device):
     val_acc = 100. * correct_val / total_val
     return val_loss, val_acc
 
+
 if __name__ == "__main__":
     # 参数设置
-    # checkpoint_path = '/data/yjzhang/desktop/checkpoint/pytorch_model.bin'
-    checkpoint_path = '/data/yjzhang/desktop/try/local_checkpoint/finetuned_vit_base_patch16_224.pth'
-    num_epochs = 10
+    checkpoint_path = "trained_vit_base_patch16_224_cifar10.pth"  # 本地检查点路径
+    num_epochs = 5  # 设置继续训练的轮数
     batch_size = 32
     learning_rate = 1e-5
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     
     # 数据预处理
     transform = transforms.Compose([
-        transforms.Resize((224, 224)),
+        transforms.Resize((224, 224)),  # 将 CIFAR-10 图片调整为 224x224
         transforms.ToTensor(),
         transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
     ])
@@ -142,7 +126,7 @@ if __name__ == "__main__":
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
-    # 加载检查点并开始训练
+    # 从本地检查点加载并继续训练 ViT-B 模型
     model = train_vit_from_checkpoint(
         checkpoint_path=checkpoint_path,
         train_loader=train_loader,
@@ -153,5 +137,5 @@ if __name__ == "__main__":
     )
 
     # 训练后的模型保存在本地
-    torch.save(model.state_dict(), "finetuned_vit_base_patch16_224.pth")
-    print("训练完成，模型已保存为 finetuned_vit_base_patch16_224.pth")
+    torch.save(model.state_dict(), "trained_vit_base_patch16_224_cifar10_continued.pth")
+    print("训练完成，模型已保存为 trained_vit_base_patch16_224_cifar10_continued.pth")

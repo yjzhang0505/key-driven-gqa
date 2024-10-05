@@ -222,14 +222,14 @@ def vit_base_patch16_224(
         ):
     
     model = VisionTransformer(
-        exp_num = exp_num,
+        exp_num=exp_num,
         img_size=224,
         patch_size=16,
         in_chans=in_chans,
-        num_classes=num_classes,
+        num_classes=num_classes,  # 你的模型是10类
         embed_dim=768,
         num_heads=12,
-        depth=12,
+        depth=12,  # 模型深度为12层
         num_kv_heads=num_kv_heads,
         att_scheme=att_scheme,
         window_size=window_size
@@ -241,12 +241,82 @@ def vit_base_patch16_224(
             raise ValueError(f"Cannot load in checkpoint with {in_chans=}")
         print(f'Using checkpoint {ckpt}...')
 
-        model = timm.create_model('vit_base_patch16_224', pretrained=False, num_classes=1000)
-        checkpoint_path = '/data/yjzhang/desktop/try/local_checkpoint/finetuned_vit_base_patch16_224.pth'
+        model = timm.create_model('vit_base_patch16_224', pretrained=False, num_classes=10)
+
+        # 加载检查点
+        checkpoint_path = '/data/yjzhang/desktop/key-driven-gqa_new_kv/trained_vit_base_patch16_224_cifar10.pth'
         checkpoint = torch.load(checkpoint_path)
-        model.load_state_dict(checkpoint, strict=False)
-    
+
+        # 查看检查点结构
+        print("Checkpoint structure:")
+        for key, value in checkpoint.items():
+            print(f"{key}: {value.shape}")
+        
+        # 获取当前模型的字典
+        model_dict = model.state_dict()
+
+        # 从检查点中提取出与当前模型匹配的层
+        pretrained_dict = {k: v for k, v in checkpoint.items() if k in model_dict and 'head' not in k}
+
+        # 检查匹配的层
+        print(f"Loaded layers: {len(pretrained_dict)}")
+
+        # 使用 pretrained_dict 更新 model_dict
+        model_dict.update(pretrained_dict)
+
+        # 加载更新后的权重
+        model.load_state_dict(model_dict)
+
     return model
+
+
+
+# def vit_base_patch16_224(
+#         exp_num: int,
+#         num_classes: int = 10,
+#         pretrained: bool = False,
+#         att_scheme: str = 'mhsa',
+#         window_size: int = 10,
+#         num_kv_heads: int = 3,
+#         in_chans: int = 3
+#         ):
+    
+#     model = VisionTransformer(
+#         exp_num=exp_num,
+#         img_size=224,
+#         patch_size=16,
+#         in_chans=in_chans,
+#         num_classes=num_classes,
+#         embed_dim=768,
+#         num_heads=12,
+#         depth=12,  # 模型深度为12层
+#         num_kv_heads=num_kv_heads,
+#         att_scheme=att_scheme,
+#         window_size=window_size
+#     )
+
+#     if pretrained:
+#         ckpt = 'vit_base_patch16_224'
+#         if in_chans != 3:
+#             raise ValueError(f"Cannot load in checkpoint with {in_chans=}")
+#         print(f'Using checkpoint {ckpt}...')
+
+#         # 使用timm创建模型并加载预训练的权重
+#         pretrained_model = timm.create_model('vit_base_patch16_224', pretrained=False, num_classes=1000)
+#         checkpoint_path = '/data/yjzhang/desktop/try/local_checkpoint/finetuned_vit_base_patch16_224.pth'
+#         checkpoint = torch.load(checkpoint_path)
+#         pretrained_model.load_state_dict(checkpoint, strict=False)
+
+#         # 获取预训练模型中一层的block权重 (假设你想要使用第一个block的权重)
+#         pretrained_block = pretrained_model.blocks[0]
+
+#         # 复制这个预训练block的权重到所有的block中
+#         for i, block in enumerate(model.blocks):
+#             block.load_state_dict(pretrained_block.state_dict(), strict=False)
+#             # print(f"Loaded pretrained block parameters into block {i+1}")
+
+#     return model
+
     
 
 def vit_large_patch16_224(
