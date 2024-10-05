@@ -10,6 +10,7 @@ Lahore University of Management Sciences  <br>
 
 Run `pip install -r requirements.txt`
 
+
 * Python == 3.9
 * Download tiny-imagenet-200 from [here](http://cs231n.stanford.edu/tiny-imagenet-200.zip)
 * Download CINIC-10 from [here](https://datashare.is.ed.ac.uk/bitstream/handle/10283/3192/CINIC-10.tar.gz)
@@ -33,6 +34,7 @@ out_dir: "cifar10-base-gqa-pretrained"   # directory to which the outputs are sa
 - 本地检查点位置在model.py的checkpoint_path，目前只改了b的模型
 - 训练检查点时要改一下路径
 - 用预训练的时候要把config中的pretrained改为True
+- 运行run_experiments.sh，①`chmod +x run_experiments.sh` ②`./run_experiments.sh`
 
 
 ## Running
@@ -45,4 +47,4 @@ Use `train.py` and provide arguments:
 
 Example usage: `python train.py --config path/to/config.yaml --out_dir output_dir/ --save_model True --pretrained-ckpt path/to/ckpt.pth`
 
-Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar.yaml --out_dir output_dgqa_diff_lr-5/ --save_model True`
+Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar.yaml --out_dir output_dgqa_diff_lr-5/ --save_model True --exp_num $exp_num --num_kv_heads 4`
