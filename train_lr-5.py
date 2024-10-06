@@ -314,7 +314,7 @@ if __name__ == "__main__":
     model.to(device)
 
     learning_rate = 1e-5
-    epochs = 1
+    epochs = 8
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
 
