@@ -271,16 +271,20 @@ def vit_base_patch16_224(
         
         print(f'Using checkpoint {ckpt}...')
         checkpoint_path = '/data/yjzhang/desktop/key-driven-gqa_new_kv/output/pretrained/config_pretrained/final.pth'
+
+        # 加载检查点
         checkpoint = torch.load(checkpoint_path)
-        
+
+        # 获取 state_dict
         state_dict = checkpoint['state_dict'] if 'state_dict' in checkpoint else checkpoint
 
-        # 将qkv拆分为q, k, v
-        state_dict = split_qkv_weights(state_dict)
+        # 调用你定义的 split_qkv_weights 函数来拆分 qkv 权重
+        # state_dict = split_qkv_weights(state_dict)
 
-        # 加载模型权重
-        model.load_state_dict(state_dict, strict=False)
+        # 将拆分后的权重加载到模型中
+        model.load_pretrained_weights(state_dict)
         print("Checkpoint loaded successfully!")
+
 
     # if pretrained:
     #     ckpt = 'vit_base_patch16_224'

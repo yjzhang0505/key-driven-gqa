@@ -48,4 +48,12 @@ Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar
 - train的main中设置为ViT-b标准参数
 - 保存检查点前先把q、k、v合并为qkv，标准vit-b检查点格式
   可以在mhsa，pretrained=False下预训练，在gqa，pretrained=True下继续不报错了，精度有待进一步实验
+- 加载检查点时先拆分。mhsa可以继续精度了，但gqa又mismatch了，把num_kv_head改为12就不报错了
+
+- 提交 restart
+
+- 之前载检查点的时候用的是load_state_dict而非自己设置的函数，改掉后正常
+- mhsa可以接着从0.5开始训练，gqa从0.1开始（比从0开始快一点）
+
+- 提交 restart1
 

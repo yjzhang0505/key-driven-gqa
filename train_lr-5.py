@@ -39,7 +39,7 @@ def get_model(
     '''
     Model factory function for loading in models according to pretrained checkpoints or a custom model to be trained from scratch    
     '''
-    args = dict(num_classes=num_classes, pretrained=pretrained, att_scheme=att_scheme, window_size=window_size, num_kv_heads=num_kv_heads, in_chans=in_chans)
+    args = dict(num_classes=num_classes, pretrained=pretrained, att_scheme=att_scheme, window_size=window_size, in_chans=in_chans)
     if size == 's':
         print(f"Loaded in small ViT with args {args}")
         return vit_small_patch16_224(**args)
