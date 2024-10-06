@@ -162,6 +162,47 @@ class VisionTransformer(nn.Module):
 
         print("Success!")
 
+def split_qkv_weights(state_dict):
+    """
+    将合并的 qkv 参数拆分为 q, k, v。
+    """
+    new_state_dict = {}
+
+    for key, value in state_dict.items():
+        # 如果是qkv层的权重
+        if 'attn.qkv.weight' in key:
+            # 例如: 'blocks.0.attn.qkv.weight'
+            block_num = key.split('.')[1]  # 获取block编号
+            dim = value.shape[0] // 3  # 计算每个部分的维度
+            
+            # 拆分 q, k, v
+            q_weight, k_weight, v_weight = value[:dim], value[dim:dim*2], value[dim*2:]
+            
+            # 新键名
+            new_state_dict[f'blocks.{block_num}.attn.q.weight'] = q_weight
+            new_state_dict[f'blocks.{block_num}.attn.k.weight'] = k_weight
+            new_state_dict[f'blocks.{block_num}.attn.v.weight'] = v_weight
+
+        # 如果是qkv层的偏置
+        elif 'attn.qkv.bias' in key:
+            block_num = key.split('.')[1]
+            dim = value.shape[0] // 3  # 计算每个部分的维度
+
+            # 拆分 q, k, v 偏置
+            q_bias, k_bias, v_bias = value[:dim], value[dim:dim*2], value[dim*2:]
+
+            # 新键名
+            new_state_dict[f'blocks.{block_num}.attn.q.bias'] = q_bias
+            new_state_dict[f'blocks.{block_num}.attn.k.bias'] = k_bias
+            new_state_dict[f'blocks.{block_num}.attn.v.bias'] = v_bias
+
+        else:
+            # 其他不需要处理的键值对，直接加入
+            new_state_dict[key] = value
+
+    return new_state_dict
+
+
 def vit_small_patch16_224(
         num_classes: int = 10,
         pretrained: bool = False,
@@ -223,14 +264,40 @@ def vit_base_patch16_224(
         att_scheme=att_scheme,
         window_size=window_size
     )
+    # print(att_scheme)
 
     if pretrained:
         ckpt = 'vit_base_patch16_224'
-        if in_chans != 3:
-            raise ValueError(f"Cannot load in checkpoint with {in_chans=}")
+        
         print(f'Using checkpoint {ckpt}...')
-        hf_model = timm.create_model(ckpt, pretrained=True)
-        model.load_pretrained_weights(hf_model.state_dict())
+        checkpoint_path = '/data/yjzhang/desktop/key-driven-gqa_new_kv/output/pretrained/config_pretrained/final.pth'
+        checkpoint = torch.load(checkpoint_path)
+        
+        state_dict = checkpoint['state_dict'] if 'state_dict' in checkpoint else checkpoint
+
+        # 将qkv拆分为q, k, v
+        state_dict = split_qkv_weights(state_dict)
+
+        # 加载模型权重
+        model.load_state_dict(state_dict, strict=False)
+        print("Checkpoint loaded successfully!")
+
+    # if pretrained:
+    #     ckpt = 'vit_base_patch16_224'
+    #     if in_chans != 3:
+    #         raise ValueError(f"Cannot load in checkpoint with {in_chans=}")
+    #     print(f'Using checkpoint {ckpt}...')
+    #     # hf_model = timm.create_model(ckpt, pretrained=True)
+    #     # model.load_pretrained_weights(hf_model.state_dict())
+    #     # checkpoint_path = '/data/yjzhang/desktop/key-driven-gqa_new_kv/output/pretrained/config_pretrained/final.pth'
+    #     checkpoint_path = '/data/yjzhang/desktop/try/local_checkpoint/finetuned_vit_base_patch16_224.pth'
+    #     checkpoint = torch.load(checkpoint_path)
+    #     state_dict = checkpoint['state_dict'] if 'state_dict' in checkpoint else checkpoint
+
+    #     # 过滤掉不匹配的层，比如分类头
+    #     # filtered_state_dict = {k: v for k, v in state_dict.items() if 'head' not in k and 'mlp.fc' not in k}
+
+    #     model.load_state_dict(state_dict)
     
     return model
 

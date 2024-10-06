@@ -143,91 +143,6 @@ def eval_step(model, dataloader, criterion, device):
     eval_acc = eval_acc / len(dataloader)
     return eval_loss, eval_acc
 
-def merge_qkv_weights(model_state_dict):
-    """
-    将 q, k, v 的权重和偏置合并为 qkv。
-    """
-    # 创建一个新的 state_dict 的副本
-    merged_state_dict = model_state_dict.copy()
-
-    # 遍历所有block，合并q, k, v
-    for i in range(12):  # 假设 ViT-B有12个Block
-        q_weight = model_state_dict[f'blocks.{i}.attn.q.weight']
-        k_weight = model_state_dict[f'blocks.{i}.attn.k.weight']
-        v_weight = model_state_dict[f'blocks.{i}.attn.v.weight']
-
-        q_bias = model_state_dict[f'blocks.{i}.attn.q.bias']
-        k_bias = model_state_dict[f'blocks.{i}.attn.k.bias']
-        v_bias = model_state_dict[f'blocks.{i}.attn.v.bias']
-
-        # 合并权重
-        qkv_weight = torch.cat([q_weight, k_weight, v_weight], dim=0)
-        qkv_bias = torch.cat([q_bias, k_bias, v_bias], dim=0)
-
-        # 将合并后的qkv替换到新的state_dict
-        merged_state_dict[f'blocks.{i}.attn.qkv.weight'] = qkv_weight
-        merged_state_dict[f'blocks.{i}.attn.qkv.bias'] = qkv_bias
-
-        # 删除原有的 q, k, v
-        del merged_state_dict[f'blocks.{i}.attn.q.weight']
-        del merged_state_dict[f'blocks.{i}.attn.k.weight']
-        del merged_state_dict[f'blocks.{i}.attn.v.weight']
-
-        del merged_state_dict[f'blocks.{i}.attn.q.bias']
-        del merged_state_dict[f'blocks.{i}.attn.k.bias']
-        del merged_state_dict[f'blocks.{i}.attn.v.bias']
-
-    return merged_state_dict
-
-
-# def merge_qkv_weights(state_dict,checkpoint_path):
-#     """
-#     将 q, k, v 的权重和偏置合并为 qkv。
-#     """
-#     # 创建一个新的 state_dict
-#     merged_state_dict = state_dict.copy()
-
-#     # 遍历所有block，合并q, k, v
-#     for i in range(12):  # 假设 ViT-B有12个Block
-#         q_weight = state_dict[f'blocks.{i}.attn.q.weight']
-#         k_weight = state_dict[f'blocks.{i}.attn.k.weight']
-#         v_weight = state_dict[f'blocks.{i}.attn.v.weight']
-
-#         q_bias = state_dict[f'blocks.{i}.attn.q.bias']
-#         k_bias = state_dict[f'blocks.{i}.attn.k.bias']
-#         v_bias = state_dict[f'blocks.{i}.attn.v.bias']
-
-#         # 合并权重
-#         qkv_weight = torch.cat([q_weight, k_weight, v_weight], dim=0)
-#         qkv_bias = torch.cat([q_bias, k_bias, v_bias], dim=0)
-
-#         # 将合并后的qkv替换到新的state_dict
-#         merged_state_dict[f'blocks.{i}.attn.qkv.weight'] = qkv_weight
-#         merged_state_dict[f'blocks.{i}.attn.qkv.bias'] = qkv_bias
-
-#         # 删除原有的 q, k, v
-#         del merged_state_dict[f'blocks.{i}.attn.q.weight']
-#         del merged_state_dict[f'blocks.{i}.attn.k.weight']
-#         del merged_state_dict[f'blocks.{i}.attn.v.weight']
-
-#         del merged_state_dict[f'blocks.{i}.attn.q.bias']
-#         del merged_state_dict[f'blocks.{i}.attn.k.bias']
-#         del merged_state_dict[f'blocks.{i}.attn.v.bias']
-
-#         # 假设 model 是你定义的模型实例
-#         # state_dict = model.state_dict()
-
-#         # 合并 q, k, v 为 qkv
-#         # merged_state_dict = merge_qkv_weights(state_dict)
-
-#         # 保存合并后的检查点
-#         torch.save(merged_state_dict, 'checkpoint_path')
-
-#         # print("模型已保存，q, k, v 已合并为 qkv")
-
-#     # return merged_state_dict
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Train Vision Transformer')
     parser.add_argument('--config', type=str, required=True, help='Path to the config file')
@@ -270,18 +185,6 @@ if __name__ == "__main__":
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
     # Model, optimizer, loss function setup
-    # model = get_model(
-    #     size=config['size'], 
-    #     num_classes=config['num_classes'], 
-    #     pretrained=config['pretrained'], 
-    #     att_scheme=config['att_scheme'],
-    #     window_size=config['window_size'],
-    #     num_kv_heads=config['num_kv_heads'],
-    #     in_chans=config['in_chans'],
-    #     embed_dim=768,
-    #     num_layers=12,
-    #     num_heads=12
-    # )
     model = get_model(
         size=config['size'], 
         num_classes=config['num_classes'], 
@@ -290,9 +193,9 @@ if __name__ == "__main__":
         window_size=config['window_size'],
         num_kv_heads=config['num_kv_heads'],
         in_chans=config['in_chans'],
-        embed_dim=config.get('embed_dim', None),
-        num_layers=config.get('num_layers', None),
-        num_heads=config.get('num_heads', None)
+        embed_dim=768,
+        num_layers=12,
+        num_heads=12
     )
 
     # Load in pretrained weight if any
@@ -309,7 +212,7 @@ if __name__ == "__main__":
     model.to(device)
 
     learning_rate = 1e-5
-    epochs = 5
+    epochs = 3
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
 
@@ -330,36 +233,11 @@ if __name__ == "__main__":
             if test_loss < best_loss:
                 best_loss = test_loss
                 if args.save_model:
-                    # torch.save(model.state_dict(), os.path.join(out_dir, 'best.pth'))
-                    # 确保调用 state_dict() 方法来获取实际的参数字典，而不是直接使用 model.state_dict
-                    # state_dict = model.state_dict()  # 注意这里有括号
-                    # merge_qkv_weights(state_dict,'best.pth')
-                    state_dict = model.state_dict()  # 确保获取的是模型的state_dict，而不是函数
-                    merged_state_dict = merge_qkv_weights(state_dict)
-                    torch.save(merged_state_dict, '/data/yjzhang/desktop/key-driven-gqa_new_kv/output/pretrained/config_pretrained/best.pth')
+                    torch.save(model.state_dict(), os.path.join(out_dir, 'best.pth'))
 
             writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc])
             print(f"{epoch+1=} | {train_acc=} | {test_acc=}")
 
     # Save this model at the end of run (commented out for)
     if args.save_model:
-        # torch.save(model.state_dict(), os.path.join(out_dir, 'final.pth'))
-        # state_dict = model.state_dict()
-        # merge_qkv_weights(model.state_dict,'final.pth')
-
-        # 调用这个函数来合并并保存检查点
-        state_dict = model.state_dict()  # 确保获取的是模型的state_dict，而不是函数
-        merged_state_dict = merge_qkv_weights(state_dict)
-        torch.save(merged_state_dict, '/data/yjzhang/desktop/key-driven-gqa_new_kv/output/pretrained/config_pretrained/final.pth')
-
-
-# # 假设 model 是你定义的模型实例
-# state_dict = model.state_dict()
-
-# # 合并 q, k, v 为 qkv
-# merged_state_dict = merge_qkv_weights(state_dict)
-
-# # 保存合并后的检查点
-# torch.save(merged_state_dict, 'final.pth')
-
-# print("模型已保存，q, k, v 已合并为 qkv")
+        torch.save(model.state_dict(), os.path.join(out_dir, 'final.pth'))

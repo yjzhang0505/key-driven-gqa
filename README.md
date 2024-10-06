@@ -40,3 +40,12 @@ Use `train.py` and provide arguments:
 Example usage: `python train.py --config path/to/config.yaml --out_dir output_dir/ --save_model True --pretrained-ckpt path/to/ckpt.pth`
 
 Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar.yaml --out_dir output_dgqa_diff_lr-5/ --save_model True`
+
+## 更新
+
+- pretrained=True时使用本地检查点
+- 训练精度进度条
+- train的main中设置为ViT-b标准参数
+- 保存检查点前先把q、k、v合并为qkv，标准vit-b检查点格式
+  可以在mhsa，pretrained=False下预训练，在gqa，pretrained=True下继续不报错了，精度有待进一步实验
+
