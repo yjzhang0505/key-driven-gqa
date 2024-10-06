@@ -66,4 +66,5 @@ Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar
 # python train_lr-5.py --config config/config_pretrained.yaml --out_dir output/arbitrary/1 --save_model True
 # 可从终端输入控制exp_num了
 # 加上了run_experiments.sh（运行方法在该文件最后注释里），正跑20个实验，num_kv_heads=4, pretrained=True,att=gqa
+--> 提交restart2
 ```
