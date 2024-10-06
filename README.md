@@ -68,3 +68,9 @@ Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar
 # 加上了run_experiments.sh（运行方法在该文件最后注释里），正跑20个实验，num_kv_heads=4, pretrained=True,att=gqa
 --> 提交restart2
 ```
+
+```
+# 暂停实验，改为所有层共享相同参数，重新跑检查点
+# is_same.py检验所有层是否共享相同参数，通过，开始跑随机实验了
+--> 提交 rst-same-param
+```
