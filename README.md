@@ -52,9 +52,18 @@ Actually usage: `python ./train_lr-5.py --config ./config/config_dgqa_diff_cifar
 # 加载检查点时先拆分。mhsa可以继续精度了，但gqa又mismatch了，把num_kv_head改为12就不报错了
 --> 提交 restart
 ```
+
 ```
 # 之前载检查点的时候用的是load_state_dict而非自己设置的函数，改掉后正常
 # mhsa可以接着从0.5开始训练，gqa从0.1开始（比从0开始快一点）
 --> 提交 restart1
 ```
 
+```
+# 手打exp_num版，可随机生成分组序列
+# 输出路径去掉多余拼接，best.pth和final.pth放在正确文件夹，验证通过
+# 可从config.yaml换num_kv_heads
+# python train_lr-5.py --config config/config_pretrained.yaml --out_dir output/arbitrary/1 --save_model True
+# 可从终端输入控制exp_num了
+# 加上了run_experiments.sh（运行方法在该文件最后注释里），正跑20个实验，num_kv_heads=4, pretrained=True,att=gqa
+```

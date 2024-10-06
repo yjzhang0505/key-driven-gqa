@@ -25,6 +25,7 @@ def set_seed(seed=42):
     torch.backends.cudnn.benchmark = False
 
 def get_model(
+            exp_num: int,
             size: int = 'b',
             num_classes: int = 10,
             pretrained: bool = False,
@@ -39,7 +40,7 @@ def get_model(
     '''
     Model factory function for loading in models according to pretrained checkpoints or a custom model to be trained from scratch    
     '''
-    args = dict(num_classes=num_classes, pretrained=pretrained, att_scheme=att_scheme, window_size=window_size, in_chans=in_chans)
+    args = dict(num_classes=num_classes, pretrained=pretrained, att_scheme=att_scheme, num_kv_heads=num_kv_heads, exp_num=exp_num, window_size=window_size, in_chans=in_chans)
     if size == 's':
         print(f"Loaded in small ViT with args {args}")
         return vit_small_patch16_224(**args)
@@ -55,6 +56,7 @@ def get_model(
         assert pretrained == False, "Cannot load in a pretrained ckpt for a custom model"
         assert all([x is not None for x in [embed_dim, num_layers, num_heads]]), "Provide all the optional arguments when creating a custom model"
         model = VisionTransformer(
+            exp_num=exp_num,
             img_size=224,
             patch_size=16,
             in_chans=in_chans,
@@ -234,15 +236,17 @@ if __name__ == "__main__":
     parser.add_argument('--out_dir', type=str, required=True, help='Path to the directory where new experiment runs will be tracked')
     parser.add_argument('--save_model', type=bool, default=False, help='Save the model at the end of the training run.')
     parser.add_argument('--pretrained_ckpt', type=str, default=None, help='Path to .pth file to load in for the training run.')
+    parser.add_argument('--exp_num', type=str, default=0, help='Num of .pth file to load in for the training run.')
     args = parser.parse_args()
 
     config = load_config(args.config)
     
-    OUT_DIR_ROOT = args.out_dir
-    exp_name = os.path.basename(args.config)
-    exp_name = os.path.splitext(exp_name)[0]
-    out_dir = os.path.join(OUT_DIR_ROOT,
-                           exp_name)
+    # OUT_DIR_ROOT = args.out_dir
+    # exp_name = os.path.basename(args.config)
+    # exp_name = os.path.splitext(exp_name)[0]
+    # out_dir = os.path.join(OUT_DIR_ROOT,
+    #                        exp_name)
+    out_dir = args.out_dir
     os.makedirs(os.path.join(out_dir),
                 exist_ok=True)
     print(f"Results for {os.path.basename(args.config)} being saved to {out_dir}...")
@@ -283,6 +287,7 @@ if __name__ == "__main__":
     #     num_heads=12
     # )
     model = get_model(
+        exp_num = args.exp_num,
         size=config['size'], 
         num_classes=config['num_classes'], 
         pretrained=config['pretrained'], 
@@ -309,7 +314,7 @@ if __name__ == "__main__":
     model.to(device)
 
     learning_rate = 1e-5
-    epochs = 5
+    epochs = 1
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
 
@@ -336,7 +341,8 @@ if __name__ == "__main__":
                     # merge_qkv_weights(state_dict,'best.pth')
                     state_dict = model.state_dict()  # 确保获取的是模型的state_dict，而不是函数
                     merged_state_dict = merge_qkv_weights(state_dict)
-                    torch.save(merged_state_dict, '/data/yjzhang/desktop/key-driven-gqa_new_kv/output/pretrained/config_pretrained/best.pth')
+                    torch.save(merged_state_dict, os.path.join(out_dir, 'best.pth'))
+                    # torch.save(merged_state_dict, '/data/yjzhang/desktop/key-driven-gqa_new_kv/output/pretrained/config_pretrained/best.pth')
 
             writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc])
             print(f"{epoch+1=} | {train_acc=} | {test_acc=}")
@@ -350,7 +356,8 @@ if __name__ == "__main__":
         # 调用这个函数来合并并保存检查点
         state_dict = model.state_dict()  # 确保获取的是模型的state_dict，而不是函数
         merged_state_dict = merge_qkv_weights(state_dict)
-        torch.save(merged_state_dict, '/data/yjzhang/desktop/key-driven-gqa_new_kv/output/pretrained/config_pretrained/final.pth')
+        torch.save(merged_state_dict, os.path.join(out_dir, 'final.pth'))
+        # torch.save(merged_state_dict, '/data/yjzhang/desktop/key-driven-gqa_new_kv/output/pretrained/config_pretrained/final.pth')
 
 
 # # 假设 model 是你定义的模型实例

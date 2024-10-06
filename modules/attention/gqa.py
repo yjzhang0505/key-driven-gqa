@@ -9,25 +9,69 @@ from einops import rearrange, einsum
 
 from utils import assign_check
 
+import os
+
+def save_to_file(filename, data):
+    """Helper function to save data to a file."""
+    # 获取文件所在的目录路径
+    directory = os.path.dirname(filename)
+    
+    # 如果目录不存在，创建目录
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    
+    # 打开文件并写入数据
+    with open(filename, 'w') as f:
+        for line in data:
+            f.write(line + '\n')
+
+def shuffle_heads_once(x: torch.Tensor, num_heads: int, group_size: int, exp_num: int, permuted_indices: Optional[torch.Tensor] = None, save_groups: bool = True) -> torch.Tensor:
+    B, P, C = x.shape
+    head_dim = C // num_heads  # 每个头的维度
+
+    if permuted_indices is None:
+        # 创建一个局部生成器，不使用全局随机数种子
+        g = torch.Generator()
+        g.manual_seed(torch.seed() + int(torch.initial_seed() % (2**32)))  # 生成一个新的种子
+
+        # 使用局部生成器生成打乱顺序
+        permuted_indices = torch.randperm(num_heads, generator=g)
+
+        if save_groups:
+            # group_size = num_heads // 2
+            groups = [permuted_indices[i:i+group_size].cpu().numpy() for i in range(0, num_heads, group_size)]
+            group_lines = [','.join(map(str, group)) for group in groups]
+            filename_with_exp = f"./output/arbitrary/{exp_num}/group.txt"
+            save_to_file(filename_with_exp, group_lines)
+
+    x = x.view(B, P, num_heads, head_dim)
+    x = x[:, :, permuted_indices, :]
+    x = x.view(B, P, C)
+
+    return x, permuted_indices
+
+
+
 class GQA(nn.Module):
 
     def __init__(
             self,
+            exp_num: int,
             dim: int,
             num_heads: int = 8,
             qkv_bias: bool = False,
             attn_drop: float = 0.,
             proj_drop: float = 0.,
-            num_kv_heads: Optional[int] = None,
+            num_kv_heads: Optional[int] = None,          
     ) -> None:
         super().__init__()
         assert dim % num_heads == 0, 'dim should be divisible by num_heads'
+        self.exp_num = exp_num
         self.dim = dim
         self.num_heads = num_heads
         self.head_dim = dim // num_heads
         self.scale = self.head_dim ** -0.5
-        # self.num_kv_heads = 3
-        # self.num_kv_heads = num_kv_heads if num_kv_heads is not None else (num_heads // 2) # have at least two heads in each group
+        self.num_kv_heads = num_kv_heads if num_kv_heads is not None else (num_heads // 2) # have at least two heads in each group
 
         self.q = nn.Linear(dim, dim, bias=qkv_bias)
         self.k = nn.Linear(dim, self.num_kv_heads*self.head_dim, bias=qkv_bias)
@@ -36,17 +80,33 @@ class GQA(nn.Module):
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop)
+        # print("gqa")
+
+        # 保存打乱后的头顺序索引
+        self.permuted_indices = None
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
+        # exp_num = 1
         B, P, C = x.shape
         H = self.num_heads
-        q = self.q(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
-        k = self.k(x).view(B, P, self.num_kv_heads, -1).transpose(1, 2) # (B, num_kv_heads, P, head_size)
-        v = self.v(x).view(B, P, self.num_kv_heads, -1).transpose(1, 2) # (B, num_kv_heads, P, head_size)
+        group_size = self.num_heads // self.num_kv_heads
+
+        # 只第一次打乱顺序，后续保持相同顺序
+        # print('111', flush=True)
+        x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, group_size, self.exp_num, permuted_indices=self.permuted_indices)
+        # print('333')
+
+        # q = self.q(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
+        # k = self.k(x).view(B, P, self.num_kv_heads, -1).transpose(1, 2) # (B, num_kv_heads, P, head_size)
+        # v = self.v(x).view(B, P, self.num_kv_heads, -1).transpose(1, 2) # (B, num_kv_heads, P, head_size)
+        q = self.q(x_shuffled).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
+        k = self.k(x_shuffled).view(B, P, self.num_kv_heads, -1).transpose(1, 2) # (B, num_kv_heads, P, head_size)
+        v = self.v(x_shuffled).view(B, P, self.num_kv_heads, -1).transpose(1, 2) # (B, num_kv_heads, P, head_size)
         
         q = q * self.scale
 
-        group_size = self.num_heads // self.num_kv_heads
+        # print(self.num_kv_heads)
+        
         q_grps = torch.split(q, group_size, dim=1)
         k_grps = torch.split(k, 1, dim=1) 
         v_grps = torch.split(v, 1, dim=1)
@@ -70,7 +130,7 @@ class GQA(nn.Module):
         x = self.proj(x)
         x = self.proj_drop(x)
         return x
-    
+
     def att_weight_conversion(self, qkv_params, is_bias=False):
         '''
         Split and convert the QKV parameters from ViT checkpoints for the GQA implementation
@@ -85,6 +145,7 @@ class GQA(nn.Module):
             # This totally breaks if you reshape as (dim, H, dim/H) and split across dim=1
             # You have to shape it as (H, dim/H, dim) and split the across dim=0
             x = x.view(self.num_heads, self.dim//self.num_heads, self.dim)
+           
             xs = torch.split(x, group_size, dim=0) # split across head axis
             xs = [xs[i].mean(dim=0) for i in range(self.num_kv_heads)]
             x = torch.cat(xs, dim=0)
