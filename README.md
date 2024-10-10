@@ -50,3 +50,11 @@ Use `train.py` and provide arguments:
 
 Example usage: `python train.py --config path/to/config.yaml --out_dir output_dir/ --save_model True --pretrained-ckpt path/to/ckpt.pth`
 
+## 更新版本
+
+#### retry2.0
+
+- config.yaml
+- change_ckpt.py: 把官方pth转换为本代码适用的pth命名
+- ckpt_to_txt.py: 打印pth文件的模型结构到txt文件中
+- 运行代码 `python train.py --config ./config.yaml --out_dir output --save_model True --pretrained_ckpt /data/yjzhang/desktop/PyTorch-Pretrained-ViT/jax_to_pytorch/weights/B_16_renamed.pth`  （其中，yaml中的 pretrained = False，代表不使用huggingface的预训练库，终端要写 --pretrained_ckpt，才是从本地加载检查点的路径
