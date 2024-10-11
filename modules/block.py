@@ -10,6 +10,7 @@ from utils import assign_check
 class Block(nn.Module):
     def __init__(
             self,
+            exp_num: int,
             dim: int,
             num_heads: int,
             mlp_ratio: float = 4.,
@@ -45,6 +46,7 @@ class Block(nn.Module):
             )
         elif att_scheme == 'gqa':
             self.attn = GQA(
+                exp_num=exp_num,
                 dim=dim,
                 num_heads=num_heads,
                 qkv_bias=qkv_bias,

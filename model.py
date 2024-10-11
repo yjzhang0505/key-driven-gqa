@@ -13,6 +13,7 @@ class VisionTransformer(nn.Module):
 
     def __init__(
             self,
+            exp_num: int,
             img_size: Union[int, Tuple[int, int]] = 224,
             patch_size: Union[int, Tuple[int, int]] = 16,
             in_chans: int = 3,
@@ -86,6 +87,7 @@ class VisionTransformer(nn.Module):
 
         self.blocks = nn.Sequential(*[
             block_fn(
+                exp_num,
                 dim=embed_dim,
                 num_heads=num_heads,
                 mlp_ratio=mlp_ratio,
@@ -203,6 +205,7 @@ def vit_small_patch16_224(
     return model
 
 def vit_base_patch16_224(
+        exp_num: int = 1,
         num_classes: int = 10,
         pretrained: bool = False,
         att_scheme: str = 'mhsa',
@@ -212,6 +215,7 @@ def vit_base_patch16_224(
         ):
     
     model = VisionTransformer(
+        exp_num = exp_num,
         img_size=224,
         patch_size=16,
         in_chans=in_chans,

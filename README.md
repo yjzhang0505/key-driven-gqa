@@ -55,6 +55,8 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 #### retry2.0
 
 - config.yaml
+- 加上了随时精度显示
 - change_ckpt.py: 把官方pth转换为本代码适用的pth命名
 - ckpt_to_txt.py: 打印pth文件的模型结构到txt文件中
 - 运行代码 `python train.py --config ./config.yaml --out_dir output --save_model True --pretrained_ckpt /data/yjzhang/desktop/PyTorch-Pretrained-ViT/jax_to_pytorch/weights/B_16_renamed.pth`  （其中，yaml中的 pretrained = False，代表不使用huggingface的预训练库，终端要写 --pretrained_ckpt，才是从本地加载检查点的路径
+- 保存检查点时加上了qkv合并（使得保存的检查点可以重新用在代码里）
