@@ -41,7 +41,7 @@ def shuffle_heads_once(x: torch.Tensor, num_heads: int, group_size: int, exp_num
             # group_size = num_heads // 2
             groups = [permuted_indices[i:i+group_size].cpu().numpy() for i in range(0, num_heads, group_size)]
             group_lines = [','.join(map(str, group)) for group in groups]
-            filename_with_exp = f"./output/arbitrary/{exp_num}/group.txt"
+            filename_with_exp = f"./output/arbitrary/gqa_finetuned/{exp_num}/group.txt"
             save_to_file(filename_with_exp, group_lines)
 
     x = x.view(B, P, num_heads, head_dim)
@@ -92,9 +92,7 @@ class GQA(nn.Module):
         group_size = self.num_heads // self.num_kv_heads
 
         # 只第一次打乱顺序，后续保持相同顺序
-        # print('111', flush=True)
         x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, group_size, self.exp_num, permuted_indices=self.permuted_indices)
-        # print('333')
 
         # q = self.q(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
         # k = self.k(x).view(B, P, self.num_kv_heads, -1).transpose(1, 2) # (B, num_kv_heads, P, head_size)

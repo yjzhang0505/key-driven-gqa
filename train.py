@@ -187,11 +187,12 @@ if __name__ == "__main__":
 
     config = load_config(args.config)
     
-    OUT_DIR_ROOT = args.out_dir
-    exp_name = os.path.basename(args.config)
-    exp_name = os.path.splitext(exp_name)[0]
-    out_dir = os.path.join(OUT_DIR_ROOT,
-                           exp_name)
+    # OUT_DIR_ROOT = args.out_dir
+    # exp_name = os.path.basename(args.config)
+    # exp_name = os.path.splitext(exp_name)[0]
+    # out_dir = os.path.join(OUT_DIR_ROOT,
+    #                        exp_name)
+    out_dir = args.out_dir
     os.makedirs(os.path.join(out_dir),
                 exist_ok=True)
     print(f"Results for {os.path.basename(args.config)} being saved to {out_dir}...")
@@ -256,7 +257,7 @@ if __name__ == "__main__":
     model.to(device)
 
     learning_rate = 1e-5
-    epochs = 15
+    epochs = 5
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
 
@@ -264,7 +265,36 @@ if __name__ == "__main__":
     print(f"Using device {device}...")
 
     # Start the training run and log
+    # best_loss = float('inf')
+    # with open(os.path.join(out_dir, 'run.csv'), 'w') as f:
+    #     writer = csv.writer(f)
+    #     writer.writerow(['epoch', 'train_loss', 'train_acc', 'test_loss', 'test_acc'])
+
+    #     for epoch in tqdm(range(epochs), desc="Epochs"):
+
+    #         train_loss, train_acc = train_step(model, train_dl, criterion, optimizer, device)
+    #         test_loss, test_acc = eval_step(model, test_dl, criterion, device)
+            
+    #         if test_loss < best_loss:
+    #             best_loss = test_loss
+    #             if args.save_model:
+    #                 state_dict = model.state_dict()  # 确保获取的是模型的state_dict，而不是函数
+    #                 merged_state_dict = merge_qkv_weights(state_dict)
+    #                 torch.save(merged_state_dict, os.path.join(out_dir, 'best.pth'))
+    #                 # torch.save(model.state_dict(), os.path.join(out_dir, 'best.pth'))
+
+    #         writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc])
+    #         print(f"{epoch+1=} | {train_acc=} | {test_acc=}")
+
+    # # Save this model at the end of run (commented out for)
+    # if args.save_model:
+    #     state_dict = model.state_dict()  # 确保获取的是模型的state_dict，而不是函数
+    #     merged_state_dict = merge_qkv_weights(state_dict)
+    #     torch.save(merged_state_dict, os.path.join(out_dir, 'final.pth'))
+    #     # torch.save(model.state_dict(), os.path.join(out_dir, 'final.pth'))
+
     best_loss = float('inf')
+
     with open(os.path.join(out_dir, 'run.csv'), 'w') as f:
         writer = csv.writer(f)
         writer.writerow(['epoch', 'train_loss', 'train_acc', 'test_loss', 'test_acc'])
@@ -280,14 +310,18 @@ if __name__ == "__main__":
                     state_dict = model.state_dict()  # 确保获取的是模型的state_dict，而不是函数
                     merged_state_dict = merge_qkv_weights(state_dict)
                     torch.save(merged_state_dict, os.path.join(out_dir, 'best.pth'))
-                    # torch.save(model.state_dict(), os.path.join(out_dir, 'best.pth'))
 
+            # 记录每个epoch的损失和准确率
             writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc])
             print(f"{epoch+1=} | {train_acc=} | {test_acc=}")
 
-    # Save this model at the end of run (commented out for)
+            # 检查第3个epoch的训练准确率
+            if epoch + 1 == 3 and train_acc < 0.786:
+                print(f"第{epoch + 1}个epoch的训练准确率 {train_acc} 小于 0.786，提前停止训练。")
+                break  # 提前停止训练
+
+    # 在训练结束时保存模型
     if args.save_model:
         state_dict = model.state_dict()  # 确保获取的是模型的state_dict，而不是函数
         merged_state_dict = merge_qkv_weights(state_dict)
         torch.save(merged_state_dict, os.path.join(out_dir, 'final.pth'))
-        # torch.save(model.state_dict(), os.path.join(out_dir, 'final.pth'))

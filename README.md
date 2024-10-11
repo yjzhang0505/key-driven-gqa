@@ -60,3 +60,6 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 - ckpt_to_txt.py: 打印pth文件的模型结构到txt文件中
 - 运行代码 `python train.py --config ./config.yaml --out_dir output --save_model True --pretrained_ckpt /data/yjzhang/desktop/PyTorch-Pretrained-ViT/jax_to_pytorch/weights/B_16_renamed.pth`  （其中，yaml中的 pretrained = False，代表不使用huggingface的预训练库，终端要写 --pretrained_ckpt，才是从本地加载检查点的路径
 - 保存检查点时加上了qkv合并（使得保存的检查点可以重新用在代码里）
+- 设置了随机分组
+- run_experiments.sh
+- 发现问题：随机的只是头，但权重矩阵还是用的平均分组平均池化的，要大改
