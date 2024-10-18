@@ -73,3 +73,16 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 - 每个头分别计算，其中对每个K和V和相应的多个Q计算，按Q的头的顺序保存，Linear的权重要对两个维度进行顺序调整（KV要先调整头的顺序，才能把原本不相邻的头变相邻然后合并，Linear之后对应的头应该不该序号，故Linear之后的顺序也是调整后的）
 - batch_size, proxy_ratio, epoch
 - 记得在group.py的读文件处改路径，有两处要改
+
+### retry-2.2
+- 待整理
+- L2-norm.py    /data/yjzhang/desktop/try/key-driven-gqa/figure/L2_norm.py 依据L2范数画图
+- box_plot.py  /data/yjzhang/desktop/try/key-driven-gqa/box_plot.py  箱线图（效果不好）
+- dot-product_similarity.py  /data/yjzhang/desktop/try/key-driven-gqa/dot-product_similarity.py  点积相似性，保存到Excel，点积相似性效果不好
+- grouping.py  /data/yjzhang/desktop/try/key-driven-gqa/grouping.py 读取相似性和重要性，两种标准5*6结合分组，分组打印到同一个txt
+- importance.py  /data/yjzhang/desktop/try/key-driven-gqa/importance.py  计算五个标准的权重分布，均值和方差，保存在txt
+- layer_is_same.py  /data/yjzhang/desktop/try/key-driven-gqa/layer_is_same.py  判断使用了层共享参数后是否真的共享了参数
+- max_min.py  /data/yjzhang/desktop/try/key-driven-gqa/max_min.py  尝试提取每个运行结果的准确度最大最小值，这个文件还不能用，目前是手动和肉眼搜索和排序
+- mhsa.yaml  /data/yjzhang/desktop/try/key-driven-gqa/mhsa.yaml  用来训练检查点的，att_scheme='mhsa'
+- similarity.py  /data/yjzhang/desktop/try/key-driven-gqa/similarity.py  计算各头之间的余弦相似度，保存到Excel，每个子表为一个标准
+- to_group_txt.py  /data/yjzhang/desktop/try/key-driven-gqa/to_group_txt.py  从刚刚grouping.py生成的单一txt，重新保存为多个数字文件夹下的group.txt
