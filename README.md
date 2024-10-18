@@ -52,7 +52,7 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 
 ## 更新版本
 
-#### retry2.0
+#### retry-2.0
 
 - config.yaml
 - 加上了随时精度显示
@@ -65,7 +65,7 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 - 第三个epoch的test_acc<0.786则early stop
 - 发现问题：随机的只是头，但权重矩阵还是用的平均分组平均池化的，要大改
 
-#### retry2.1
+#### retry-2.1
 
 - (updated) 权重矩阵继承了随机的头，使用load，True则为加载检查点，要更新分组，False则为forward，继承分组，读取文件
 - 出现问题：12层，每层更新一次。改为检查所要输出文件目录下的group.txt是否存在，不存在则分组，存在则读取文件。好处：将来复现实验可以直接读取，坏处：更新实验时记得先把这个文件/文件夹删除了才能跑，无法自动覆盖
