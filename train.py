@@ -15,6 +15,8 @@ from model import vit_small_patch16_224, vit_base_patch16_224, vit_large_patch16
 from data import *
 from utils import *
 from global_context import set_training_step
+from torch.optim.lr_scheduler import StepLR
+
 
 def set_seed(seed=42):
     random.seed(seed)
@@ -35,7 +37,8 @@ def get_model(
             in_chans: int = 3,
             embed_dim: Optional[int] = None,
             num_layers: Optional[int] = None,
-            num_heads: Optional[int] = None
+            num_heads: Optional[int] = None,
+            share_params=False
             ):
     '''
     Model factory function for loading in models according to pretrained checkpoints or a custom model to be trained from scratch    
@@ -408,7 +411,8 @@ if __name__ == "__main__":
         in_chans=config['in_chans'],
         embed_dim=config.get('embed_dim', None),
         num_layers=config.get('num_layers', None),
-        num_heads=config.get('num_heads', None)
+        num_heads=config.get('num_heads', None),
+        share_params=True
     )
 
     # Load in pretrained weight if any
@@ -430,6 +434,8 @@ if __name__ == "__main__":
     epochs = 5
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
+    scheduler = StepLR(optimizer, step_size=10, gamma=0.1)
+
 
     print(f"Loaded in model with {count_parameters(model)} parameters...")
     print(f"Using device {device}...")
@@ -444,6 +450,8 @@ if __name__ == "__main__":
             train_loss, train_acc = train_step(model, train_dl, criterion, optimizer, device)
             test_loss, test_acc = eval_step(model, test_dl, criterion, device)
             
+            # scheduler.step()
+
             if test_loss < best_loss:
                 best_loss = test_loss
                 if args.save_model:
@@ -454,9 +462,9 @@ if __name__ == "__main__":
             writer.writerow([epoch+1, train_loss, train_acc, test_loss, test_acc])
             print(f"{epoch+1=} | {train_acc=} | {test_acc=}")
 
-            if epoch + 1 == 3 and test_acc < 0.4:
-                print(f"第{epoch + 1}个epoch的训练准确率 {train_acc} 小于 0.786，提前停止训练。")
-                break  # 提前停止训练
+            # if epoch + 1 == 3 and test_acc < 0.4:
+            #     print(f"第{epoch + 1}个epoch的训练准确率 {train_acc} 小于 0.786，提前停止训练。")
+            #     break  # 提前停止训练
 
     if args.save_model:
         state_dict = model.state_dict()

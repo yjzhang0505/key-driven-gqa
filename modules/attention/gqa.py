@@ -49,7 +49,7 @@ def shuffle_heads_once(x: torch.Tensor, num_heads: int, group_size: int, exp_num
 
     # if load is True and permuted_indices is None:
     # exp_num = args.exp_num 
-    file_path = f"./output/arbitrary/proxy/{exp_num}/group.txt"
+    file_path = f"./output/arbitrary/concrete/{exp_num}/group.txt"
     if not os.path.exists(file_path):
         print(load)
         # 创建一个局部生成器，不使用全局随机数种子
@@ -63,11 +63,11 @@ def shuffle_heads_once(x: torch.Tensor, num_heads: int, group_size: int, exp_num
             # group_size = num_heads // 2
             groups = [permuted_indices[i:i+group_size].cpu().numpy() for i in range(0, num_heads, group_size)]
             group_lines = [','.join(map(str, group)) for group in groups]
-            filename_with_exp = f"./output/arbitrary/proxy/{exp_num}/group.txt"
+            filename_with_exp = f"./output/arbitrary/concrete/{exp_num}/group.txt"
             save_to_file(filename_with_exp, group_lines)
     else:
         # 如果permuted_indices不是None，则读取组文件并恢复permuted_indices
-        filename_with_exp = f"./output/arbitrary/proxy/{exp_num}/group.txt"
+        filename_with_exp = f"./output/arbitrary/concrete/{exp_num}/group.txt"
         if os.path.exists(filename_with_exp):
             with open(filename_with_exp, 'r') as f:
                 group_lines = f.readlines()
