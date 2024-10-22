@@ -42,16 +42,17 @@ def save_to_file(filename, data):
         for line in data:
             f.write(line + '\n')
 
-def shuffle_heads_once(x: torch.Tensor, num_heads: int, group_size: int, exp_num: int, load = True, save_groups: bool = True) -> torch.Tensor:
+def shuffle_heads_once(x: torch.Tensor, num_heads: int, group_size: int, exp_num: int, filename : str, load = True, save_groups: bool = True) -> torch.Tensor:
     
     B, P, C = x.shape
     head_dim = C // num_heads  # 每个头的维度
 
     # if load is True and permuted_indices is None:
     # exp_num = args.exp_num 
-    file_path = f"./output/arbitrary/concrete/{exp_num}/group.txt"
+    file_path = f"{filename}/group.txt"
+    # print(file_path)
     if not os.path.exists(file_path):
-        print(load)
+        # print(load)
         # 创建一个局部生成器，不使用全局随机数种子
         g = torch.Generator()
         g.manual_seed(torch.seed() + int(torch.initial_seed() % (2**32)))  # 生成一个新的种子
@@ -63,16 +64,17 @@ def shuffle_heads_once(x: torch.Tensor, num_heads: int, group_size: int, exp_num
             # group_size = num_heads // 2
             groups = [permuted_indices[i:i+group_size].cpu().numpy() for i in range(0, num_heads, group_size)]
             group_lines = [','.join(map(str, group)) for group in groups]
-            filename_with_exp = f"./output/arbitrary/concrete/{exp_num}/group.txt"
-            save_to_file(filename_with_exp, group_lines)
+            # filename_with_exp = f"./output/arbitrary/concrete/mean_var/{exp_num}/group.txt"
+            save_to_file(file_path, group_lines)
     else:
         # 如果permuted_indices不是None，则读取组文件并恢复permuted_indices
-        filename_with_exp = f"./output/arbitrary/concrete/{exp_num}/group.txt"
-        if os.path.exists(filename_with_exp):
-            with open(filename_with_exp, 'r') as f:
+        # filename_with_exp = f"./output/arbitrary/concrete/mean_var/{exp_num}/group.txt"
+        if os.path.exists(file_path):
+            with open(file_path, 'r') as f:
                 group_lines = f.readlines()
 
             groups = [list(map(int, line.strip().split(','))) for line in group_lines]
+            # print(groups)
 
             # 根据组重新生成 permuted_indices
             permuted_indices = torch.cat([torch.tensor(group) for group in groups])
@@ -96,10 +98,12 @@ class GQA(nn.Module):
             qkv_bias: bool = False,
             attn_drop: float = 0.,
             proj_drop: float = 0.,
-            num_kv_heads: Optional[int] = None,          
+            num_kv_heads: Optional[int] = None,  
+            filename : str = 1        
     ) -> None:
         super().__init__()
         assert dim % num_heads == 0, 'dim should be divisible by num_heads'
+        self.filename = filename
         self.exp_num = exp_num
         self.dim = dim
         self.num_heads = num_heads
@@ -124,7 +128,8 @@ class GQA(nn.Module):
         H = self.num_heads  # 总共的 heads 数量
         group_size = self.num_heads // self.num_kv_heads
 
-        x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, group_size, self.exp_num, load=False)
+        x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, group_size, self.exp_num, self.filename, load=False)
+        # print(self.filename)
         inverse_indices = torch.empty_like(self.permuted_indices)
         inverse_indices[self.permuted_indices] = torch.arange(len(self.permuted_indices))
 
@@ -190,7 +195,7 @@ class GQA(nn.Module):
         q, k, v = torch.split(qkv_params, qkv_params.shape[0] // 3, dim=0)
 
         # 使用shuffle_heads_once打乱头的顺序，并保存打乱后的顺序
-        _, self.permuted_indices = shuffle_heads_once(torch.empty(1, 1, self.dim), self.num_heads, self.num_heads // self.num_kv_heads, self.exp_num, load = True, save_groups=True)
+        _, self.permuted_indices = shuffle_heads_once(torch.empty(1, 1, self.dim), self.num_heads, self.num_heads // self.num_kv_heads, self.exp_num, self.filename, load = True, save_groups=True)
 
         # 基于打乱后的头顺序进行池化
         def convert_weight(param):

@@ -21,19 +21,29 @@ def get_folder_number(sheet_name, label, is_highest_similarity=False):
     sheet_name 决定前缀，label 决定具体的文件夹编号。
     """
     sheet_prefix_mapping = {
-        'K_similarity_matrix': 10,
-        'Q_similarity_matrix': 20,
-        'V_similarity_matrix': 30,
-        'KxQ_similarity_matrix': 40,
-        'KxQxV_similarity_matrix': 50
+        'K_similarity_matrix': 100,
+        'Q_similarity_matrix': 200,
+        'V_similarity_matrix': 300,
+        'KxQ_similarity_matrix': 400,
+        'KxQxV_similarity_matrix': 500
     }
     
     label_mapping = {
-        'K_L2': 1,
-        'Q_L2': 2,
-        'V_L2': 3,
-        'KxQ_L2': 4,
-        'KxQxV_L2': 5
+        'K_mean': 1,
+        'K_var': 2,
+        'K_mean-var': 3,
+        'Q_mean': 4,
+        'Q_var': 5,
+        'Q_mean-var': 6,
+        'V_mean': 7,
+        'V_var': 8,
+        'V_mean-var': 9,        
+        'KQ_mean': 10,
+        'KQ_var': 11,
+        'KQ_mean-var': 12,                
+        'KQV_mean': 13,
+        'KQV_var': 14,
+        'KQV_mean-var': 15,       
     }
     
     # 获取 sheet 的前缀
@@ -66,7 +76,7 @@ def process_file(input_file, output_base_path):
         lines = f.readlines()
 
     current_sheet = None
-    current_group_data = {key: [] for key in ['K_L2', 'Q_L2', 'V_L2', 'KxQ_L2', 'KxQxV_L2']}  # 用于临时存储每种分组信息
+    current_group_data = {key: [] for key in ['K_mean', 'K_var','K_mean-var','Q_mean', 'Q_var','Q_mean-var','V_mean', 'V_var','V_mean-var','KQ_mean', 'KQ_var','KQ_mean-var','KQV_mean', 'KQV_var','KQV_mean-var']}  # 用于临时存储每种分组信息
     current_group_data['Highest similarity groups'] = []  # 添加最高相似性组的键名
 
     for line in lines:
@@ -92,7 +102,7 @@ def process_file(input_file, output_base_path):
                     save_group_to_folder(output_base_path, folder_name, groups)
 
             # 清空当前分组数据
-            current_group_data = {key: [] for key in ['K_L2', 'Q_L2', 'V_L2', 'KxQ_L2', 'KxQxV_L2']}
+            current_group_data = {key: [] for key in ['K_mean', 'K_var','K_mean-var','Q_mean', 'Q_var','Q_mean-var','V_mean', 'V_var','V_mean-var','KQ_mean', 'KQ_var','KQ_mean-var','KQV_mean', 'KQV_var','KQV_mean-var']}
             current_group_data['Highest similarity groups'] = []  # 重新初始化最高相似性组
             current_sheet = line.replace("Processing sheet: ", "")
         
@@ -123,8 +133,8 @@ def process_file(input_file, output_base_path):
 
 
 # 文件路径配置
-input_file = '/data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/share/grouping_results.txt'
-output_base_path = '/data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete'
+input_file = '/data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/share/grouping_mean_var.txt'
+output_base_path = '/data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var'
 
 # 运行处理
 process_file(input_file, output_base_path)

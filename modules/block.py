@@ -22,7 +22,8 @@ class Block(nn.Module):
             norm_layer: nn.Module = nn.LayerNorm,
             mlp_layer: nn.Module = Mlp,
             att_scheme: str = 'mhsa',
-            window_size: int = 1
+            window_size: int = 1,
+            filename : str = None
     ) -> None:
         super().__init__()
         
@@ -52,7 +53,8 @@ class Block(nn.Module):
                 qkv_bias=qkv_bias,
                 attn_drop=attn_drop,
                 proj_drop=proj_drop,
-                num_kv_heads=num_kv_heads
+                num_kv_heads=num_kv_heads,
+                filename=filename
             )
         elif att_scheme == 'dgqa_ema':
             self.attn = DGQA(

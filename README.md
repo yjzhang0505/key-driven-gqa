@@ -86,3 +86,13 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 - mhsa.yaml  /data/yjzhang/desktop/try/key-driven-gqa/mhsa.yaml  用来训练检查点的，att_scheme='mhsa'
 - similarity.py  /data/yjzhang/desktop/try/key-driven-gqa/similarity.py  计算各头之间的余弦相似度，保存到Excel，每个子表为一个标准
 - to_group_txt.py  /data/yjzhang/desktop/try/key-driven-gqa/to_group_txt.py  从刚刚grouping.py生成的单一txt，重新保存为多个数字文件夹下的group.txt
+
+### retry-2.2
+- importance.py
+- model.py
+- gqa.py
+- block.py
+- to_group_txt.py
+- train.py
+- grouping_by_mean_var.py
+- weight_to_txt.py
