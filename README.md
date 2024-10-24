@@ -117,3 +117,11 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 - /data/yjzhang/desktop/try/key-driven-gqa/grouping_by_mean_var_try.py
 - /data/yjzhang/desktop/try/key-driven-gqa/ordering_mean_var.py
 - /data/yjzhang/desktop/try/key-driven-gqa/calculate
+- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/csv_to_excel.py
+
+-------------------------------
+- /data/yjzhang/desktop/try/key-driven-gqa/output/stats.txt
+- output/similarity_matrices.txt
+- output/l2_norms.txt 
+- /data/yjzhang/desktop/try/key-driven-gqa/figure
+- /data/yjzhang/desktop/try/key-driven-gqa/mnist.yaml
