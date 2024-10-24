@@ -72,7 +72,7 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 - 头顺序随机后，算完还要把顺序返回来？（或者把proj的顺序也变了？）
 - 每个头分别计算，其中对每个K和V和相应的多个Q计算，按Q的头的顺序保存，Linear的权重要对两个维度进行顺序调整（KV要先调整头的顺序，才能把原本不相邻的头变相邻然后合并，Linear之后对应的头应该不该序号，故Linear之后的顺序也是调整后的）
 - batch_size, proxy_ratio, epoch
-- 记得在group.py的读文件处改路径，有两处要改
+- 记得在group.py的读文件处改路径，有三处要改
 
 ### retry-2.2
 - 待整理
@@ -88,11 +88,32 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 - to_group_txt.py  /data/yjzhang/desktop/try/key-driven-gqa/to_group_txt.py  从刚刚grouping.py生成的单一txt，重新保存为多个数字文件夹下的group.txt
 
 ### retry-2.2
-- importance.py
+- importance.py   从检查点计算权重矩阵均值方差保存到txt
 - model.py
-- gqa.py
+- gqa.py   目前将输出路径引入，以后不用改gqa中的group.txt的路径了
 - block.py
-- to_group_txt.py
+- to_group_txt.py  根据重要性和相似性分组并保存在多个文件夹下的group.txt
 - train.py
 - grouping_by_mean_var.py
 - weight_to_txt.py
+- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/csv_to_excel.py  
+- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/output_smoothed.xlsx
+- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/share/grouping_mean_var.txt
+- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/share/grouping_results.txt
+- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/share/l2_norms.txt
+- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/share/mean_var.txt
+- /data/yjzhang/desktop/try/key-driven-gqa/output/l2_norms.txt
+
+
+### retry-2.3
+- /data/yjzhang/desktop/try/key-driven-gqa/grouping_by_mean_var.py
+- /data/yjzhang/desktop/try/key-driven-gqa/importance.py
+- /data/yjzhang/desktop/try/key-driven-gqa/to_group_txt.py
+- /data/yjzhang/desktop/try/key-driven-gqa/weight_to_txt.py
+
+### retry-2.4
+- /data/yjzhang/desktop/try/key-driven-gqa/importance.py
+- /data/yjzhang/desktop/try/key-driven-gqa/similarity.py
+- /data/yjzhang/desktop/try/key-driven-gqa/grouping_by_mean_var_try.py
+- /data/yjzhang/desktop/try/key-driven-gqa/ordering_mean_var.py
+- /data/yjzhang/desktop/try/key-driven-gqa/calculate

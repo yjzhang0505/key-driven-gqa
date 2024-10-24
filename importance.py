@@ -1,6 +1,5 @@
 import torch
 import os
-
 class YourTransformerModel:
     def __init__(self, num_heads, dim):
         self.num_heads = num_heads
@@ -9,7 +8,7 @@ class YourTransformerModel:
         self.k = torch.nn.Linear(dim, dim)
         self.v = torch.nn.Linear(dim, dim)
 
-    def load_pretrained_qkv_weights(self, state_dict, block_idx):
+    def load_pretrained_qkv_weights(self, state_dict, block_idx, stats):
         """
         从预训练的 state_dict 中加载第 block_idx 层的 Q, K, V 权重。
         并计算每个头的 Q、K、V 权重及其组合 (K*Q 和 K*Q*V) 的均值和方差。
@@ -29,9 +28,6 @@ class YourTransformerModel:
         k_weight_heads = k_weight.view(self.num_heads, dim_per_head, self.dim)
         v_weight_heads = v_weight.view(self.num_heads, dim_per_head, self.dim)
 
-        # 记录均值和方差
-        stats = {'K': [], 'Q': [], 'V': [], 'KxQ': [], 'KxQxV': []}
-
         # 计算每个头的 Q、K、V 权重以及 K * Q 和 K * Q * V 的均值和方差
         for i in range(self.num_heads):
             k_mean, k_var = k_weight_heads[i].mean().item(), k_weight_heads[i].var().item()
@@ -46,36 +42,17 @@ class YourTransformerModel:
             kqv = torch.matmul(kq, v_weight_heads[i])
             kqv_mean, kqv_var = kqv.mean().item(), kqv.var().item()
 
-            # 保存均值和方差
+            # 保存每个头的均值和方差
             stats['K'].append([k_mean, k_var])
             stats['Q'].append([q_mean, q_var])
             stats['V'].append([v_mean, v_var])
             stats['KxQ'].append([kq_mean, kq_var])
             stats['KxQxV'].append([kqv_mean, kqv_var])
 
-        # 将均值和方差结果保存到 TXT 文件
-        output_file = f"/data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/share/mean_var.txt"
-        os.makedirs(os.path.dirname(output_file), exist_ok=True)
-
-        with open(output_file, 'w') as f:
-            for key, values in stats.items():
-                f.write(f"{key}_mean: " + ",".join([str(v[0]) for v in values]) + "\n")
-                f.write(f"{key}_var: " + ",".join([str(v[1]) for v in values]) + "\n")
-
-        print(f"均值和方差已保存到 {output_file}")
-
         # 将提取的 Q、K、V 权重赋值回模型中
         self.k.weight.data.copy_(k_weight)
         self.q.weight.data.copy_(q_weight)
         self.v.weight.data.copy_(v_weight)
-
-def assign_check(tensor, new_tensor):
-    """
-    Helper function to check and assign weights
-    """
-    assert tensor.shape == new_tensor.shape, f"Shape mismatch: {tensor.shape} vs {new_tensor.shape}"
-    tensor.data.copy_(new_tensor)
-    return tensor
 
 # 示例：加载模型并使用预训练权重
 def vit_small_patch16_224(num_classes=10, pretrained=False, in_chans=3):
@@ -83,11 +60,36 @@ def vit_small_patch16_224(num_classes=10, pretrained=False, in_chans=3):
 
     if pretrained:
         # 加载预训练的 checkpoint
-        checkpoint_path = '/data/yjzhang/desktop/try/key-driven-gqa/output/share/best.pth'
+        checkpoint_path = '/data/yjzhang/desktop/try/key-driven-gqa/output/mhsa/config/best.pth'
         checkpoint = torch.load(checkpoint_path)
 
-        # 加载预训练权重到模型的第 0 层 block
-        model.load_pretrained_qkv_weights(checkpoint, block_idx=0)
+        # 记录所有层的均值和方差
+        all_stats = {'K': [], 'Q': [], 'V': [], 'KxQ': [], 'KxQxV': []}
+
+        # 加载每一层的预训练权重
+        for block_idx in range(12):
+            print(f"Processing block {block_idx}")
+            model.load_pretrained_qkv_weights(checkpoint, block_idx, all_stats)
+
+        # 将每层的12个头的均值和方差结果保存到 TXT 文件
+        output_file = f"/data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/share/mean_var.txt"
+        os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
+        with open(output_file, 'w') as f:
+            for layer in range(12):
+                f.write(f"Layer {layer}:\n")
+                for head in range(12):
+                    # 输出每个头的所有均值和方差，逗号分隔
+                    f.write(f"Head {head}: ")
+                    f.write(f"K_mean: {all_stats['K'][layer * 12 + head][0]}, K_var: {all_stats['K'][layer * 12 + head][1]}, ")
+                    f.write(f"Q_mean: {all_stats['Q'][layer * 12 + head][0]}, Q_var: {all_stats['Q'][layer * 12 + head][1]}, ")
+                    f.write(f"V_mean: {all_stats['V'][layer * 12 + head][0]}, V_var: {all_stats['V'][layer * 12 + head][1]}, ")
+                    f.write(f"KxQ_mean: {all_stats['KxQ'][layer * 12 + head][0]}, KxQ_var: {all_stats['KxQ'][layer * 12 + head][1]}, ")
+                    f.write(f"KxQxV_mean: {all_stats['KxQxV'][layer * 12 + head][0]}, KxQxV_var: {all_stats['KxQxV'][layer * 12 + head][1]}\n")
+                # 每层之间空一行
+                f.write("\n")
+
+        print(f"所有层的均值和方差已保存到 {output_file}")
 
     return model
 
