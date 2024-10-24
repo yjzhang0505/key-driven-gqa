@@ -1,0 +1,165 @@
+(0, 1) (2, 3) (4, 5) (6, 7) (8, 9) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/200, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/201, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/202, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/203
+(0, 1) (2, 5) (3, 4) (6, 8) (7, 10) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/88
+(0, 1) (2, 5) (3, 9) (4, 8) (6, 7) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/39
+(0, 1) (2, 5) (3, 11) (4, 9) (6, 10) (7, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/74
+(0, 1) (2, 8) (3, 5) (4, 9) (6, 10) (7, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/302, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/305, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/308
+(0, 1) (2, 8) (3, 7) (4, 6) (5, 9) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/42
+(0, 1) (2, 8) (3, 7) (4, 10) (5, 11) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/404
+(0, 1) (2, 8) (3, 11) (4, 9) (5, 7) (6, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/310, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/312
+(0, 1) (2, 9) (3, 5) (4, 8) (6, 7) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/34
+(0, 1) (2, 9) (3, 7) (4, 6) (5, 11) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/55
+(0, 1) (2, 9) (3, 11) (4, 10) (5, 8) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/36, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/306
+(0, 1) (2, 11) (3, 7) (4, 6) (5, 9) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/96
+(0, 1) (2, 11) (3, 9) (4, 10) (5, 8) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/30
+(0, 2) (1, 3) (4, 5) (6, 10) (7, 8) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/73
+(0, 2) (1, 3) (4, 10) (5, 6) (7, 11) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/98
+(0, 2) (1, 6) (3, 4) (5, 7) (8, 10) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/211
+(0, 2) (1, 6) (3, 5) (4, 7) (8, 10) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/90
+(0, 2) (1, 6) (3, 7) (4, 10) (5, 11) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/23
+(0, 2) (1, 6) (3, 8) (4, 11) (5, 7) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/34
+(0, 2) (1, 7) (3, 4) (5, 6) (8, 10) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/22
+(0, 2) (1, 7) (3, 8) (4, 10) (5, 6) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/23, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/213, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/215
+(0, 2) (1, 7) (3, 8) (4, 10) (5, 11) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/110, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/112
+(0, 2) (1, 7) (3, 11) (4, 6) (5, 9) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/202, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/205, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/208
+(0, 2) (1, 9) (3, 4) (5, 6) (7, 11) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/24
+(0, 2) (1, 9) (3, 4) (5, 7) (6, 11) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/214
+(0, 2) (1, 9) (3, 8) (4, 10) (5, 11) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/15
+(0, 2) (1, 9) (3, 11) (4, 6) (5, 7) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/26, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/206
+(0, 2) (1, 10) (3, 8) (4, 6) (5, 7) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/21
+(0, 2) (1, 11) (3, 4) (5, 9) (6, 7) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/207, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/209
+(0, 2) (1, 11) (3, 5) (4, 9) (6, 10) (7, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/92
+(0, 2) (1, 11) (3, 6) (4, 10) (5, 8) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/16
+(0, 2) (1, 11) (3, 8) (4, 7) (5, 9) (6, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/83
+(0, 3) (1, 2) (4, 11) (5, 8) (6, 9) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/54
+(0, 3) (1, 4) (2, 6) (5, 11) (7, 8) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/15
+(0, 3) (1, 4) (2, 7) (5, 10) (6, 9) (8, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/508
+(0, 3) (1, 5) (2, 7) (4, 9) (6, 11) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/12
+(0, 3) (1, 8) (2, 4) (5, 7) (6, 11) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/68
+(0, 3) (1, 8) (2, 10) (4, 5) (6, 7) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/78
+(0, 3) (1, 9) (2, 4) (5, 10) (6, 8) (7, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/11
+(0, 3) (1, 9) (2, 6) (4, 11) (5, 7) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/25
+(0, 3) (1, 9) (2, 8) (4, 7) (5, 10) (6, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/86
+(0, 3) (1, 11) (2, 8) (4, 6) (5, 10) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/411
+(0, 3) (1, 11) (2, 9) (4, 8) (5, 6) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/69
+(0, 3) (1, 11) (2, 10) (4, 8) (5, 7) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/413, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/415
+(0, 4) (1, 3) (2, 7) (5, 11) (6, 9) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/50
+(0, 4) (1, 3) (2, 9) (5, 10) (6, 7) (8, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/507, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/509
+(0, 4) (1, 3) (2, 10) (5, 7) (6, 8) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/40
+(0, 4) (1, 3) (2, 11) (5, 10) (6, 8) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/25
+(0, 4) (1, 5) (2, 6) (3, 9) (7, 8) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/17
+(0, 4) (1, 5) (2, 8) (3, 11) (6, 7) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/311
+(0, 4) (1, 5) (2, 8) (3, 11) (6, 10) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/44
+(0, 4) (1, 5) (2, 11) (3, 6) (7, 8) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/53
+(0, 4) (1, 6) (2, 5) (3, 7) (8, 10) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/4
+(0, 4) (1, 6) (2, 8) (3, 11) (5, 7) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/501, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/503
+(0, 4) (1, 6) (2, 8) (3, 11) (5, 9) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/97
+(0, 4) (1, 6) (2, 8) (3, 11) (5, 10) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/514
+(0, 4) (1, 7) (2, 6) (3, 9) (5, 10) (8, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/54
+(0, 4) (1, 7) (2, 6) (3, 11) (5, 10) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/56, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/506
+(0, 4) (1, 7) (2, 8) (3, 11) (5, 10) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/511
+(0, 4) (1, 7) (2, 9) (3, 6) (5, 11) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/7
+(0, 4) (1, 9) (2, 10) (3, 8) (5, 11) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/79
+(0, 4) (1, 10) (2, 6) (3, 11) (5, 7) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/51
+(0, 4) (1, 10) (2, 8) (3, 7) (5, 11) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/81
+(0, 4) (1, 10) (2, 8) (3, 9) (5, 11) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/85
+(0, 4) (1, 10) (2, 8) (3, 11) (5, 9) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/18
+(0, 4) (1, 11) (2, 5) (3, 9) (6, 8) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/45
+(0, 4) (1, 11) (2, 6) (3, 8) (5, 9) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/66
+(0, 4) (1, 11) (2, 8) (3, 7) (5, 10) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/402, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/405, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/414
+(0, 5) (1, 2) (3, 4) (6, 11) (7, 8) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/14
+(0, 5) (1, 2) (3, 7) (4, 9) (6, 8) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/31
+(0, 5) (1, 2) (3, 8) (4, 7) (6, 9) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/111
+(0, 5) (1, 2) (3, 8) (4, 10) (6, 7) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/113, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/114, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/115
+(0, 5) (1, 3) (2, 7) (4, 11) (6, 9) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/21
+(0, 5) (1, 4) (2, 9) (3, 8) (6, 7) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/101, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/103
+(0, 5) (1, 4) (2, 9) (3, 11) (6, 10) (7, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/313, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/315
+(0, 5) (1, 4) (2, 10) (3, 8) (6, 9) (7, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/14
+(0, 5) (1, 4) (2, 10) (3, 11) (6, 9) (7, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/104
+(0, 5) (1, 6) (2, 9) (3, 11) (4, 10) (7, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/72
+(0, 5) (1, 6) (2, 10) (3, 8) (4, 11) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/91
+(0, 5) (1, 7) (2, 3) (4, 6) (8, 10) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/210, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/212
+(0, 5) (1, 7) (2, 8) (3, 11) (4, 10) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/13
+(0, 5) (1, 7) (2, 9) (3, 4) (6, 10) (8, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/84
+(0, 5) (1, 7) (2, 9) (3, 8) (4, 10) (6, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/108
+(0, 5) (1, 7) (2, 11) (3, 8) (4, 10) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/16, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/102, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/105, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/106
+(0, 5) (1, 8) (2, 6) (3, 11) (4, 9) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/71
+(0, 5) (1, 9) (2, 3) (4, 6) (7, 8) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/32
+(0, 5) (1, 10) (2, 9) (3, 11) (4, 8) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/11
+(0, 5) (1, 10) (2, 11) (3, 4) (6, 8) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/59
+(0, 5) (1, 10) (2, 11) (3, 8) (4, 7) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/107, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/109
+(0, 5) (1, 11) (2, 8) (3, 6) (4, 10) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/410, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/412
+(0, 6) (1, 2) (3, 8) (4, 5) (7, 10) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/58
+(0, 6) (1, 2) (3, 9) (4, 11) (5, 8) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/38
+(0, 6) (1, 2) (3, 11) (4, 10) (5, 8) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/94
+(0, 6) (1, 4) (2, 11) (3, 7) (5, 10) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/76
+(0, 6) (1, 5) (2, 11) (3, 4) (7, 8) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/56
+(0, 6) (1, 7) (2, 11) (3, 8) (4, 9) (5, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/20
+(0, 6) (1, 9) (2, 3) (4, 8) (5, 11) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/5
+(0, 6) (1, 9) (2, 7) (3, 10) (4, 5) (8, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/28
+(0, 7) (1, 2) (3, 5) (4, 8) (6, 10) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/8
+(0, 7) (1, 2) (3, 8) (4, 10) (5, 11) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/12
+(0, 7) (1, 3) (2, 8) (4, 5) (6, 9) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/100
+(0, 7) (1, 3) (2, 11) (4, 6) (5, 9) (8, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/57
+(0, 7) (1, 4) (2, 8) (3, 11) (5, 10) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/52, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/510, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/512
+(0, 7) (1, 5) (2, 3) (4, 10) (6, 8) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/37
+(0, 7) (1, 5) (2, 8) (3, 11) (4, 9) (6, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/35, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/301, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/303, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/314
+(0, 7) (1, 5) (2, 9) (3, 11) (4, 8) (6, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/31, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/307, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/309
+(0, 7) (1, 8) (2, 4) (3, 9) (5, 6) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/42
+(0, 7) (1, 8) (2, 6) (3, 4) (5, 9) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/41
+(0, 7) (1, 9) (2, 3) (4, 6) (5, 10) (8, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/401, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/403
+(0, 7) (1, 9) (2, 8) (3, 5) (4, 11) (6, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/77
+(0, 7) (1, 10) (2, 4) (3, 5) (6, 11) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/36
+(0, 7) (1, 11) (2, 5) (3, 9) (4, 10) (6, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/80
+(0, 7) (1, 11) (2, 8) (3, 4) (5, 6) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/45
+(0, 7) (1, 11) (2, 8) (3, 4) (5, 10) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/408
+(0, 8) (1, 3) (2, 4) (5, 6) (7, 10) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/65
+(0, 8) (1, 3) (2, 5) (4, 10) (6, 7) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/52
+(0, 8) (1, 4) (2, 6) (3, 10) (5, 9) (7, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/43
+(0, 8) (1, 4) (2, 6) (3, 11) (5, 10) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/53
+(0, 8) (1, 4) (2, 10) (3, 6) (5, 7) (9, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/19
+(0, 8) (1, 5) (2, 4) (3, 7) (6, 9) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/35
+(0, 8) (1, 5) (2, 11) (3, 10) (4, 6) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/27
+(0, 8) (1, 6) (2, 10) (3, 11) (4, 5) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/504
+(0, 8) (1, 6) (2, 10) (3, 11) (4, 9) (5, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/26
+(0, 8) (1, 9) (2, 4) (3, 6) (5, 10) (7, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/13
+(0, 8) (1, 9) (2, 6) (3, 5) (4, 7) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/1
+(0, 8) (1, 9) (2, 7) (3, 4) (5, 6) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/99
+(0, 8) (1, 10) (2, 11) (3, 5) (4, 6) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/101
+(0, 8) (1, 11) (2, 5) (3, 9) (4, 10) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/62
+(0, 8) (1, 11) (2, 7) (3, 5) (4, 10) (6, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/95
+(0, 9) (1, 2) (3, 10) (4, 6) (5, 8) (7, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/6
+(0, 9) (1, 4) (2, 8) (3, 11) (5, 7) (6, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+(0, 9) (1, 5) (2, 11) (3, 6) (4, 8) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/22
+(0, 9) (1, 6) (2, 8) (3, 7) (4, 10) (5, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/407, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/409
+(0, 9) (1, 7) (2, 6) (3, 8) (4, 5) (10, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/33, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/61
+(0, 9) (1, 7) (2, 6) (3, 11) (4, 8) (5, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/513, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/515
+(0, 9) (1, 8) (2, 5) (3, 11) (4, 6) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/67
+(0, 9) (1, 10) (2, 3) (4, 7) (5, 8) (6, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/48
+(0, 9) (1, 10) (2, 4) (3, 11) (5, 8) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/3
+(0, 9) (1, 10) (2, 8) (3, 6) (4, 5) (7, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/63
+(0, 9) (1, 11) (2, 4) (3, 6) (5, 8) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/29
+(0, 9) (1, 11) (2, 8) (3, 6) (4, 5) (7, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/70
+(0, 10) (1, 2) (3, 7) (4, 5) (6, 9) (8, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/89
+(0, 10) (1, 2) (3, 11) (4, 6) (5, 7) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/46
+(0, 10) (1, 3) (2, 7) (4, 11) (5, 6) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/64
+(0, 10) (1, 5) (2, 3) (4, 6) (7, 9) (8, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/9
+(0, 10) (1, 5) (2, 9) (3, 11) (4, 8) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/47
+(0, 10) (1, 6) (2, 7) (3, 8) (4, 9) (5, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/51
+(0, 10) (1, 7) (2, 6) (3, 11) (4, 8) (5, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/44
+(0, 10) (1, 7) (2, 8) (3, 6) (4, 11) (5, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/82
+(0, 10) (1, 8) (2, 6) (3, 11) (4, 5) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/41
+(0, 10) (1, 8) (2, 7) (3, 11) (4, 6) (5, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/46, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/406
+(0, 10) (1, 9) (2, 3) (4, 7) (5, 6) (8, 11) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/10
+(0, 10) (1, 9) (2, 4) (3, 5) (6, 11) (7, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/75
+(0, 10) (1, 9) (2, 6) (3, 8) (4, 11) (5, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/24
+(0, 11) (1, 3) (2, 7) (4, 5) (6, 10) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/43
+(0, 11) (1, 4) (2, 5) (3, 9) (6, 10) (7, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/49
+(0, 11) (1, 4) (2, 8) (3, 6) (5, 10) (7, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/502, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/505
+(0, 11) (1, 5) (2, 7) (3, 4) (6, 8) (9, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/2
+(0, 11) (1, 5) (2, 8) (3, 7) (4, 9) (6, 10) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/304
+(0, 11) (1, 5) (2, 8) (3, 9) (4, 10) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/33
+(0, 11) (1, 6) (2, 10) (3, 4) (5, 7) (8, 9) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/87
+(0, 11) (1, 7) (2, 4) (3, 10) (5, 9) (6, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/60
+(0, 11) (1, 9) (2, 6) (3, 8) (4, 10) (5, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/201, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/203, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/204
+(0, 11) (1, 9) (2, 8) (3, 5) (4, 10) (6, 7) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/32
+(0, 11) (1, 10) (2, 7) (3, 9) (4, 5) (6, 8) <-- /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/93
