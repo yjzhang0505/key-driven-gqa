@@ -62,11 +62,11 @@ mean_var_results = []
 
 # 指数平滑函数
 def exponential_smoothing(data, alpha=0.3):
-    smoothed_data = [data[0]]  # 初始化第一个值为原始数据的第一个值
-    for i in range(1, len(data)):
-        smoothed_value = alpha * data[i] + (1 - alpha) * smoothed_data[i-1]
-        smoothed_data.append(smoothed_value)
-    return smoothed_data[-1]  # 返回最后一个平滑值
+    smoothed_data = data[-5:]  # 取最后五个数据
+    smoothed_value = smoothed_data[0]  # 初始化第一个平滑值为最后五个数中的第一个
+    for i in range(1, len(smoothed_data)):
+        smoothed_value = alpha * smoothed_data[i] + (1 - alpha) * smoothed_value
+    return smoothed_value
 
 # 处理 CSV 文件的方法
 def process_folder(folder_path, results):

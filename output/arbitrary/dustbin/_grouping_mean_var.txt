@@ -1,0 +1,806 @@
+
+Processing Layer 0
+
+Processing K_similarity_matrix for Layer 0
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 5), (1, 8), (2, 4), (3, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/989
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 6), (1, 3), (2, 4), (5, 11), (7, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/592
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 11), (1, 3), (2, 4), (5, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/407
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 6), (1, 3), (2, 4), (5, 11), (7, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/592
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 4), (1, 3), (2, 7), (5, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/50
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 7), (1, 3), (2, 4), (5, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/636
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 8), (2, 10), (3, 6), (5, 7), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/459
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 4), (1, 3), (2, 8), (5, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/50
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 3), (2, 11), (5, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/694
+Layer 0 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 7), (1, 3), (2, 4), (5, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/636
+Layer 0 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 5), (1, 11), (2, 8), (3, 4), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/575
+
+Processing Q_similarity_matrix for Layer 0
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 2), (1, 8), (3, 9), (4, 6), (5, 7), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/734
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 4), (1, 3), (2, 8), (5, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/50
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 2), (1, 3), (4, 11), (5, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/929
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 4), (1, 3), (2, 8), (5, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/50
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 4), (1, 8), (2, 3), (5, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/459
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 10), (1, 3), (2, 8), (4, 9), (5, 11), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/843
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 8), (2, 9), (3, 11), (5, 7), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/817
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 10), (1, 3), (2, 9), (4, 8), (5, 11), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/631
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 3), (2, 11), (5, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/694
+Layer 0 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 10), (1, 3), (2, 9), (4, 8), (5, 11), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/631
+Layer 0 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 5), (1, 3), (2, 8), (4, 9), (6, 7), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/979
+
+Processing V_similarity_matrix for Layer 0
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 10), (1, 6), (2, 7), (3, 8), (4, 5), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/51
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 10), (1, 9), (2, 8), (3, 11), (4, 7), (5, 6)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/774
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 8), (1, 2), (3, 7), (4, 5), (6, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/618
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 10), (1, 9), (2, 8), (3, 11), (4, 7), (5, 6)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/774
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 8), (1, 9), (2, 5), (3, 11), (4, 7), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/732
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 10), (1, 8), (2, 9), (3, 11), (4, 5), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/279
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 10), (1, 6), (2, 11), (3, 8), (4, 7), (5, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/567
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 10), (1, 9), (2, 7), (3, 11), (4, 8), (5, 6)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/555
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 10), (1, 6), (2, 11), (3, 8), (4, 7), (5, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/567
+Layer 0 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 10), (1, 9), (2, 8), (3, 11), (4, 5), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/774
+Layer 0 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 10), (1, 6), (2, 9), (3, 7), (4, 5), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/140
+
+Processing KxQ_similarity_matrix for Layer 0
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 1), (2, 4), (3, 9), (5, 6), (7, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/778
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 9), (1, 11), (2, 5), (3, 6), (4, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/432
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 6), (1, 3), (2, 4), (5, 9), (7, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/592
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 9), (1, 11), (2, 5), (3, 6), (4, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/432
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 6), (1, 9), (2, 11), (3, 10), (4, 8), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/761
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 3), (1, 11), (2, 5), (4, 10), (6, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/735
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 6), (2, 3), (5, 8), (7, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/160
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 9), (1, 11), (2, 8), (3, 6), (4, 10), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/70
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 5), (2, 9), (3, 6), (7, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/975
+Layer 0 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 3), (1, 11), (2, 9), (4, 10), (5, 7), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/735
+Layer 0 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 1), (2, 3), (4, 8), (5, 6), (7, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/948
+
+Processing KxQxV_similarity_matrix for Layer 0
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 2), (1, 4), (3, 5), (6, 11), (7, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/385
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 9), (1, 2), (3, 11), (4, 6), (5, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/379
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 2), (1, 4), (3, 11), (5, 10), (6, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/327
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 9), (1, 2), (3, 11), (4, 6), (5, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/379
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 2), (3, 11), (4, 6), (5, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/379
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 10), (1, 2), (3, 11), (4, 6), (5, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/46
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 2), (1, 9), (3, 8), (4, 6), (5, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/124
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 10), (1, 2), (3, 11), (4, 9), (5, 8), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/46
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 2), (1, 9), (3, 11), (4, 6), (5, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/802
+Layer 0 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 10), (1, 2), (3, 11), (4, 9), (5, 8), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/46
+Layer 0 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 2), (1, 9), (3, 11), (4, 6), (5, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/802
+
+Processing Layer 1
+
+Processing K_similarity_matrix for Layer 1
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 1), (2, 9), (3, 11), (4, 10), (5, 6), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/36, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/306, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/357
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 5), (1, 9), (2, 6), (3, 11), (4, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/348
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 9), (3, 6), (4, 10), (5, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/461
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 1), (2, 6), (3, 11), (4, 10), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/609
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 11), (2, 9), (3, 6), (4, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/816
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 5), (1, 3), (2, 6), (4, 8), (7, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/412
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 5), (1, 3), (2, 9), (4, 6), (7, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/979
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 1), (2, 9), (3, 11), (4, 10), (5, 6), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/36, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/306, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/357
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 1), (2, 9), (3, 6), (4, 10), (5, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/461
+Layer 1 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 1), (2, 6), (3, 11), (4, 10), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/609
+Layer 1 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 1), (2, 9), (3, 11), (4, 10), (5, 6), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/36, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/306, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/357
+
+Processing Q_similarity_matrix for Layer 1
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 5), (1, 7), (2, 9), (3, 6), (4, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/738
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 11), (1, 3), (2, 6), (4, 10), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/448
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 5), (1, 3), (2, 9), (4, 11), (6, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/21
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 5), (1, 9), (2, 6), (3, 11), (4, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/348
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 11), (2, 9), (3, 6), (4, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/816
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 11), (1, 3), (2, 5), (4, 10), (6, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/762
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 11), (1, 7), (2, 5), (3, 8), (4, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/856
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 11), (1, 3), (2, 6), (4, 10), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/448
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 5), (1, 7), (2, 8), (3, 10), (4, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/13
+Layer 1 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 11), (1, 3), (2, 6), (4, 10), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/448
+Layer 1 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 5), (1, 7), (2, 6), (3, 8), (4, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/108
+
+Processing V_similarity_matrix for Layer 1
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 1), (2, 3), (4, 9), (5, 6), (7, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/948
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 7), (1, 10), (2, 3), (4, 11), (5, 6), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/384
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 10), (3, 4), (5, 11), (6, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/771
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 7), (1, 10), (2, 3), (4, 11), (5, 6), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/384
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 1), (2, 3), (4, 9), (5, 6), (7, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/948
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 1), (2, 9), (3, 4), (5, 11), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/241
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 1), (2, 3), (4, 9), (5, 11), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/902
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 7), (1, 10), (2, 3), (4, 11), (5, 6), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/384
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 1), (2, 7), (3, 4), (5, 9), (6, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/454
+Layer 1 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 7), (1, 10), (2, 3), (4, 11), (5, 6), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/384
+Layer 1 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 1), (2, 11), (3, 4), (5, 6), (7, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/927
+
+Processing KxQ_similarity_matrix for Layer 1
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 6), (1, 2), (3, 10), (4, 11), (5, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/138
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 1), (2, 8), (3, 10), (4, 11), (5, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/620
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 10), (1, 5), (2, 11), (3, 6), (4, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/612
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 1), (2, 9), (3, 10), (4, 11), (5, 8), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/372
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 1), (2, 5), (3, 10), (4, 11), (6, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/899
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 5), (1, 8), (2, 11), (3, 7), (4, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/403
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 1), (2, 7), (3, 4), (5, 8), (6, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/454
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 6), (1, 5), (2, 9), (3, 10), (4, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/240
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 9), (1, 7), (2, 8), (3, 4), (5, 11), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/455
+Layer 1 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 5), (1, 2), (3, 10), (4, 11), (6, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/102
+Layer 1 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 5), (1, 4), (2, 7), (3, 6), (8, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/786
+
+Processing KxQxV_similarity_matrix for Layer 1
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 5), (1, 11), (2, 4), (3, 9), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/274
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 8), (1, 11), (2, 9), (3, 10), (4, 6), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/209
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 8), (1, 2), (3, 9), (4, 11), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/354
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 8), (1, 11), (2, 9), (3, 10), (4, 6), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/209
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 11), (2, 4), (3, 9), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/274
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 5), (1, 8), (2, 3), (4, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/444
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 5), (1, 2), (3, 9), (4, 11), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/285
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 8), (1, 11), (2, 4), (3, 10), (5, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/209
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 8), (1, 11), (2, 4), (3, 9), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/626
+Layer 1 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 8), (1, 11), (2, 9), (3, 10), (4, 6), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/209
+Layer 1 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 5), (1, 9), (2, 3), (4, 11), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/333
+
+Processing Layer 2
+
+Processing K_similarity_matrix for Layer 2
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 4), (1, 10), (2, 7), (3, 6), (5, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/469
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 3), (1, 10), (2, 4), (5, 7), (6, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/390
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 5), (1, 10), (2, 4), (3, 6), (7, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/834
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 5), (1, 10), (2, 4), (3, 6), (7, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/834
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 10), (2, 9), (3, 11), (4, 6), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/11
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 5), (1, 2), (3, 10), (4, 6), (7, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/102
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 5), (1, 2), (3, 10), (4, 6), (7, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/102
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 3), (1, 10), (2, 4), (5, 7), (6, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/390
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 9), (1, 2), (3, 10), (4, 6), (5, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/6
+Layer 2 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 3), (1, 10), (2, 4), (5, 7), (6, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/390
+Layer 2 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 10), (1, 2), (3, 7), (4, 6), (5, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/950
+
+Processing Q_similarity_matrix for Layer 2
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 3), (1, 2), (4, 6), (5, 9), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/981
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 3), (1, 2), (4, 6), (5, 9), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/981
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 3), (1, 2), (4, 7), (5, 10), (6, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/602
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 10), (1, 2), (3, 4), (5, 9), (6, 8), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/661
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 3), (1, 2), (4, 6), (5, 9), (7, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/981
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 3), (1, 2), (4, 5), (6, 9), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/245
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 3), (1, 2), (4, 7), (5, 10), (6, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/602
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 3), (1, 2), (4, 6), (5, 9), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/981
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 2), (3, 10), (5, 7), (6, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/850
+Layer 2 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 3), (1, 2), (4, 6), (5, 9), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/981
+Layer 2 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 3), (1, 2), (4, 5), (6, 9), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/245
+
+Processing V_similarity_matrix for Layer 2
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 1), (2, 5), (3, 11), (4, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/270
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 1), (2, 7), (3, 11), (4, 6), (5, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/992
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 5), (3, 11), (4, 8), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/270
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 1), (2, 7), (3, 11), (4, 6), (5, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/992
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 1), (2, 7), (3, 5), (4, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/204
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 1), (2, 6), (3, 8), (4, 11), (5, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/936
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 1), (2, 5), (3, 8), (4, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/511
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 1), (2, 5), (3, 11), (4, 6), (7, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/74
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 1), (2, 6), (3, 8), (4, 11), (5, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/936
+Layer 2 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 1), (2, 5), (3, 11), (4, 6), (7, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/74
+Layer 2 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 1), (2, 5), (3, 8), (4, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/511
+
+Processing KxQ_similarity_matrix for Layer 2
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 4), (1, 10), (2, 8), (3, 6), (5, 7), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/81
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 2), (1, 10), (3, 4), (5, 7), (6, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/710
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 4), (1, 11), (2, 3), (5, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/45
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 2), (1, 10), (3, 4), (5, 7), (6, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/710
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 11), (2, 3), (4, 10), (5, 7), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/900
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 9), (1, 4), (2, 8), (3, 10), (5, 7), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 1), (2, 8), (3, 10), (4, 6), (5, 7), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/307
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 4), (1, 3), (2, 10), (5, 7), (6, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/40
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 3), (1, 2), (4, 9), (5, 7), (6, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/840
+Layer 2 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 4), (1, 3), (2, 10), (5, 7), (6, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/40
+Layer 2 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 4), (1, 2), (3, 10), (5, 7), (6, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/850
+
+Processing KxQxV_similarity_matrix for Layer 2
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 9), (1, 8), (2, 3), (4, 10), (5, 6), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/338
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 9), (1, 11), (2, 3), (4, 10), (5, 6), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/900
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 9), (1, 8), (2, 3), (4, 10), (5, 7), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/338
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 9), (1, 11), (2, 3), (4, 10), (5, 6), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/900
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 11), (2, 3), (4, 6), (5, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/900
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 9), (1, 8), (2, 3), (4, 10), (5, 6), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/338
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 9), (1, 11), (2, 3), (4, 6), (5, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/862
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 9), (1, 11), (2, 3), (4, 10), (5, 6), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/900
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 9), (1, 8), (2, 3), (4, 10), (5, 6), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/338
+Layer 2 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 11), (2, 3), (4, 10), (5, 6), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/900
+Layer 2 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 9), (1, 8), (2, 3), (4, 10), (5, 6), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/338
+
+Processing Layer 3
+
+Processing K_similarity_matrix for Layer 3
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 8), (1, 7), (2, 10), (3, 9), (4, 6), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/953
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 3), (1, 2), (4, 10), (5, 11), (6, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/172
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 11), (1, 2), (3, 7), (4, 10), (5, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/108
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 2), (1, 9), (3, 6), (4, 10), (5, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/788
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 4), (1, 7), (2, 3), (5, 8), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/130
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 4), (1, 7), (2, 6), (3, 9), (5, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/54
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 7), (2, 3), (5, 10), (6, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/130
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 11), (1, 2), (3, 7), (4, 10), (5, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/108
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 11), (1, 2), (3, 7), (4, 10), (5, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/108
+Layer 3 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 11), (1, 7), (2, 6), (3, 9), (4, 10), (5, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/346
+Layer 3 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 4), (1, 7), (2, 10), (3, 8), (5, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/212
+
+Processing Q_similarity_matrix for Layer 3
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 1), (2, 6), (3, 10), (4, 5), (7, 11), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/865
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 1), (2, 8), (3, 9), (4, 11), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/617
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 8), (3, 7), (4, 10), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/404
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 1), (2, 8), (3, 9), (4, 11), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/617
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 1), (2, 10), (3, 9), (4, 8), (5, 6), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/441
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 1), (2, 10), (3, 7), (4, 5), (6, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/784
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 9), (1, 7), (2, 11), (3, 6), (4, 8), (5, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/233
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 2), (1, 9), (3, 6), (4, 8), (5, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/453
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 1), (2, 8), (3, 7), (4, 10), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/404
+Layer 3 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 1), (2, 6), (3, 9), (4, 8), (5, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/271
+Layer 3 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 1), (2, 9), (3, 10), (4, 8), (5, 6), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/34
+
+Processing V_similarity_matrix for Layer 3
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 3), (1, 5), (2, 9), (4, 11), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/921
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 7), (1, 3), (2, 5), (4, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/275
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 3), (1, 5), (2, 7), (4, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/164
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 7), (1, 5), (2, 3), (4, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/597
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 2), (1, 5), (3, 4), (6, 8), (7, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/311
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 3), (1, 5), (2, 8), (4, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/516
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 8), (1, 5), (2, 6), (3, 7), (4, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/915
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 7), (1, 3), (2, 5), (4, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/275
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 3), (1, 2), (4, 11), (5, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/54, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/534
+Layer 3 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 7), (1, 5), (2, 3), (4, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/597
+Layer 3 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 3), (1, 5), (2, 7), (4, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/164
+
+Processing KxQ_similarity_matrix for Layer 3
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 11), (1, 5), (2, 9), (3, 10), (4, 7), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/821
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 7), (1, 9), (2, 3), (4, 10), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/546
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 4), (1, 9), (2, 11), (3, 7), (5, 10), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/470
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 7), (1, 9), (2, 3), (4, 10), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/546
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 5), (2, 3), (4, 7), (6, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/410
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 9), (1, 5), (2, 11), (3, 10), (4, 7), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/418
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 7), (1, 11), (2, 3), (4, 10), (5, 9), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/80
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 7), (1, 9), (2, 3), (4, 10), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/546
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 9), (2, 11), (3, 7), (5, 10), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/470
+Layer 3 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 7), (1, 9), (2, 3), (4, 10), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/546
+Layer 3 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 7), (1, 9), (2, 3), (4, 5), (6, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/546
+
+Processing KxQxV_similarity_matrix for Layer 3
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 2), (1, 5), (3, 7), (4, 10), (6, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/311
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 2), (1, 3), (4, 7), (5, 8), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/605
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 4), (1, 2), (3, 7), (5, 8), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/496
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 2), (1, 3), (4, 7), (5, 8), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/605
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 4), (1, 5), (2, 10), (3, 7), (6, 9), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/225
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 4), (1, 5), (2, 8), (3, 7), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/952
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 5), (2, 6), (3, 8), (7, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/17
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 2), (1, 5), (3, 7), (4, 6), (8, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/311
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 2), (3, 7), (5, 8), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/496
+Layer 3 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 4), (1, 5), (2, 7), (3, 6), (8, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/230
+Layer 3 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 2), (1, 5), (3, 7), (4, 8), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/697
+
+Processing Layer 4
+
+Processing K_similarity_matrix for Layer 4
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 6), (1, 11), (2, 10), (3, 5), (4, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/849
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 8), (1, 11), (2, 6), (3, 9), (4, 10), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/62
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 9), (1, 11), (2, 6), (3, 8), (4, 10), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/409
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 8), (1, 11), (2, 6), (3, 9), (4, 10), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/62
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 6), (1, 2), (3, 8), (4, 10), (5, 7), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/58
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 6), (1, 2), (3, 5), (4, 11), (7, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/896
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 8), (1, 11), (2, 6), (3, 9), (4, 10), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/62
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 8), (1, 2), (3, 11), (4, 10), (5, 7), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/190
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 7), (1, 11), (2, 6), (3, 5), (4, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/289
+Layer 4 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 8), (1, 2), (3, 11), (4, 10), (5, 7), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/190
+Layer 4 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 6), (1, 11), (2, 7), (3, 5), (4, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/167
+
+Processing Q_similarity_matrix for Layer 4
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 6), (1, 2), (3, 5), (4, 11), (7, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/896
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 6), (1, 11), (2, 8), (3, 9), (4, 5), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/167
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 6), (1, 2), (3, 5), (4, 11), (7, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/896
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 6), (1, 9), (2, 8), (3, 5), (4, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/502
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 6), (1, 2), (3, 7), (4, 10), (5, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/392
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 6), (1, 2), (3, 5), (4, 10), (7, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/896
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 6), (1, 2), (3, 5), (4, 10), (7, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/896
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 1), (2, 8), (3, 5), (4, 6), (7, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/514
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 6), (1, 11), (2, 8), (3, 5), (4, 9), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/445
+Layer 4 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 1), (2, 8), (3, 5), (4, 6), (7, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/514
+Layer 4 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 6), (1, 2), (3, 5), (4, 10), (7, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/896
+
+Processing V_similarity_matrix for Layer 4
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 9), (1, 5), (2, 8), (3, 11), (4, 7), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/827
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 10), (1, 5), (2, 6), (3, 9), (4, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/919
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 4), (1, 6), (2, 5), (3, 11), (7, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/634
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 10), (1, 5), (2, 6), (3, 9), (4, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/919
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 3), (1, 8), (2, 6), (4, 11), (5, 9), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/494
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 4), (1, 10), (2, 6), (3, 11), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/51
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 10), (1, 6), (2, 5), (3, 9), (4, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/219
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 10), (1, 3), (2, 6), (4, 11), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/932
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 3), (1, 9), (2, 6), (4, 11), (5, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/25
+Layer 4 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 4), (1, 9), (2, 6), (3, 11), (5, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/447
+Layer 4 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 10), (1, 6), (2, 3), (4, 11), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/894
+
+Processing KxQ_similarity_matrix for Layer 4
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 11), (1, 9), (2, 10), (3, 5), (4, 6), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/323
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 4), (1, 6), (2, 10), (3, 9), (5, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/430
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 11), (1, 4), (2, 5), (3, 10), (6, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/49
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 4), (1, 6), (2, 9), (3, 10), (5, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/942
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 10), (1, 11), (2, 9), (3, 6), (4, 5), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/923
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 10), (1, 11), (2, 6), (3, 5), (4, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/990
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 9), (1, 4), (2, 5), (3, 6), (7, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 11), (1, 6), (2, 5), (3, 9), (4, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/423
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 10), (1, 11), (2, 9), (3, 6), (4, 5), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/923
+Layer 4 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 11), (1, 6), (2, 4), (3, 10), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/837
+Layer 4 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 6), (1, 11), (2, 9), (3, 10), (4, 5), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/890
+
+Processing KxQxV_similarity_matrix for Layer 4
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 4), (1, 8), (2, 9), (3, 10), (5, 11), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/150
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 3), (1, 2), (4, 9), (5, 11), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/628
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 5), (1, 8), (2, 6), (3, 10), (4, 9), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/71
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 3), (1, 2), (4, 9), (5, 11), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/628
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 3), (1, 8), (2, 6), (4, 9), (5, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/815
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 11), (1, 7), (2, 6), (3, 10), (4, 9), (5, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/346
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 3), (1, 8), (2, 6), (4, 9), (5, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/815
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 1), (2, 9), (3, 4), (5, 11), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/241
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 3), (1, 4), (2, 9), (5, 10), (6, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/159
+Layer 4 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 1), (2, 9), (3, 4), (5, 11), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/241
+Layer 4 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 3), (1, 2), (4, 9), (5, 11), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/628
+
+Processing Layer 5
+
+Processing K_similarity_matrix for Layer 5
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 7), (1, 3), (2, 10), (4, 11), (5, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/137
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 7), (1, 5), (2, 6), (3, 9), (4, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/205
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 7), (1, 3), (2, 10), (4, 11), (5, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/137
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 7), (1, 5), (2, 6), (3, 9), (4, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/205
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 7), (1, 3), (2, 10), (4, 11), (5, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/137
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 7), (1, 3), (2, 6), (4, 11), (5, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/533
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 7), (1, 9), (2, 10), (3, 8), (4, 11), (5, 6)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/994
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 7), (1, 3), (2, 10), (4, 11), (5, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/137
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 7), (1, 3), (2, 10), (4, 11), (5, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/137
+Layer 5 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 7), (1, 3), (2, 10), (4, 11), (5, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/137
+Layer 5 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 7), (1, 3), (2, 6), (4, 11), (5, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/533
+
+Processing Q_similarity_matrix for Layer 5
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 9), (1, 8), (2, 6), (3, 5), (4, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/67
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 9), (1, 4), (2, 6), (3, 5), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 2), (1, 5), (3, 9), (4, 11), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/785
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 9), (1, 8), (2, 6), (3, 5), (4, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/67
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 5), (2, 8), (3, 6), (4, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/827
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 7), (1, 5), (2, 6), (3, 9), (4, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/588
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 7), (1, 6), (2, 10), (3, 5), (4, 11), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/443
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 9), (1, 4), (2, 6), (3, 5), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 7), (1, 8), (2, 6), (3, 9), (4, 11), (5, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/41
+Layer 5 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 6), (2, 8), (3, 5), (4, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/487
+Layer 5 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 9), (1, 5), (2, 6), (3, 8), (4, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/998
+
+Processing V_similarity_matrix for Layer 5
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 4), (1, 11), (2, 3), (5, 6), (7, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/45
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 5), (1, 11), (2, 3), (4, 7), (6, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/274
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 7), (1, 11), (2, 6), (3, 5), (4, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/289
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 5), (1, 11), (2, 3), (4, 7), (6, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/274
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 8), (1, 11), (2, 6), (3, 5), (4, 10), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/95
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 8), (1, 11), (2, 6), (3, 5), (4, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/95
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 8), (1, 11), (2, 3), (4, 7), (5, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/692
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 10), (1, 11), (2, 6), (3, 5), (4, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/990
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 8), (1, 10), (2, 6), (3, 5), (4, 7), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/101
+Layer 5 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 10), (1, 11), (2, 6), (3, 5), (4, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/990
+Layer 5 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 8), (1, 11), (2, 6), (3, 5), (4, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/95
+
+Processing KxQ_similarity_matrix for Layer 5
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 11), (1, 8), (2, 10), (3, 4), (5, 6), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/551
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 11), (1, 6), (2, 10), (3, 4), (5, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/87
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 10), (3, 4), (5, 8), (6, 11), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/830
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 11), (1, 6), (2, 10), (3, 4), (5, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/87
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 8), (1, 4), (2, 10), (3, 9), (5, 7), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/19
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 11), (1, 4), (2, 10), (3, 9), (5, 7), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/421
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 1), (2, 10), (3, 9), (4, 6), (5, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/771
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 11), (1, 6), (2, 10), (3, 4), (5, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/87
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 9), (2, 10), (3, 11), (5, 7), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/565
+Layer 5 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 11), (1, 6), (2, 10), (3, 4), (5, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/87
+Layer 5 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 9), (1, 5), (2, 10), (3, 11), (4, 7), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/688
+
+Processing KxQxV_similarity_matrix for Layer 5
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 4), (1, 10), (2, 7), (3, 9), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/469
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 4), (1, 10), (2, 7), (3, 9), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/469
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 4), (1, 10), (2, 9), (3, 7), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/988
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 4), (1, 11), (2, 7), (3, 9), (5, 6), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/45
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 7), (1, 10), (2, 9), (3, 8), (4, 6), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/833
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 10), (1, 11), (2, 9), (3, 6), (4, 7), (5, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/799
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 7), (1, 4), (2, 10), (3, 8), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/283
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 4), (1, 11), (2, 7), (3, 9), (5, 8), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/45
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 7), (1, 8), (2, 10), (3, 9), (4, 6), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/752
+Layer 5 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 4), (1, 11), (2, 7), (3, 9), (5, 8), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/45
+Layer 5 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 4), (1, 10), (2, 7), (3, 9), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/469
+
+Processing Layer 6
+
+Processing K_similarity_matrix for Layer 6
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 10), (1, 9), (2, 5), (3, 4), (6, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/839
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 10), (1, 8), (2, 11), (3, 4), (5, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/386
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 10), (3, 4), (5, 9), (6, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/246
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 10), (1, 8), (2, 11), (3, 4), (5, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/386
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 8), (1, 9), (2, 11), (3, 4), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/99
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 10), (1, 9), (2, 5), (3, 4), (6, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/839
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 10), (1, 9), (2, 5), (3, 4), (6, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/839
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 10), (1, 8), (2, 11), (3, 4), (5, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/386
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 5), (1, 9), (2, 11), (3, 4), (6, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/224
+Layer 6 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 10), (1, 8), (2, 11), (3, 4), (5, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/386
+Layer 6 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 10), (1, 9), (2, 5), (3, 4), (6, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/839
+
+Processing Q_similarity_matrix for Layer 6
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 9), (1, 6), (2, 10), (3, 8), (4, 7), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/935
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 1), (2, 9), (3, 5), (4, 7), (6, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/34
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 9), (3, 5), (4, 7), (6, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/34
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 1), (2, 9), (3, 5), (4, 7), (6, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/34
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 4), (2, 10), (3, 7), (5, 6), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 8), (1, 11), (2, 9), (3, 6), (4, 7), (5, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/185
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 11), (2, 6), (3, 9), (5, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/714
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 9), (1, 3), (2, 5), (4, 7), (6, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/353
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 9), (1, 3), (2, 10), (4, 7), (5, 6), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/642
+Layer 6 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 3), (2, 6), (4, 7), (5, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/642
+Layer 6 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 9), (1, 5), (2, 10), (3, 6), (4, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/688
+
+Processing V_similarity_matrix for Layer 6
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 2), (1, 8), (3, 7), (4, 10), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/500
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 2), (1, 11), (3, 8), (4, 9), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/83, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/527
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 2), (1, 11), (3, 8), (4, 10), (5, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/83, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/527
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 2), (1, 11), (3, 8), (4, 9), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/83, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/527
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 2), (1, 7), (3, 8), (4, 10), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/23, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/213, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/215
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 2), (1, 7), (3, 8), (4, 10), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/23, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/213, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/215
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 2), (1, 11), (3, 7), (4, 8), (5, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/616
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 2), (1, 11), (3, 8), (4, 9), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/83, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/527
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 9), (1, 11), (2, 4), (3, 8), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/349
+Layer 6 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 2), (1, 11), (3, 8), (4, 10), (5, 6), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/83, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/527
+Layer 6 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 2), (1, 11), (3, 7), (4, 10), (5, 6), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/616
+
+Processing KxQ_similarity_matrix for Layer 6
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 5), (1, 4), (2, 3), (6, 10), (7, 11), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/277
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 5), (1, 9), (2, 3), (4, 8), (6, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/32
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 10), (1, 9), (2, 5), (3, 8), (4, 11), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/24
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 5), (1, 9), (2, 3), (4, 8), (6, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/32
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 1), (2, 9), (3, 5), (4, 10), (6, 8), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/668
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 2), (1, 9), (3, 5), (4, 10), (6, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/153
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 2), (1, 9), (3, 5), (4, 8), (6, 7), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/153
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 2), (1, 9), (3, 5), (4, 8), (6, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/153
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 5), (1, 8), (2, 9), (3, 4), (6, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/544
+Layer 6 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 2), (1, 9), (3, 5), (4, 8), (6, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/153
+Layer 6 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 2), (1, 9), (3, 5), (4, 10), (6, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/153
+
+Processing KxQxV_similarity_matrix for Layer 6
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 11), (1, 10), (2, 6), (3, 4), (5, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/218
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 1), (2, 7), (3, 5), (4, 10), (6, 11), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/454
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 9), (1, 6), (2, 7), (3, 4), (5, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/487
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 9), (1, 10), (2, 7), (3, 5), (4, 8), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/781
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 10), (1, 8), (2, 9), (3, 5), (4, 7), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/279
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 11), (1, 4), (2, 6), (3, 5), (7, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/663
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 6), (1, 8), (2, 7), (3, 5), (4, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/593
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 9), (1, 4), (2, 7), (3, 5), (6, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 5), (1, 8), (2, 9), (3, 4), (6, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/544
+Layer 6 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 4), (2, 7), (3, 5), (6, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 6 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 11), (1, 6), (2, 7), (3, 5), (4, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/280
+
+Processing Layer 7
+
+Processing K_similarity_matrix for Layer 7
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 4), (1, 7), (2, 8), (3, 9), (5, 6), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/670
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 3), (1, 7), (2, 10), (4, 8), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/725
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 11), (3, 9), (4, 8), (5, 7), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/30
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 3), (1, 7), (2, 5), (4, 8), (6, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/881
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 7), (2, 6), (3, 9), (4, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/250
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 4), (1, 7), (2, 11), (3, 6), (5, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/7
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 7), (2, 10), (3, 8), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/212
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 3), (1, 7), (2, 9), (4, 8), (5, 6), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/881
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 3), (1, 7), (2, 10), (4, 8), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/725
+Layer 7 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 6), (1, 7), (2, 11), (3, 9), (4, 8), (5, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/20
+Layer 7 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 3), (1, 7), (2, 10), (4, 8), (5, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/725
+
+Processing Q_similarity_matrix for Layer 7
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 5), (1, 6), (2, 11), (3, 9), (4, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/152
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 11), (1, 6), (2, 8), (3, 9), (4, 5), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/329
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 5), (1, 4), (2, 8), (3, 9), (6, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/213
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 10), (1, 6), (2, 8), (3, 9), (4, 5), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/341
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 3), (2, 11), (4, 9), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/249
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 5), (1, 3), (2, 11), (4, 9), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/249
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 1), (2, 6), (3, 9), (4, 8), (5, 7), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/271
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 10), (1, 7), (2, 8), (3, 11), (4, 9), (5, 6)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/963
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 10), (1, 6), (2, 11), (3, 9), (4, 8), (5, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/567
+Layer 7 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 5), (1, 3), (2, 8), (4, 9), (6, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/979
+Layer 7 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 5), (1, 6), (2, 11), (3, 9), (4, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/152
+
+Processing V_similarity_matrix for Layer 7
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 1), (2, 10), (3, 7), (4, 8), (5, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/784
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 8), (1, 4), (2, 10), (3, 7), (5, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/19
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 8), (1, 6), (2, 10), (3, 7), (4, 9), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/913
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 8), (1, 4), (2, 10), (3, 7), (5, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/19
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 11), (1, 3), (2, 10), (4, 8), (5, 7), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/481
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 11), (1, 3), (2, 10), (4, 8), (5, 7), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/481
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 11), (1, 3), (2, 10), (4, 8), (5, 7), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/481
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 8), (1, 3), (2, 10), (4, 7), (5, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/460
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 8), (2, 10), (3, 7), (5, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/459
+Layer 7 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 8), (1, 3), (2, 4), (5, 7), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/65, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/707
+Layer 7 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 8), (1, 3), (2, 10), (4, 11), (5, 7), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/345
+
+Processing KxQ_similarity_matrix for Layer 7
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 9), (1, 4), (2, 8), (3, 5), (6, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 9), (1, 10), (2, 6), (3, 5), (4, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/801
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 9), (1, 10), (2, 6), (3, 5), (4, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/801
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 9), (1, 10), (2, 6), (3, 5), (4, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/801
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 6), (2, 7), (3, 5), (4, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/183
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 9), (1, 6), (2, 3), (4, 7), (5, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/935
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 9), (1, 6), (2, 3), (4, 7), (5, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/935
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 9), (1, 4), (2, 10), (3, 5), (6, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 9), (1, 6), (2, 4), (3, 11), (5, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/183
+Layer 7 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 6), (2, 10), (3, 5), (4, 7), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/935
+Layer 7 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 9), (1, 6), (2, 3), (4, 7), (5, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/935
+
+Processing KxQxV_similarity_matrix for Layer 7
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 9), (1, 2), (3, 7), (4, 8), (5, 6), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/304
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 4), (1, 2), (3, 7), (5, 6), (8, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/916
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 5), (1, 2), (3, 7), (4, 9), (6, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/31
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 4), (1, 2), (3, 7), (5, 6), (8, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/916
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 2), (3, 7), (4, 5), (6, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/304
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 4), (1, 2), (3, 8), (5, 7), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/496
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 9), (1, 2), (3, 4), (5, 7), (6, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/943
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 4), (1, 2), (3, 7), (5, 9), (6, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/916
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 8), (1, 2), (3, 7), (4, 9), (5, 6), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/321
+Layer 7 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 4), (1, 2), (3, 6), (5, 7), (8, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/756
+Layer 7 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 4), (1, 2), (3, 9), (5, 7), (6, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/916
+
+Processing Layer 8
+
+Processing K_similarity_matrix for Layer 8
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 2), (1, 3), (4, 6), (5, 11), (7, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/394
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 7), (1, 3), (2, 9), (4, 6), (5, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/370
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 9), (1, 5), (2, 11), (3, 8), (4, 6), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/418
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 7), (1, 3), (2, 9), (4, 6), (5, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/370
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 7), (1, 5), (2, 3), (4, 11), (6, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/730
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 7), (1, 5), (2, 3), (4, 11), (6, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/730
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 3), (1, 5), (2, 8), (4, 6), (7, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/666
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 7), (1, 3), (2, 4), (5, 11), (6, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/636
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 7), (1, 3), (2, 5), (4, 11), (6, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/636
+Layer 8 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 7), (1, 5), (2, 4), (3, 11), (6, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/501
+Layer 8 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 7), (1, 2), (3, 5), (4, 6), (8, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/8
+
+Processing Q_similarity_matrix for Layer 8
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 1), (2, 5), (3, 11), (4, 8), (6, 10), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/270
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 1), (2, 5), (3, 7), (4, 8), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/144
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 7), (1, 2), (3, 9), (4, 8), (5, 10), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/875
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 1), (2, 5), (3, 9), (4, 8), (6, 11), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/39
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 4), (1, 2), (3, 9), (5, 10), (6, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/916
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 1), (2, 11), (3, 9), (4, 5), (6, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/30
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 6), (1, 11), (2, 7), (3, 9), (4, 8), (5, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/167
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 1), (2, 5), (3, 9), (4, 6), (7, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/39
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 11), (2, 5), (3, 7), (6, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/45
+Layer 8 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 1), (2, 5), (3, 9), (4, 6), (7, 8), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/39
+Layer 8 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 4), (1, 11), (2, 5), (3, 10), (6, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/45
+
+Processing V_similarity_matrix for Layer 8
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 10), (1, 11), (2, 3), (4, 7), (5, 9), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/733
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 11), (1, 10), (2, 3), (4, 7), (5, 6), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/760
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 8), (3, 11), (4, 7), (5, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/236
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 11), (1, 10), (2, 3), (4, 7), (5, 6), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/760
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 1), (2, 5), (3, 4), (6, 7), (8, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/497
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 11), (1, 8), (2, 3), (4, 5), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/737
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 11), (1, 8), (2, 5), (3, 6), (4, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/117
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 11), (1, 10), (2, 7), (3, 4), (5, 9), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/93
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 11), (1, 5), (2, 6), (3, 4), (7, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/882
+Layer 8 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 11), (1, 2), (3, 5), (4, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/848
+Layer 8 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 11), (1, 2), (3, 5), (4, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/848
+
+Processing KxQ_similarity_matrix for Layer 8
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 9), (1, 5), (2, 4), (3, 11), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/424
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 7), (1, 5), (2, 4), (3, 6), (8, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/501
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 6), (1, 10), (2, 4), (3, 11), (5, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/222
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 7), (1, 5), (2, 4), (3, 6), (8, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/501
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 10), (2, 6), (3, 11), (4, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/819
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 10), (1, 11), (2, 4), (3, 5), (6, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/799
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 7), (1, 10), (2, 4), (3, 5), (6, 8), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/852
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 10), (1, 5), (2, 6), (3, 11), (4, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/919
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 6), (1, 11), (2, 4), (3, 10), (5, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/445
+Layer 8 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 10), (1, 11), (2, 6), (3, 5), (4, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/990
+Layer 8 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 6), (1, 10), (2, 4), (3, 11), (5, 8), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/222
+
+Processing KxQxV_similarity_matrix for Layer 8
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 1), (2, 4), (3, 9), (5, 11), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/778
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 11), (1, 10), (2, 4), (3, 6), (5, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/109
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 3), (1, 8), (2, 4), (5, 7), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/68
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 11), (1, 10), (2, 4), (3, 6), (5, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/109
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 10), (1, 8), (2, 11), (3, 5), (4, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/386
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 4), (1, 3), (2, 11), (5, 10), (6, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/25
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 7), (2, 11), (3, 6), (5, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/7
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 4), (1, 2), (3, 11), (5, 7), (6, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/741
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 3), (1, 10), (2, 4), (5, 11), (6, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/962
+Layer 8 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 4), (1, 2), (3, 10), (5, 11), (6, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/850
+Layer 8 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 3), (1, 10), (2, 4), (5, 11), (6, 7), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/962
+
+Processing Layer 9
+
+Processing K_similarity_matrix for Layer 9
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 5), (1, 11), (2, 7), (3, 10), (4, 8), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/192
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 5), (1, 10), (2, 3), (4, 8), (6, 9), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/116
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 5), (1, 8), (2, 7), (3, 10), (4, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/824
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 5), (1, 10), (2, 3), (4, 8), (6, 9), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/116
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 7), (1, 8), (2, 9), (3, 10), (4, 6), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/841
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 9), (1, 8), (2, 7), (3, 10), (4, 6), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/338
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 7), (1, 10), (2, 3), (4, 8), (5, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/384
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 5), (1, 6), (2, 9), (3, 10), (4, 8), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/72
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 7), (1, 8), (2, 9), (3, 10), (4, 6), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/841
+Layer 9 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 10), (2, 7), (3, 6), (4, 8), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/781
+Layer 9 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 9), (1, 6), (2, 7), (3, 10), (4, 8), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/487
+
+Processing Q_similarity_matrix for Layer 9
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 9), (1, 10), (2, 4), (3, 7), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/356
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 10), (1, 8), (2, 4), (3, 6), (5, 11), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/867
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 9), (1, 10), (2, 7), (3, 6), (4, 8), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/781
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 9), (1, 7), (2, 4), (3, 11), (5, 8), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/416
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 10), (2, 4), (3, 6), (5, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/244
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 9), (1, 10), (2, 7), (3, 6), (4, 8), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/781
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 9), (1, 10), (2, 7), (3, 6), (4, 11), (5, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/781
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 9), (1, 7), (2, 4), (3, 10), (5, 11), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/416
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 9), (1, 10), (2, 7), (3, 6), (4, 11), (5, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/781
+Layer 9 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 8), (2, 7), (3, 6), (4, 10), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/809
+Layer 9 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 9), (1, 10), (2, 4), (3, 6), (5, 11), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/244
+
+Processing V_similarity_matrix for Layer 9
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 5), (1, 2), (3, 11), (4, 6), (7, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/217
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 9), (1, 2), (3, 5), (4, 6), (7, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/583
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 5), (1, 8), (2, 3), (4, 11), (6, 9), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/444
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 5), (1, 2), (3, 9), (4, 6), (7, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/285
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 2), (3, 10), (4, 6), (7, 11), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/978
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 5), (1, 8), (2, 7), (3, 6), (4, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/824
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 9), (1, 6), (2, 7), (3, 5), (4, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/183
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 5), (1, 2), (3, 8), (4, 6), (7, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/111
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 5), (1, 8), (2, 7), (3, 11), (4, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/824
+Layer 9 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 5), (1, 11), (2, 7), (3, 8), (4, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/139
+Layer 9 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 5), (1, 8), (2, 7), (3, 11), (4, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/824
+
+Processing KxQ_similarity_matrix for Layer 9
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 3), (1, 8), (2, 7), (4, 11), (5, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/68
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 11), (1, 8), (2, 3), (4, 9), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/909
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 7), (1, 2), (3, 8), (4, 11), (5, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/12
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 11), (1, 8), (2, 3), (4, 9), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/909
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 6), (1, 7), (2, 10), (3, 8), (4, 9), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/519
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 9), (1, 2), (3, 8), (4, 10), (5, 11), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/163
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 6), (1, 8), (2, 3), (4, 7), (5, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/563
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 11), (1, 8), (2, 3), (4, 9), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/909
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 6), (1, 8), (2, 3), (4, 5), (7, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/563
+Layer 9 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 8), (2, 11), (3, 10), (4, 5), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/524
+Layer 9 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 6), (1, 8), (2, 11), (3, 7), (4, 5), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/290
+
+Processing KxQxV_similarity_matrix for Layer 9
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 3), (1, 9), (2, 5), (4, 11), (6, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/422
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 8), (1, 7), (2, 3), (4, 11), (5, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/344
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 3), (1, 7), (2, 5), (4, 9), (6, 11), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/881
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 8), (1, 7), (2, 5), (3, 6), (4, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/667
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 8), (1, 6), (2, 5), (3, 7), (4, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/313
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 8), (1, 7), (2, 9), (3, 4), (5, 6), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/374
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 8), (1, 2), (3, 6), (4, 7), (5, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/193
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 8), (1, 7), (2, 5), (3, 10), (4, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/477
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 8), (1, 6), (2, 9), (3, 5), (4, 7), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/702
+Layer 9 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 8), (1, 7), (2, 9), (3, 10), (4, 11), (5, 6)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/477
+Layer 9 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 8), (1, 2), (3, 7), (4, 11), (5, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/649
+
+Processing Layer 10
+
+Processing K_similarity_matrix for Layer 10
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 9), (1, 6), (2, 7), (3, 10), (4, 8), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/487
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 4), (1, 6), (2, 8), (3, 11), (5, 9), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/97
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 4), (1, 11), (2, 6), (3, 8), (5, 9), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/66
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 4), (1, 6), (2, 8), (3, 11), (5, 9), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/97
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 11), (2, 5), (3, 4), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/206
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 9), (1, 6), (2, 4), (3, 10), (5, 8), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/183
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 6), (2, 3), (5, 9), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/160
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 9), (1, 11), (2, 4), (3, 5), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/349
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 4), (1, 11), (2, 5), (3, 9), (6, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/45
+Layer 10 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 11), (2, 4), (3, 6), (5, 8), (7, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/29
+Layer 10 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 4), (1, 6), (2, 3), (5, 9), (7, 10), (8, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/160
+
+Processing Q_similarity_matrix for Layer 10
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 4), (1, 6), (2, 7), (3, 8), (5, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/783
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 9), (1, 6), (2, 10), (3, 8), (4, 7), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/935
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 3), (1, 5), (2, 8), (4, 11), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/516
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 7), (1, 6), (2, 8), (3, 4), (5, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/753
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 11), (2, 4), (3, 8), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/274
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 7), (1, 6), (2, 10), (3, 8), (4, 11), (5, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/443
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 7), (1, 6), (2, 8), (3, 11), (4, 5), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/753
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 3), (1, 11), (2, 8), (4, 10), (5, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/411
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 2), (1, 11), (3, 8), (4, 5), (6, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/83, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/527
+Layer 10 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 2), (1, 11), (3, 8), (4, 10), (5, 9), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/83, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/527
+Layer 10 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 10), (1, 6), (2, 7), (3, 8), (4, 11), (5, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/51
+
+Processing V_similarity_matrix for Layer 10
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 2), (1, 6), (3, 11), (4, 7), (5, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/986
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 7), (1, 4), (2, 5), (3, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/941
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 11), (1, 8), (2, 3), (4, 7), (5, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/909
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 7), (1, 4), (2, 5), (3, 11), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/941
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 7), (1, 8), (2, 4), (3, 11), (5, 6), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/42
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 2), (1, 4), (3, 11), (5, 6), (7, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/886
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 7), (1, 4), (2, 3), (5, 6), (8, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/926
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 6), (1, 2), (3, 11), (4, 7), (5, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/94
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 5), (1, 6), (2, 8), (3, 11), (4, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/790
+Layer 10 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 6), (1, 2), (3, 11), (4, 7), (5, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/94
+Layer 10 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 9), (1, 8), (2, 10), (3, 11), (4, 7), (5, 6)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/658
+
+Processing KxQ_similarity_matrix for Layer 10
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 2), (1, 3), (4, 7), (5, 8), (6, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/605
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 1), (2, 11), (3, 8), (4, 7), (5, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/842
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 2), (1, 7), (3, 8), (4, 11), (5, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/908
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 1), (2, 11), (3, 8), (4, 7), (5, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/842
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 3), (2, 11), (4, 7), (5, 10), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/427
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 1), (2, 3), (4, 11), (5, 9), (6, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/368
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 1), (2, 11), (3, 8), (4, 7), (5, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/842
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 3), (1, 7), (2, 11), (4, 6), (5, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/306
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 3), (1, 7), (2, 11), (4, 8), (5, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/306
+Layer 10 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 3), (1, 7), (2, 11), (4, 6), (5, 9), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/306
+Layer 10 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 1), (2, 11), (3, 8), (4, 7), (5, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/842
+
+Processing KxQxV_similarity_matrix for Layer 10
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 3), (1, 2), (4, 7), (5, 6), (8, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/964
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 3), (1, 2), (4, 11), (5, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/54, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/534
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 3), (1, 2), (4, 7), (5, 6), (8, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/964
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 3), (1, 2), (4, 11), (5, 7), (6, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/54, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/534
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 3), (1, 2), (4, 7), (5, 6), (8, 11), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/964
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 1), (2, 9), (3, 8), (4, 6), (5, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/178
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 3), (1, 2), (4, 11), (5, 6), (7, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/54, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/534
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 3), (1, 6), (2, 9), (4, 11), (5, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/757
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 3), (1, 6), (2, 8), (4, 11), (5, 7), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/757
+Layer 10 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 3), (1, 6), (2, 9), (4, 11), (5, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/757
+Layer 10 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 3), (1, 2), (4, 11), (5, 6), (7, 8), (9, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/54, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/534
+
+Processing Layer 11
+
+Processing K_similarity_matrix for Layer 11
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 5), (1, 7), (2, 11), (3, 8), (4, 10), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/16, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/102, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/105, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/106
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 5), (1, 7), (2, 11), (3, 8), (4, 10), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/16, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/102, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/105, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/106
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 2), (1, 7), (3, 8), (4, 10), (5, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/110, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/112
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 5), (1, 7), (2, 11), (3, 8), (4, 10), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/16, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/102, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/105, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/106
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 5), (1, 10), (2, 3), (4, 11), (6, 9), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/116
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 5), (1, 7), (2, 9), (3, 8), (4, 10), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/108
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 5), (1, 2), (3, 8), (4, 10), (6, 11), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/113, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/114, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/115, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/930
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 5), (1, 2), (3, 8), (4, 7), (6, 9), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/111
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 5), (1, 7), (2, 8), (3, 11), (4, 10), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/13
+Layer 11 - K_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 5), (1, 2), (3, 8), (4, 10), (6, 9), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/113, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/114, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/115, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/930
+Layer 11 - K_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 5), (1, 7), (2, 11), (3, 8), (4, 10), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/16, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/102, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/105, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/106
+
+Processing Q_similarity_matrix for Layer 11
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 3), (1, 9), (2, 11), (4, 6), (5, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/360
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 2), (1, 9), (3, 11), (4, 6), (5, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/26, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/206
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 11), (1, 9), (2, 7), (3, 5), (4, 6), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/32
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 2), (1, 9), (3, 11), (4, 6), (5, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/26, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/206
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 2), (1, 9), (3, 11), (4, 6), (5, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/26, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/206
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 2), (1, 9), (3, 11), (4, 6), (5, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/26, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/206
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 2), (1, 9), (3, 8), (4, 10), (5, 7), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/15
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 2), (1, 6), (3, 4), (5, 7), (8, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/211
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 11), (1, 9), (2, 3), (4, 10), (5, 7), (6, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/764
+Layer 11 - Q_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 2), (1, 6), (3, 4), (5, 7), (8, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/211
+Layer 11 - Q_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 2), (1, 9), (3, 11), (4, 6), (5, 7), (8, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/26, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/206
+
+Processing V_similarity_matrix for Layer 11
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 7), (1, 5), (2, 8), (3, 11), (4, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/35, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/301, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/303, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/314
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 7), (1, 9), (2, 8), (3, 5), (4, 11), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/77
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 7), (1, 9), (2, 8), (3, 11), (4, 5), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/698
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 7), (1, 9), (2, 8), (3, 5), (4, 11), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/77
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 7), (1, 5), (2, 9), (3, 11), (4, 8), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/31, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/307, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/309
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 7), (1, 9), (2, 8), (3, 5), (4, 11), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/proxy/77
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 7), (1, 4), (2, 9), (3, 11), (5, 8), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/283
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 9), (1, 5), (2, 8), (3, 11), (4, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/827
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 7), (1, 5), (2, 8), (3, 11), (4, 9), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/35, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/301, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/303, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/314
+Layer 11 - V_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 9), (1, 5), (2, 8), (3, 11), (4, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/827
+Layer 11 - V_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 7), (1, 5), (2, 9), (3, 11), (4, 8), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/31, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/307, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/309
+
+Processing KxQ_similarity_matrix for Layer 11
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 7), (1, 9), (2, 8), (3, 11), (4, 6), (5, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/499
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 1), (2, 8), (3, 9), (4, 6), (5, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/42
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 1), (2, 8), (3, 6), (4, 10), (5, 9), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/451
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 1), (2, 8), (3, 9), (4, 6), (5, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/42
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 9), (1, 8), (2, 7), (3, 6), (4, 10), (5, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/809
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 1), (2, 8), (3, 4), (5, 10), (6, 9), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/791
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 8), (2, 7), (3, 10), (5, 11), (6, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/736
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 3), (1, 7), (2, 8), (4, 6), (5, 10), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/881
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 7), (1, 11), (2, 8), (3, 9), (4, 6), (5, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/408
+Layer 11 - KxQ_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 3), (1, 11), (2, 8), (4, 6), (5, 10), (7, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/411
+Layer 11 - KxQ_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 10), (1, 8), (2, 7), (3, 5), (4, 6), (9, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/46, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/406
+
+Processing KxQxV_similarity_matrix for Layer 11
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_mean: [(0, 11), (1, 4), (2, 8), (3, 9), (5, 7), (6, 10)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/111
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for K_var: [(0, 9), (1, 4), (2, 8), (3, 7), (5, 10), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_mean: [(0, 11), (1, 4), (2, 8), (3, 9), (5, 10), (6, 7)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/111
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for Q_var: [(0, 9), (1, 4), (2, 8), (3, 7), (5, 10), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_mean: [(0, 4), (1, 6), (2, 9), (3, 11), (5, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/215
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for V_var: [(0, 7), (1, 4), (2, 8), (3, 9), (5, 10), (6, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/946
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_mean: [(0, 4), (1, 8), (2, 6), (3, 9), (5, 7), (10, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/736
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQ_var: [(0, 4), (1, 6), (2, 8), (3, 9), (5, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/514
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_mean: [(0, 7), (1, 4), (2, 6), (3, 11), (5, 10), (8, 9)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/941
+Layer 11 - KxQxV_similarity_matrix Importance-prioritized sorted groups for KxQxV_var: [(0, 4), (1, 6), (2, 8), (3, 9), (5, 10), (7, 11)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/mean_var/514
+Layer 11 - KxQxV_similarity_matrix Highest similarity sorted groups for Highest similarity: [(0, 9), (1, 4), (2, 6), (3, 11), (5, 10), (7, 8)] - Closest match at: /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/concrete/proxy/55
+
+All processing complete.

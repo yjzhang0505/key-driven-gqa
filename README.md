@@ -125,3 +125,18 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
 - output/l2_norms.txt 
 - /data/yjzhang/desktop/try/key-driven-gqa/figure
 - /data/yjzhang/desktop/try/key-driven-gqa/mnist.yaml
+
+
+
+### retry-2.5
+        calculate/group_all_aline_init.txt
+        calculate/reading_csv.py
+        calculate/reading_csv_from_folder.py
+        calculate/results_summary.txt
+        figure/graph.py
+        figure/head_grouping_graph.png
+        output/arbitrary/dustbin/_grouping_mean_var.txt
+        packed_well/
+        修改：     calculate/group_aline.py
+        修改：     calculate/group_all_aline.txt
+        修改：     output/arbitrary/concrete/csv_to_excel.py
