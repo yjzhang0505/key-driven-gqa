@@ -140,3 +140,17 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
         修改：     calculate/group_aline.py
         修改：     calculate/group_all_aline.txt
         修改：     output/arbitrary/concrete/csv_to_excel.py
+
+## retry-2.6
+        修改：     calculate/group_all_aline.txt
+        修改：     calculate/reading_csv.py
+        修改：     figure/graph.py
+        修改：     figure/head_grouping_graph.png
+
+未跟踪的文件:
+  （使用 "git add <文件>..." 以包含要提交的内容）
+        figure/_head_grouping_graph.png
+        figure/adjacent_matrix/
+        packed_well/graph.py
+        packed_well/graph_imp_sim.py
+        packed_well_copy/
