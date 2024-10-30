@@ -1,33 +1,3 @@
-(0, 3) (1, 9) (2, 8) (4, 7) (5, 10) (6, 11), 0.8602707006369427, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/41
-(0, 5) (1, 6) (2, 9) (3, 11) (4, 10) (7, 8), 0.8465366242038217, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/78
-(0, 2) (1, 11) (3, 8) (4, 7) (5, 9) (6, 10), 0.8374800955414012, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/32
-(0, 6) (1, 2) (3, 11) (4, 10) (5, 8) (7, 9), 0.8126990445859873, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/93
-(0, 3) (1, 8) (2, 10) (4, 5) (6, 7) (9, 11), 0.8121019108280255, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/38
-(0, 5) (1, 7) (2, 9) (3, 4) (6, 10) (8, 11), 0.8062300955414012, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/82
-(0, 1) (2, 9) (3, 7) (4, 6) (5, 11) (8, 10), 0.8036425159235668, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/10
-(0, 1) (2, 11) (3, 7) (4, 6) (5, 9) (8, 10), 0.8007563694267515, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/12
-(0, 2) (1, 11) (3, 5) (4, 9) (6, 10) (7, 8), 0.7992635350318471, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/30
-(0, 4) (1, 9) (2, 10) (3, 8) (5, 11) (6, 7), 0.7965764331210191, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/61
-(0, 6) (1, 4) (2, 11) (3, 7) (5, 10) (8, 9), 0.791202229299363, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/94
-(0, 5) (1, 10) (2, 11) (3, 4) (6, 8) (7, 9), 0.7909036624203821, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/88
-(0, 3) (1, 2) (4, 11) (5, 8) (6, 9) (7, 10), 0.7882165605095541, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/33
-(0, 4) (1, 10) (2, 8) (3, 7) (5, 11) (6, 9), 0.7814490445859873, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/63
-(0, 5) (1, 6) (2, 10) (3, 8) (4, 11) (7, 9), 0.7731886942675159, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/79
-(0, 1) (2, 3) (4, 5) (6, 7) (8, 9) (10, 11), 0.7708996815286624, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/1
-(0, 3) (1, 8) (2, 4) (5, 7) (6, 11) (9, 10), 0.7662221337579618, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/37
-(0, 4) (1, 5) (2, 11) (3, 6) (7, 8) (9, 10), 0.7601512738853503, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/52
-(0, 2) (1, 3) (4, 10) (5, 6) (7, 11) (8, 9), 0.7553742038216561, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/15
-(0, 4) (1, 11) (2, 6) (3, 8) (5, 9) (7, 10), 0.7542794585987261, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/67
-(0, 3) (1, 11) (2, 9) (4, 8) (5, 6) (7, 10), 0.7516918789808917, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/43
-(0, 6) (1, 5) (2, 11) (3, 4) (7, 8) (9, 10), 0.7492038216560509, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/95
-(0, 2) (1, 3) (4, 5) (6, 10) (7, 8) (9, 11), 0.747312898089172, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/14
-(0, 6) (1, 2) (3, 8) (4, 5) (7, 10) (9, 11), 0.7452229299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/91
-(0, 1) (2, 5) (3, 11) (4, 9) (6, 10) (7, 8), 0.736265923566879, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/4
-(0, 4) (1, 6) (2, 8) (3, 11) (5, 9) (7, 10), 0.7319864649681529, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/55
-(0, 1) (2, 5) (3, 4) (6, 8) (7, 10) (9, 11), 0.7192476114649682, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/2
-(0, 2) (1, 6) (3, 5) (4, 7) (8, 10) (9, 11), 0.7140724522292994, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/17
-(0, 4) (1, 10) (2, 8) (3, 9) (5, 11) (6, 7), 0.7082006369426752, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/64
-(0, 5) (1, 8) (2, 6) (3, 11) (4, 9) (7, 10), 0.6889928343949044, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/85
 (0, 3) (1, 6) (2, 4) (5, 7) (8, 9) (10, 11), 0.5132364649681529, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/305
 (0, 6) (1, 3) (2, 4) (5, 11) (7, 10) (8, 9), 0.5131369426751592, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/592
 (0, 7) (1, 10) (2, 3) (4, 11) (5, 9) (6, 8), 0.5130374203821656, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/384
@@ -36,6 +6,7 @@
 (0, 8) (1, 3) (2, 5) (4, 11) (6, 7) (9, 10), 0.511843152866242, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/934
 (0, 6) (1, 10) (2, 3) (4, 5) (7, 11) (8, 9), 0.5114450636942676, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/437
 (0, 3) (1, 7) (2, 10) (4, 11) (5, 9) (6, 8), 0.5108479299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/691
+(0, 2) (1, 11) (3, 8) (4, 7) (5, 9) (6, 10), 0.5107484076433121, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/32
 (0, 2) (1, 11) (3, 8) (4, 7) (5, 9) (6, 10), 0.5107484076433121, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/527
 (0, 6) (1, 3) (2, 10) (4, 11) (5, 7) (8, 9), 0.5106488853503185, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/701
 (0, 3) (1, 2) (4, 9) (5, 7) (6, 8) (10, 11), 0.5106488853503185, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/840
@@ -161,6 +132,7 @@
 (0, 11) (1, 3) (2, 4) (5, 6) (7, 10) (8, 9), 0.5049761146496815, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/573
 (0, 11) (1, 7) (2, 4) (3, 5) (6, 9) (8, 10), 0.5049761146496815, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/740
 (0, 3) (1, 9) (2, 5) (4, 7) (6, 10) (8, 11), 0.5049761146496815, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/888
+(0, 3) (1, 8) (2, 4) (5, 7) (6, 11) (9, 10), 0.5048765923566879, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/37
 (0, 3) (1, 11) (2, 7) (4, 8) (5, 9) (6, 10), 0.5048765923566879, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/655
 (0, 1) (2, 5) (3, 6) (4, 10) (7, 11) (8, 9), 0.5048765923566879, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/722
 (0, 3) (1, 4) (2, 8) (5, 7) (6, 9) (10, 11), 0.5047770700636943, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/103
@@ -171,6 +143,7 @@
 (0, 3) (1, 5) (2, 11) (4, 6) (7, 10) (8, 9), 0.5046775477707006, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/666
 (0, 3) (1, 11) (2, 10) (4, 7) (5, 8) (6, 9), 0.5046775477707006, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/682
 (0, 3) (1, 4) (2, 10) (5, 9) (6, 7) (8, 11), 0.5046775477707006, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/685
+(0, 5) (1, 6) (2, 9) (3, 11) (4, 10) (7, 8), 0.504578025477707, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/78
 (0, 5) (1, 7) (2, 3) (4, 6) (8, 10) (9, 11), 0.504578025477707, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/80
 (0, 3) (1, 4) (2, 10) (5, 9) (6, 8) (7, 11), 0.504578025477707, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/110
 (0, 3) (1, 8) (2, 9) (4, 5) (6, 11) (7, 10), 0.504578025477707, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/475
@@ -214,6 +187,7 @@
 (0, 8) (1, 2) (3, 11) (4, 6) (5, 10) (7, 9), 0.5035828025477707, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/868
 (0, 3) (1, 6) (2, 4) (5, 9) (7, 11) (8, 10), 0.5035828025477707, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/876
 (0, 1) (2, 8) (3, 5) (4, 9) (6, 10) (7, 11), 0.5034832802547771, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/5
+(0, 4) (1, 11) (2, 6) (3, 8) (5, 9) (7, 10), 0.5034832802547771, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/67
 (0, 3) (1, 9) (2, 8) (4, 11) (5, 6) (7, 10), 0.5034832802547771, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/121
 (0, 4) (1, 2) (3, 8) (5, 7) (6, 11) (9, 10), 0.5034832802547771, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/359
 (0, 5) (1, 7) (2, 4) (3, 9) (6, 10) (8, 11), 0.5034832802547771, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/542
@@ -272,6 +246,7 @@
 (0, 9) (1, 10) (2, 4) (3, 8) (5, 6) (7, 11), 0.5024880573248408, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/548
 (0, 7) (1, 8) (2, 5) (3, 6) (4, 11) (9, 10), 0.5024880573248408, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/571
 (0, 3) (1, 7) (2, 9) (4, 8) (5, 10) (6, 11), 0.5024880573248408, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/881
+(0, 3) (1, 2) (4, 11) (5, 8) (6, 9) (7, 10), 0.5023885350318471, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/33
 (0, 3) (1, 2) (4, 11) (5, 8) (6, 9) (7, 10), 0.5023885350318471, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/534
 (0, 8) (1, 2) (3, 7) (4, 6) (5, 10) (9, 11), 0.5023885350318471, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/618
 (0, 4) (1, 8) (2, 9) (3, 11) (5, 6) (7, 10), 0.5023885350318471, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/817
@@ -305,6 +280,7 @@
 (0, 6) (1, 4) (2, 8) (3, 11) (5, 7) (9, 10), 0.501890923566879, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/550
 (0, 10) (1, 11) (2, 3) (4, 7) (5, 8) (6, 9), 0.501890923566879, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/733
 (0, 1) (2, 3) (4, 10) (5, 9) (6, 8) (7, 11), 0.501890923566879, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/811
+(0, 4) (1, 6) (2, 8) (3, 11) (5, 9) (7, 10), 0.5017914012738853, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/55
 (0, 5) (1, 10) (2, 6) (3, 8) (4, 11) (7, 9), 0.5017914012738853, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/142
 (0, 7) (1, 2) (3, 10) (4, 6) (5, 9) (8, 11), 0.5017914012738853, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/677
 (0, 7) (1, 6) (2, 8) (3, 10) (4, 11) (5, 9), 0.5017914012738853, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/753
@@ -344,6 +320,7 @@
 (0, 2) (1, 6) (3, 8) (4, 10) (5, 7) (9, 11), 0.50109474522293, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/355
 (0, 11) (1, 5) (2, 9) (3, 6) (4, 8) (7, 10), 0.5009952229299363, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/258
 (0, 11) (1, 4) (2, 5) (3, 6) (7, 10) (8, 9), 0.5009952229299363, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/681
+(0, 1) (2, 5) (3, 11) (4, 9) (6, 10) (7, 8), 0.5008957006369427, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/4
 (0, 4) (1, 7) (2, 6) (3, 9) (5, 10) (8, 11), 0.5008957006369427, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/57
 (0, 5) (1, 4) (2, 6) (3, 8) (7, 9) (10, 11), 0.5008957006369427, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/182
 (0, 3) (1, 10) (2, 5) (4, 8) (6, 9) (7, 11), 0.5008957006369427, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/208
@@ -352,6 +329,7 @@
 (0, 10) (1, 4) (2, 11) (3, 9) (5, 7) (6, 8), 0.5008957006369427, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/723
 (0, 7) (1, 8) (2, 4) (3, 10) (5, 11) (6, 9), 0.5008957006369427, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/879
 (0, 2) (1, 10) (3, 8) (4, 6) (5, 7) (9, 11), 0.5007961783439491, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/28
+(0, 5) (1, 8) (2, 6) (3, 11) (4, 9) (7, 10), 0.5007961783439491, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/85
 (0, 1) (2, 9) (3, 6) (4, 10) (5, 11) (7, 8), 0.5007961783439491, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/461
 (0, 3) (1, 2) (4, 9) (5, 8) (6, 7) (10, 11), 0.5007961783439491, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/628
 (0, 10) (1, 7) (2, 11) (3, 6) (4, 5) (8, 9), 0.5007961783439491, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/773
@@ -377,6 +355,7 @@
 (0, 5) (1, 7) (2, 11) (3, 4) (6, 8) (9, 10), 0.5005971337579618, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/659
 (0, 4) (1, 2) (3, 6) (5, 7) (8, 9) (10, 11), 0.5005971337579618, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/756
 (0, 6) (1, 10) (2, 3) (4, 9) (5, 7) (8, 11), 0.5005971337579618, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/983
+(0, 4) (1, 5) (2, 11) (3, 6) (7, 8) (9, 10), 0.5004976114649682, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/52
 (0, 5) (1, 2) (3, 4) (6, 11) (7, 8) (9, 10), 0.5004976114649682, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/69
 (0, 5) (1, 2) (3, 7) (4, 11) (6, 9) (8, 10), 0.5004976114649682, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/220
 (0, 3) (1, 2) (4, 7) (5, 10) (6, 11) (8, 9), 0.5004976114649682, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/602
@@ -400,6 +379,7 @@
 (0, 5) (1, 7) (2, 4) (3, 10) (6, 11) (8, 9), 0.5001990445859873, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/814
 (0, 3) (1, 8) (2, 6) (4, 5) (7, 9) (10, 11), 0.5001990445859873, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/815
 (0, 1) (2, 10) (3, 5) (4, 7) (6, 11) (8, 9), 0.5001990445859873, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/830
+(0, 1) (2, 5) (3, 4) (6, 8) (7, 10) (9, 11), 0.5000995222929936, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/2
 (0, 5) (1, 4) (2, 10) (3, 11) (6, 9) (7, 8), 0.5000995222929936, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/77
 (0, 3) (1, 5) (2, 4) (6, 10) (7, 9) (8, 11), 0.5000995222929936, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/161
 (0, 9) (1, 5) (2, 7) (3, 8) (4, 11) (6, 10), 0.5000995222929936, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/210
@@ -422,6 +402,7 @@
 (0, 11) (1, 7) (2, 10) (3, 8) (4, 9) (5, 6), 0.4999004777070063, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/713
 (0, 10) (1, 9) (2, 4) (3, 11) (5, 7) (6, 8), 0.4999004777070063, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/755
 (0, 10) (1, 3) (2, 11) (4, 5) (6, 7) (8, 9), 0.4999004777070063, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/804
+(0, 2) (1, 3) (4, 10) (5, 6) (7, 11) (8, 9), 0.4998009554140127, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/15
 (0, 1) (2, 5) (3, 7) (4, 10) (6, 11) (8, 9), 0.4998009554140127, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/144
 (0, 4) (1, 7) (2, 6) (3, 11) (5, 10) (8, 9), 0.4997014331210191, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/58
 (0, 8) (1, 4) (2, 3) (5, 6) (7, 10) (9, 11), 0.4997014331210191, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/508
@@ -457,6 +438,7 @@
 (0, 2) (1, 4) (3, 7) (5, 9) (6, 10) (8, 11), 0.4993033439490446, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/759
 (0, 11) (1, 10) (2, 3) (4, 9) (5, 6) (7, 8), 0.4993033439490446, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/760
 (0, 9) (1, 5) (2, 11) (3, 4) (6, 8) (7, 10), 0.4993033439490446, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/818
+(0, 4) (1, 10) (2, 8) (3, 9) (5, 11) (6, 7), 0.4992038216560509, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/64
 (0, 10) (1, 3) (2, 11) (4, 8) (5, 7) (6, 9), 0.4992038216560509, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/262
 (0, 1) (2, 5) (3, 11) (4, 8) (6, 10) (7, 9), 0.4992038216560509, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/270
 (0, 11) (1, 4) (2, 7) (3, 6) (5, 9) (8, 10), 0.4992038216560509, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/296
@@ -505,6 +487,7 @@
 (0, 5) (1, 3) (2, 7) (4, 10) (6, 11) (8, 9), 0.4985071656050955, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/810
 (0, 10) (1, 3) (2, 4) (5, 9) (6, 7) (8, 11), 0.4985071656050955, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/933
 (0, 4) (1, 6) (2, 9) (3, 5) (7, 11) (8, 10), 0.4985071656050955, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/942
+(0, 5) (1, 10) (2, 11) (3, 4) (6, 8) (7, 9), 0.4984076433121019, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/88
 (0, 6) (1, 7) (2, 4) (3, 9) (5, 11) (8, 10), 0.4984076433121019, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/135
 (0, 2) (1, 7) (3, 6) (4, 9) (5, 10) (8, 11), 0.4984076433121019, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/149
 (0, 4) (1, 5) (2, 3) (6, 10) (7, 11) (8, 9), 0.4984076433121019, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/484
@@ -533,6 +516,7 @@
 (0, 8) (1, 6) (2, 4) (3, 10) (5, 11) (7, 9), 0.4980095541401274, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/391
 (0, 5) (1, 4) (2, 3) (6, 11) (7, 9) (8, 10), 0.4980095541401274, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/928
 (0, 5) (1, 11) (2, 10) (3, 7) (4, 8) (6, 9), 0.4980095541401274, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/974
+(0, 4) (1, 10) (2, 8) (3, 7) (5, 11) (6, 9), 0.4979100318471338, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/63
 (0, 11) (1, 4) (2, 8) (3, 5) (6, 9) (7, 10), 0.4979100318471338, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/123
 (0, 5) (1, 6) (2, 11) (3, 9) (4, 8) (7, 10), 0.4979100318471338, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/152
 (0, 5) (1, 11) (2, 7) (3, 10) (4, 8) (6, 9), 0.4979100318471338, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/192
@@ -553,6 +537,7 @@
 (0, 4) (1, 3) (2, 6) (5, 10) (7, 8) (9, 11), 0.4977109872611465, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/673
 (0, 3) (1, 4) (2, 7) (5, 10) (6, 11) (8, 9), 0.4977109872611465, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/825
 (0, 3) (1, 8) (2, 11) (4, 7) (5, 10) (6, 9), 0.4977109872611465, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/829
+(0, 3) (1, 8) (2, 10) (4, 5) (6, 7) (9, 11), 0.4976114649681528, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/38
 (0, 5) (1, 11) (2, 8) (3, 6) (4, 10) (7, 9), 0.4976114649681528, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/90
 (0, 11) (1, 5) (2, 3) (4, 10) (6, 9) (7, 8), 0.4976114649681528, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/198
 (0, 7) (1, 11) (2, 6) (3, 8) (4, 9) (5, 10), 0.4976114649681528, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/289
@@ -610,6 +595,8 @@
 (0, 4) (1, 8) (2, 10) (3, 6) (5, 11) (7, 9), 0.4967157643312102, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/459
 (0, 11) (1, 7) (2, 8) (3, 9) (4, 10) (5, 6), 0.4967157643312102, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/770
 (0, 1) (2, 5) (3, 10) (4, 7) (6, 11) (8, 9), 0.4967157643312102, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/956
+(0, 1) (2, 9) (3, 7) (4, 6) (5, 11) (8, 10), 0.4966162420382166, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/10
+(0, 3) (1, 11) (2, 9) (4, 8) (5, 6) (7, 10), 0.4966162420382166, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/43
 (0, 8) (1, 3) (2, 11) (4, 5) (6, 7) (9, 10), 0.4966162420382166, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/158
 (0, 5) (1, 9) (2, 3) (4, 7) (6, 8) (10, 11), 0.4966162420382166, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/264
 (0, 5) (1, 2) (3, 9) (4, 11) (6, 10) (7, 8), 0.4965167197452229, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/285
@@ -637,6 +624,7 @@
 (0, 4) (1, 9) (2, 3) (5, 10) (6, 11) (7, 8), 0.496218152866242, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/447
 (0, 5) (1, 4) (2, 11) (3, 6) (7, 9) (8, 10), 0.496218152866242, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/647
 (0, 8) (1, 6) (2, 11) (3, 5) (4, 7) (9, 10), 0.496218152866242, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/874
+(0, 2) (1, 3) (4, 5) (6, 10) (7, 8) (9, 11), 0.4961186305732484, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/14
 (0, 6) (1, 10) (2, 5) (3, 11) (4, 8) (7, 9), 0.4961186305732484, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/165
 (0, 1) (2, 7) (3, 9) (4, 5) (6, 8) (10, 11), 0.4961186305732484, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/199
 (0, 1) (2, 9) (3, 6) (4, 11) (5, 7) (8, 10), 0.4961186305732484, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/372
@@ -672,6 +660,7 @@
 (0, 11) (1, 6) (2, 9) (3, 7) (4, 5) (8, 10), 0.4956210191082802, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/572
 (0, 3) (1, 11) (2, 8) (4, 7) (5, 10) (6, 9), 0.4956210191082802, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/598
 (0, 7) (1, 4) (2, 8) (3, 9) (5, 6) (10, 11), 0.4956210191082802, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/946
+(0, 6) (1, 4) (2, 11) (3, 7) (5, 10) (8, 9), 0.4955214968152866, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/94
 (0, 3) (1, 9) (2, 7) (4, 6) (5, 11) (8, 10), 0.4955214968152866, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/104
 (0, 9) (1, 10) (2, 8) (3, 5) (4, 7) (6, 11), 0.4955214968152866, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/171
 (0, 5) (1, 9) (2, 11) (3, 6) (4, 7) (8, 10), 0.4955214968152866, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/224
@@ -684,6 +673,8 @@
 (0, 10) (1, 8) (2, 7) (3, 6) (4, 9) (5, 11), 0.495421974522293, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/299
 (0, 6) (1, 4) (2, 9) (3, 7) (5, 11) (8, 10), 0.495421974522293, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/715
 (0, 5) (1, 2) (3, 4) (6, 9) (7, 11) (8, 10), 0.4953224522292994, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/904
+(0, 1) (2, 11) (3, 7) (4, 6) (5, 9) (8, 10), 0.4952229299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/12
+(0, 4) (1, 9) (2, 10) (3, 8) (5, 11) (6, 7), 0.4952229299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/61
 (0, 4) (1, 11) (2, 8) (3, 7) (5, 10) (6, 9), 0.4952229299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/68
 (0, 1) (2, 9) (3, 11) (4, 7) (5, 10) (6, 8), 0.4952229299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/269
 (0, 6) (1, 8) (2, 9) (3, 7) (4, 5) (10, 11), 0.4952229299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/290
@@ -693,10 +684,13 @@
 (0, 11) (1, 8) (2, 6) (3, 9) (4, 10) (5, 7), 0.4952229299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/678
 (0, 10) (1, 2) (3, 4) (5, 7) (6, 9) (8, 11), 0.4952229299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/686
 (0, 8) (1, 5) (2, 6) (3, 4) (7, 10) (9, 11), 0.4952229299363057, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/763
+(0, 1) (2, 3) (4, 5) (6, 7) (8, 9) (10, 11), 0.4951234076433121, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/1
+(0, 3) (1, 9) (2, 8) (4, 7) (5, 10) (6, 11), 0.4951234076433121, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/41
 (0, 4) (1, 3) (2, 10) (5, 8) (6, 11) (7, 9), 0.4951234076433121, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/126
 (0, 4) (1, 6) (2, 7) (3, 5) (8, 10) (9, 11), 0.4951234076433121, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/226
 (0, 1) (2, 9) (3, 5) (4, 10) (6, 8) (7, 11), 0.4951234076433121, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/668
 (0, 7) (1, 5) (2, 10) (3, 8) (4, 9) (6, 11), 0.4951234076433121, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/671
+(0, 5) (1, 6) (2, 10) (3, 8) (4, 11) (7, 9), 0.4950238853503185, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/79
 (0, 10) (1, 11) (2, 3) (4, 9) (5, 6) (7, 8), 0.4950238853503185, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/604
 (0, 9) (1, 11) (2, 10) (3, 6) (4, 5) (7, 8), 0.4950238853503185, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/716
 (0, 10) (1, 8) (2, 4) (3, 11) (5, 6) (7, 9), 0.4950238853503185, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/867
@@ -719,6 +713,7 @@
 (0, 10) (1, 3) (2, 6) (4, 7) (5, 8) (9, 11), 0.4947253184713376, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/932
 (0, 1) (2, 5) (3, 9) (4, 8) (6, 7) (10, 11), 0.4946257961783439, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/3
 (0, 4) (1, 5) (2, 6) (3, 9) (7, 8) (10, 11), 0.4946257961783439, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/49
+(0, 6) (1, 2) (3, 11) (4, 10) (5, 8) (7, 9), 0.4946257961783439, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/93
 (0, 7) (1, 5) (2, 11) (3, 9) (4, 8) (6, 10), 0.4946257961783439, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/112
 (0, 3) (1, 5) (2, 7) (4, 6) (8, 10) (9, 11), 0.4946257961783439, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/164
 (0, 5) (1, 6) (2, 7) (3, 9) (4, 8) (10, 11), 0.4946257961783439, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/181
@@ -766,6 +761,8 @@
 (0, 7) (1, 2) (3, 5) (4, 8) (6, 11) (9, 10), 0.4937300955414013, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/411
 (0, 5) (1, 6) (2, 8) (3, 10) (4, 11) (7, 9), 0.4937300955414013, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/790
 (0, 3) (1, 11) (2, 8) (4, 6) (5, 10) (7, 9), 0.4936305732484076, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/42
+(0, 5) (1, 7) (2, 9) (3, 4) (6, 10) (8, 11), 0.4936305732484076, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/82
+(0, 6) (1, 2) (3, 8) (4, 5) (7, 10) (9, 11), 0.4936305732484076, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/91
 (0, 1) (2, 10) (3, 7) (4, 6) (5, 11) (8, 9), 0.4936305732484076, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/507
 (0, 6) (1, 7) (2, 10) (3, 8) (4, 5) (9, 11), 0.4936305732484076, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/519
 (0, 2) (1, 8) (3, 9) (4, 7) (5, 11) (6, 10), 0.4936305732484076, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/792
@@ -859,6 +856,7 @@
 (0, 8) (1, 2) (3, 11) (4, 7) (5, 10) (6, 9), 0.4913415605095541, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/239
 (0, 10) (1, 7) (2, 6) (3, 4) (5, 8) (9, 11), 0.4913415605095541, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/669
 (0, 3) (1, 2) (4, 8) (5, 6) (7, 11) (9, 10), 0.4913415605095541, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/717
+(0, 2) (1, 11) (3, 5) (4, 9) (6, 10) (7, 8), 0.4912420382165605, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/30
 (0, 4) (1, 3) (2, 9) (5, 10) (6, 7) (8, 11), 0.4912420382165605, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/46
 (0, 2) (1, 10) (3, 7) (4, 8) (5, 6) (9, 11), 0.4912420382165605, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/586
 (0, 7) (1, 5) (2, 9) (3, 11) (4, 6) (8, 10), 0.4910429936305732, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/157
@@ -883,6 +881,7 @@
 (0, 3) (1, 9) (2, 7) (4, 8) (5, 10) (6, 11), 0.4903463375796178, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/489
 (0, 5) (1, 8) (2, 10) (3, 4) (6, 11) (7, 9), 0.4903463375796178, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/544
 (0, 6) (1, 9) (2, 5) (3, 11) (4, 7) (8, 10), 0.4903463375796178, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/640
+(0, 6) (1, 5) (2, 11) (3, 4) (7, 8) (9, 10), 0.4902468152866242, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/95
 (0, 6) (1, 5) (2, 11) (3, 9) (4, 8) (7, 10), 0.4902468152866242, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/413
 (0, 6) (1, 10) (2, 8) (3, 11) (4, 7) (5, 9), 0.4902468152866242, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/606
 (0, 2) (1, 11) (3, 5) (4, 6) (7, 9) (8, 10), 0.4902468152866242, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/768
@@ -897,6 +896,7 @@
 (0, 1) (2, 6) (3, 11) (4, 7) (5, 8) (9, 10), 0.4896496815286624, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/287
 (0, 11) (1, 8) (2, 6) (3, 9) (4, 5) (7, 10), 0.4896496815286624, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/638
 (0, 2) (1, 9) (3, 4) (5, 10) (6, 11) (7, 8), 0.4896496815286624, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/645
+(0, 2) (1, 6) (3, 5) (4, 7) (8, 10) (9, 11), 0.4895501592356688, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/17
 (0, 9) (1, 5) (2, 6) (3, 4) (7, 8) (10, 11), 0.4894506369426751, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/316
 (0, 2) (1, 11) (3, 10) (4, 8) (5, 9) (6, 7), 0.4894506369426751, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/522
 (0, 2) (1, 11) (3, 7) (4, 8) (5, 6) (9, 10), 0.4894506369426751, /data/yjzhang/desktop/try/key-driven-gqa/output/arbitrary/more/616

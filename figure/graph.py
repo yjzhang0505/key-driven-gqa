@@ -24,8 +24,8 @@ with open("/data/yjzhang/desktop/try/key-driven-gqa/calculate/group_all_aline.tx
             test_acc = float(parts[1])  # 解析准确度
 
             # 使用指数函数对test_acc进行放大
-            adjusted_acc = test_acc
-            # adjusted_acc = math.exp(50*test_acc)
+            # adjusted_acc = test_acc
+            adjusted_acc = math.exp(45*test_acc)
 
             # 使用正则表达式查找分组对
             groups = pattern.findall(groups_part)

@@ -1,7 +1,7 @@
 import pandas as pd
 
 # 指数平滑函数
-def exponential_smoothing(data, alpha=0.1):
+def exponential_smoothing(data, alpha=0.5):
     smoothed_data = data[-5:]  # 取最后五个数据
     smoothed_value = smoothed_data[0]  # 初始化第一个平滑值为最后五个数中的第一个
     for i in range(1, len(smoothed_data)):
