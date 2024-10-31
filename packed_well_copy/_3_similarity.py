@@ -23,68 +23,106 @@ def vit_small_patch16_224(num_classes=10, pretrained=False, in_chans=3):
 import torch
 import torch.nn.functional as F
 
-def cosine_similarity_matrix(A, B):
-    """ 计算矩阵 A 和矩阵 B 之间每个头之间的余弦相似性矩阵 (12x12) """
-    n = A.shape[0]
-    similarity_matrix = torch.zeros(n, n)
+# def cosine_similarity_matrix(A, B):
+#     """ 计算矩阵 A 和矩阵 B 之间每个头之间的余弦相似性矩阵 (12x12) """
+#     n = A.shape[0]
+#     similarity_matrix = torch.zeros(n, n)
         
+#     for i in range(n):
+#         for j in range(n):
+#             # 计算头 i 和头 j 之间的余弦相似度
+#             cos_sim_Ai_Bj = F.cosine_similarity(A[i], B[j], dim=-1)  # 计算每个头向量的相似度
+#             similarity_matrix[i, j] = cos_sim_Ai_Bj.mean().item()  # 平均后得到标量，填入相似性矩阵中
+
+#     # 归一化处理，使得相似性矩阵的均值为 1/3
+#     matrix_mean = similarity_matrix.mean().item()
+#     if matrix_mean != 0:
+#         similarity_matrix /= (3*matrix_mean)
+        
+#     return similarity_matrix
+
+# def calculate_similarity(model):
+#     """
+#     计算 Q、K、V 之间的相似性矩阵，并保存结果
+#     """
+#     all_similarity_matrices = {}
+
+#     for block_idx in range(model.num_layers):
+#         # 从模型的 q_layers、k_layers 和 v_layers 中提取已经加载好的权重
+#         q_weight = model.q_layers[block_idx].weight.data
+#         k_weight = model.k_layers[block_idx].weight.data
+#         v_weight = model.v_layers[block_idx].weight.data
+
+#         # 将 Q、K、V 权重 reshape 为 (num_heads, dim_per_head, dim) 形状
+#         dim_per_head = model.dim // model.num_heads
+#         q_weight_heads = q_weight.view(model.num_heads, dim_per_head, model.dim)
+#         k_weight_heads = k_weight.view(model.num_heads, dim_per_head, model.dim)
+#         v_weight_heads = v_weight.view(model.num_heads, dim_per_head, model.dim)
+
+#         # 初始化字典用于保存头部之间的相似性矩阵
+#         similarity_matrices = {
+#             'K_similarity_matrix': None,
+#             'Q_similarity_matrix': None,
+#             'V_similarity_matrix': None,
+#             'KxQ_similarity_matrix': None,
+#             'KxQxV_similarity_matrix': None
+#         }
+
+#         # 计算每个头部之间的余弦相似性矩阵 (12x12)
+#         similarity_matrices['K_similarity_matrix'] = cosine_similarity_matrix(k_weight_heads, k_weight_heads)
+#         similarity_matrices['Q_similarity_matrix'] = cosine_similarity_matrix(q_weight_heads, q_weight_heads)
+#         similarity_matrices['V_similarity_matrix'] = cosine_similarity_matrix(v_weight_heads, v_weight_heads)
+
+#         # 计算 Q * K^T 的相似性
+#         kq_heads = torch.matmul(k_weight_heads, q_weight_heads.transpose(-2, -1))
+#         similarity_matrices['KxQ_similarity_matrix'] = cosine_similarity_matrix(kq_heads, kq_heads)
+
+#         # 计算 Q * K^T * V 的相似性
+#         kqv_heads = torch.matmul(kq_heads, v_weight_heads)
+#         similarity_matrices['KxQxV_similarity_matrix'] = cosine_similarity_matrix(kqv_heads, kqv_heads)
+
+#         # 保存该层的相似性矩阵
+#         all_similarity_matrices[f'Layer_{block_idx}'] = similarity_matrices
+
+#     return all_similarity_matrices
+
+def cosine_similarity_matrix(A, B):
+    """计算矩阵 A 和 B 之间每个头之间的余弦相似性矩阵 (12x12)"""
+    if isinstance(A, torch.Tensor):
+        A = A.cpu().detach().numpy()
+    if isinstance(B, torch.Tensor):
+        B = B.cpu().detach().numpy()
+
+    n = A.shape[0]  # 假设 A 和 B 都是 n x m 的矩阵
+    similarity_matrix = np.zeros((n, n))  # 初始化矩阵以确保返回的是二维矩阵
+
     for i in range(n):
         for j in range(n):
             # 计算头 i 和头 j 之间的余弦相似度
-            cos_sim_Ai_Bj = F.cosine_similarity(A[i], B[j], dim=-1)  # 计算每个头向量的相似度
-            similarity_matrix[i, j] = cos_sim_Ai_Bj.mean().item()  # 平均后得到标量，填入相似性矩阵中
+            similarity_matrix[i, j] = cosine_similarity(A[i].flatten(), B[j].flatten())
 
-    # 归一化处理，使得相似性矩阵的均值为 1/3
-    matrix_mean = similarity_matrix.mean().item()
-    if matrix_mean != 0:
-        similarity_matrix /= (3*matrix_mean)
-        
-    return similarity_matrix
+    # 将 numpy 数组转换为 torch.Tensor 并返回
+    return torch.tensor(similarity_matrix)
 
-def calculate_similarity(model):
-    """
-    计算 Q、K、V 之间的相似性矩阵，并保存结果
-    """
-    all_similarity_matrices = {}
+def cosine_similarity(u, v):
+    """计算两个向量之间的余弦相似度"""
+    dot_product = np.dot(u, v)
+    norm_u = np.linalg.norm(u)
+    norm_v = np.linalg.norm(v)
+    if norm_u == 0 or norm_v == 0:
+        return 0  # 若模长为零，返回0
+    return dot_product / (norm_u * norm_v)
 
-    for block_idx in range(model.num_layers):
-        # 从模型的 q_layers、k_layers 和 v_layers 中提取已经加载好的权重
-        q_weight = model.q_layers[block_idx].weight.data
-        k_weight = model.k_layers[block_idx].weight.data
-        v_weight = model.v_layers[block_idx].weight.data
 
-        # 将 Q、K、V 权重 reshape 为 (num_heads, dim_per_head, dim) 形状
-        dim_per_head = model.dim // model.num_heads
-        q_weight_heads = q_weight.view(model.num_heads, dim_per_head, model.dim)
-        k_weight_heads = k_weight.view(model.num_heads, dim_per_head, model.dim)
-        v_weight_heads = v_weight.view(model.num_heads, dim_per_head, model.dim)
+# def cosine_similarity(u, v):
+#     """计算两个向量之间的余弦相似度"""
+#     dot_product = np.dot(u, v)
+#     norm_u = np.linalg.norm(u)
+#     norm_v = np.linalg.norm(v)
+#     if norm_u == 0 or norm_v == 0:
+#         return 0  # 若模长为零，返回0
+#     return dot_product / (norm_u * norm_v)
 
-        # 初始化字典用于保存头部之间的相似性矩阵
-        similarity_matrices = {
-            'K_similarity_matrix': None,
-            'Q_similarity_matrix': None,
-            'V_similarity_matrix': None,
-            'KxQ_similarity_matrix': None,
-            'KxQxV_similarity_matrix': None
-        }
-
-        # 计算每个头部之间的余弦相似性矩阵 (12x12)
-        similarity_matrices['K_similarity_matrix'] = cosine_similarity_matrix(k_weight_heads, k_weight_heads)
-        similarity_matrices['Q_similarity_matrix'] = cosine_similarity_matrix(q_weight_heads, q_weight_heads)
-        similarity_matrices['V_similarity_matrix'] = cosine_similarity_matrix(v_weight_heads, v_weight_heads)
-
-        # 计算 Q * K^T 的相似性
-        kq_heads = torch.matmul(k_weight_heads, q_weight_heads.transpose(-2, -1))
-        similarity_matrices['KxQ_similarity_matrix'] = cosine_similarity_matrix(kq_heads, kq_heads)
-
-        # 计算 Q * K^T * V 的相似性
-        kqv_heads = torch.matmul(kq_heads, v_weight_heads)
-        similarity_matrices['KxQxV_similarity_matrix'] = cosine_similarity_matrix(kqv_heads, kqv_heads)
-
-        # 保存该层的相似性矩阵
-        all_similarity_matrices[f'Layer_{block_idx}'] = similarity_matrices
-
-    return all_similarity_matrices
 
 
 # def cosine_similarity_matrix(A, B):
@@ -144,6 +182,44 @@ def calculate_similarity(model):
 #         all_similarity_matrices[f'Layer_{block_idx}'] = similarity_matrices
 
 #     return all_similarity_matrices
+
+def calculate_similarity(model):
+    """
+    计算 Q、K、V 之间的相似性矩阵，并保存结果
+    """
+    all_similarity_matrices = {}
+
+    for block_idx in range(model.num_layers):
+        q_weight = model.q_layers[block_idx].weight.data
+        k_weight = model.k_layers[block_idx].weight.data
+        v_weight = model.v_layers[block_idx].weight.data
+
+        # 将 Q、K、V 权重 reshape 为 (num_heads, dim_per_head, dim) 形状
+        dim_per_head = model.dim // model.num_heads
+        q_weight_heads = q_weight.view(model.num_heads, dim_per_head, model.dim)
+        k_weight_heads = k_weight.view(model.num_heads, dim_per_head, model.dim)
+        v_weight_heads = v_weight.view(model.num_heads, dim_per_head, model.dim)
+
+        similarity_matrices = {
+            'K_similarity_matrix': cosine_similarity_matrix(k_weight_heads, k_weight_heads),
+            'Q_similarity_matrix': cosine_similarity_matrix(q_weight_heads, q_weight_heads),
+            'V_similarity_matrix': cosine_similarity_matrix(v_weight_heads, v_weight_heads),
+            'KxQ_similarity_matrix': cosine_similarity_matrix(
+                torch.matmul(k_weight_heads, q_weight_heads.transpose(-2, -1)),
+                torch.matmul(k_weight_heads, q_weight_heads.transpose(-2, -1))
+            ),
+            'KxQxV_similarity_matrix': cosine_similarity_matrix(
+                torch.matmul(torch.matmul(k_weight_heads, q_weight_heads.transpose(-2, -1)), v_weight_heads),
+                torch.matmul(torch.matmul(k_weight_heads, q_weight_heads.transpose(-2, -1)), v_weight_heads)
+            )
+        }
+
+        all_similarity_matrices[f'Layer_{block_idx}'] = similarity_matrices
+        # print("Available similarity matrices keys:", similarity_matrices.keys())
+        # print("K_similarity_matrix:", similarity_matrices.get('K_similarity_matrix'))
+
+
+    return all_similarity_matrices
 
 
 def save_similarity_matrices_to_excel(all_similarity_matrices):

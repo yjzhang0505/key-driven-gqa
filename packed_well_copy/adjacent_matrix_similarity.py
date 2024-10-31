@@ -50,9 +50,9 @@ def similarity_score_matrix(A, B):
     # 计算 sim(A, B)
     sim_AB = 0
     for i in range(n):
-        max_cosine_A = max([cosine_similarity(A[i], B[j]) for j in range(n)])
-        max_cosine_B = max([cosine_similarity(B[i], A[j]) for j in range(n)])
-        sim_AB += max_cosine_A + max_cosine_B
+        cosine_line = cosine_similarity(A[i], B[i])
+        cosine_row = cosine_similarity(A[:, i], B[:, i])
+        sim_AB += cosine_line + cosine_row
 
     sim_AB = sim_AB / (2 * n)
     return sim_AB
@@ -100,7 +100,7 @@ def plot_adjacency_matrix_graph(adj_matrix, combination_name, iteration):
     fig.colorbar(sm, ax=ax, label="Edge Weight (Adjacency Matrix Value)")
 
     # 保存图像
-    filename = f"/data/yjzhang/desktop/try/key-driven-gqa/figure/adjacent_matrix/{combination_name}_iter_{iteration}.png"
+    filename = f"/data/yjzhang/desktop/try/key-driven-gqa/figure/adjacent_matrix/figure/{combination_name}_iter_{iteration}.png"
     plt.savefig(filename, format="PNG")
     plt.close(fig)
     print(f"Saved adjacency graph for {combination_name} (Iteration {iteration}) at: {filename}")
@@ -184,13 +184,18 @@ for imp_key in importance_keys:
         # print(best_adj_matrix)
         Output_dir = '/data/yjzhang/desktop/try/key-driven-gqa/figure/adjacent_matrix/files'
         output_dir = os.path.join(Output_dir,combination_name)
-        output_adjacent_path = os.path.join(output_dir, "adjacent")
+        output_adjacent_path = os.path.join(output_dir, "adjacent.txt")
         save_to_txt(output_adjacent_path, np.array2string(best_adj_matrix.numpy()))
-        output_params_path = os.path.join(output_dir, "params")
-        save_to_txt(output_params_path, "best_params:")
-        save_to_txt(output_params_path, str(best_params))
-        save_to_txt(output_params_path, "best_score:")
-        save_to_txt(output_params_path, str(best_score))
+        output_params_path = os.path.join(output_dir, "params.txt")
+        output_content = (
+            "best_params:\n" +
+            str(best_params) + "\n" +
+            "best_score:\n" +
+            str(best_score)
+        )
+
+        # 一次性写入
+        save_to_txt(output_params_path, output_content)
 
         plot_adjacency_matrix_graph(best_adj_matrix, combination_name, iteration=result.fun)
 

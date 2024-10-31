@@ -111,38 +111,39 @@ def calculate_stats(model):
     """
     all_stats = {'K': [], 'Q': [], 'V': [], 'KxQ': [], 'KxQxV': []}
 
-    for block_idx in range(model.num_layers):
-        # 从模型的 q_layers、k_layers 和 v_layers 中提取已经加载好的权重
-        q_weight = model.q_layers[block_idx].weight.data
-        k_weight = model.k_layers[block_idx].weight.data
-        v_weight = model.v_layers[block_idx].weight.data
+    # for block_idx in range(model.num_layers):
+    block_idx = 0
+    # 从模型的 q_layers、k_layers 和 v_layers 中提取已经加载好的权重
+    q_weight = model.q_layers[block_idx].weight.data
+    k_weight = model.k_layers[block_idx].weight.data
+    v_weight = model.v_layers[block_idx].weight.data
 
-        # 将 Q、K、V 权重 reshape 为 (num_heads, dim_per_head, dim) 形状
-        dim_per_head = model.dim // model.num_heads
-        q_weight_heads = q_weight.view(model.num_heads, dim_per_head, model.dim)
-        k_weight_heads = k_weight.view(model.num_heads, dim_per_head, model.dim)
-        v_weight_heads = v_weight.view(model.num_heads, dim_per_head, model.dim)
+    # 将 Q、K、V 权重 reshape 为 (num_heads, dim_per_head, dim) 形状
+    dim_per_head = model.dim // model.num_heads
+    q_weight_heads = q_weight.view(model.num_heads, dim_per_head, model.dim)
+    k_weight_heads = k_weight.view(model.num_heads, dim_per_head, model.dim)
+    v_weight_heads = v_weight.view(model.num_heads, dim_per_head, model.dim)
 
-        # 计算每个头的 Q、K、V 权重以及 K * Q 和 K * Q * V 的均值和方差
-        for i in range(model.num_heads):
-            k_mean, k_var = k_weight_heads[i].mean().item(), k_weight_heads[i].var().item()
-            q_mean, q_var = q_weight_heads[i].mean().item(), q_weight_heads[i].var().item()
-            v_mean, v_var = v_weight_heads[i].mean().item(), v_weight_heads[i].var().item()
+    # 计算每个头的 Q、K、V 权重以及 K * Q 和 K * Q * V 的均值和方差
+    for i in range(model.num_heads):
+        k_mean, k_var = k_weight_heads[i].mean().item(), k_weight_heads[i].var().item()
+        q_mean, q_var = q_weight_heads[i].mean().item(), q_weight_heads[i].var().item()
+        v_mean, v_var = v_weight_heads[i].mean().item(), v_weight_heads[i].var().item()
 
-            # 计算 K * Q
-            kq = torch.matmul(k_weight_heads[i], q_weight_heads[i].transpose(-2, -1))
-            kq_mean, kq_var = kq.mean().item(), kq.var().item()
+        # 计算 K * Q
+        kq = torch.matmul(k_weight_heads[i], q_weight_heads[i].transpose(-2, -1))
+        kq_mean, kq_var = kq.mean().item(), kq.var().item()
 
-            # 计算 K * Q * V
-            kqv = torch.matmul(kq, v_weight_heads[i])
-            kqv_mean, kqv_var = kqv.mean().item(), kqv.var().item()
+        # 计算 K * Q * V
+        kqv = torch.matmul(kq, v_weight_heads[i])
+        kqv_mean, kqv_var = kqv.mean().item(), kqv.var().item()
 
-            # 保存每个头的均值和方差
-            all_stats['K'].append([k_mean, k_var])
-            all_stats['Q'].append([q_mean, q_var])
-            all_stats['V'].append([v_mean, v_var])
-            all_stats['KxQ'].append([kq_mean, kq_var])
-            all_stats['KxQxV'].append([kqv_mean, kqv_var])
+        # 保存每个头的均值和方差
+        all_stats['K'].append([k_mean, k_var])
+        all_stats['Q'].append([q_mean, q_var])
+        all_stats['V'].append([v_mean, v_var])
+        all_stats['KxQ'].append([kq_mean, kq_var])
+        all_stats['KxQxV'].append([kqv_mean, kqv_var])
 
     # 对每种类型的 mean 和 var 进行归一化处理，使每种类型的均值为 1
     for key in all_stats:

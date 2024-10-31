@@ -6,9 +6,19 @@ import re
 
 # 保存所有输出到txt文件
 def save_to_txt(output_path, content):
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    with open(output_path, 'a') as f:
-        f.write(content + '\n')
+    # 检查文件是否存在
+    if not os.path.exists(output_path):
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        with open(output_path, 'w') as f:  # 使用 'w' 模式创建文件
+            f.write(content + '\n')
+        # print(f"内容已保存到 {output_path}")
+    # else:
+    #     print(f"{output_path} 已存在，跳过保存。")
+
+# def save_to_txt(output_path, content):
+#     os.makedirs(os.path.dirname(output_path), exist_ok=True)
+#     with open(output_path, 'a') as f:
+#         f.write(content + '\n')
 
 
 def load_stats_from_model(model):
