@@ -154,3 +154,18 @@ Example usage: `python train.py --config path/to/config.yaml --out_dir output_di
         packed_well/graph.py
         packed_well/graph_imp_sim.py
         packed_well_copy/
+
+### retry-2.7
+尚未暂存以备提交的变更：
+  （使用 "git add <文件>..." 更新要提交的内容）
+  （使用 "git restore <文件>..." 丢弃工作区的改动）
+        修改：     packed_well_copy/_2_importance.py
+        修改：     packed_well_copy/_3_similarity.py
+        修改：     packed_well_copy/adjacent_matrix_similarity.py
+        修改：     packed_well_copy/graph_imp_sim.py
+        修改：     packed_well_copy/tools.py
+
+未跟踪的文件:
+  （使用 "git add <文件>..." 以包含要提交的内容）
+        figure/_head_grouping_graph.png
+        figure/adjacent_matrix/
