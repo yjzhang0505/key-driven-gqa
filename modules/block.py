@@ -10,6 +10,7 @@ from utils import assign_check
 class Block(nn.Module):
     def __init__(
             self,
+            file_path: str,
             exp_num: int,
             dim: int,
             num_heads: int,
@@ -22,12 +23,14 @@ class Block(nn.Module):
             norm_layer: nn.Module = nn.LayerNorm,
             mlp_layer: nn.Module = Mlp,
             att_scheme: str = 'mhsa',
-            window_size: int = 1
+            window_size: int = 1,
+            layer_index: int = 13
     ) -> None:
         super().__init__()
         
         self.norm1 = norm_layer(dim)
         self.norm2 = norm_layer(dim)
+        self.file_path = file_path
 
         self.mlp = mlp_layer(
             in_features=dim,
@@ -46,13 +49,15 @@ class Block(nn.Module):
             )
         elif att_scheme == 'gqa':
             self.attn = GQA(
+                file_path=self.file_path,
                 exp_num=exp_num,
                 dim=dim,
                 num_heads=num_heads,
                 qkv_bias=qkv_bias,
                 attn_drop=attn_drop,
                 proj_drop=proj_drop,
-                num_kv_heads=num_kv_heads
+                num_kv_heads=num_kv_heads,
+                layer_index=layer_index
             )
         elif att_scheme == 'dgqa_ema':
             self.attn = DGQA(

@@ -27,6 +27,7 @@ def set_seed(seed=42):
     torch.backends.cudnn.benchmark = False
 
 def get_model(
+            file_path: str,
             exp_num : int,
             size: int = 's',
             num_classes: int = 10,
@@ -43,7 +44,7 @@ def get_model(
     '''
     Model factory function for loading in models according to pretrained checkpoints or a custom model to be trained from scratch    
     '''
-    args = dict(num_classes=num_classes, pretrained=pretrained, att_scheme=att_scheme, window_size=window_size, num_kv_heads=num_kv_heads, exp_num=exp_num, in_chans=in_chans)
+    args = dict(file_path=file_path, num_classes=num_classes, pretrained=pretrained, att_scheme=att_scheme, window_size=window_size, num_kv_heads=num_kv_heads, exp_num=exp_num, in_chans=in_chans)
     if size == 's':
         print(f"Loaded in small ViT with args {args}")
         return vit_small_patch16_224(**args)
@@ -59,6 +60,7 @@ def get_model(
         assert pretrained == False, "Cannot load in a pretrained ckpt for a custom model"
         assert all([x is not None for x in [embed_dim, num_layers, num_heads]]), "Provide all the optional arguments when creating a custom model"
         model = VisionTransformer(
+            file_path = file_path,
             exp_num = 0,
             img_size=224,
             patch_size=16,
@@ -401,6 +403,7 @@ if __name__ == "__main__":
 
     # Model, optimizer, loss function setup
     model = get_model(
+        file_path = args.out_dir,
         exp_num = args.exp_num,
         size=config['size'], 
         num_classes=config['num_classes'], 
@@ -431,10 +434,10 @@ if __name__ == "__main__":
     model.to(device)
 
     learning_rate = 1e-5
-    epochs = 5
+    epochs = 25
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.AdamW(model.parameters(), lr=learning_rate)
-    scheduler = StepLR(optimizer, step_size=10, gamma=0.1)
+    scheduler = StepLR(optimizer, step_size=5, gamma=0.1)
 
 
     print(f"Loaded in model with {count_parameters(model)} parameters...")

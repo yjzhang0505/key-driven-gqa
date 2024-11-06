@@ -11,97 +11,186 @@ from utils import assign_check
 
 import os
 
-def save_to_file_once(filename, data):
-    """Helper function to save data to a file once (if not exists)."""
-    # 检查文件是否存在
-    if os.path.exists(filename):
-        # print(f"{filename} already exists, skipping save.")
-        return  # 文件已经存在，跳过写入
-    else:
-        # 获取文件所在的目录路径
-        directory = os.path.dirname(filename)
-        if not os.path.exists(directory):
-            os.makedirs(directory)  # 创建目录
 
-        # 将数据写入文件
-        with open(filename, 'w') as f:
-            f.write(data)
-        print(f"{filename} created and data saved.")
+# def save_to_file(filename, data):
+#     """Helper function to save data to a file."""
+#     # 获取文件所在的目录路径
+#     directory = os.path.dirname(filename)
+    
+#     # 如果目录不存在，创建目录
+#     if not os.path.exists(directory):
+#         os.makedirs(directory)
+    
+#     # 打开文件并写入数据
+#     with open(filename, 'w') as f:
+#         for line in data:
+#             f.write(line + '\n')
 
-def save_to_file(filename, data):
-    """Helper function to save data to a file."""
-    # 获取文件所在的目录路径
-    directory = os.path.dirname(filename)
-    
-    # 如果目录不存在，创建目录
-    if not os.path.exists(directory):
-        os.makedirs(directory)
-    
-    # 打开文件并写入数据
-    with open(filename, 'w') as f:
-        for line in data:
-            f.write(line + '\n')
+    #V, K_var
+    # 0: [(0, 10), (1, 9), (2, 8), (3, 11), (4, 7), (5, 6)],
+    # 1: [(0, 7), (1, 10), (2, 3), (4, 11), (5, 6), (8, 9)],
+    # 2: [(0, 1), (2, 7), (3, 11), (4, 6), (5, 8), (9, 10)],
+    # 3: [(0, 7), (1, 3), (2, 5), (4, 11), (6, 8), (9, 10)],
+    # 4: [(0, 10), (1, 5), (2, 6), (3, 9), (4, 11), (7, 8)],
+    # 5: [(0, 5), (1, 11), (2, 3), (4, 7), (6, 10), (8, 9)],
+    # 6: [(0, 2), (1, 11), (3, 8), (4, 9), (5, 10), (6, 7)],
+    # 7: [(0, 8), (1, 4), (2, 10), (3, 7), (5, 11), (6, 9)],
+    # 8: [(0, 11), (1, 10), (2, 3), (4, 7), (5, 6), (8, 9)],
+    # 9: [(0, 9), (1, 2), (3, 5), (4, 6), (7, 11), (8, 10)],
+    # 10: [(0, 7), (1, 4), (2, 5), (3, 11), (6, 8), (9, 10)],
+    # 11: [(0, 7), (1, 9), (2, 8), (3, 5), (4, 11), (6, 10)],
 
-def shuffle_heads_once(x: torch.Tensor, num_heads: int, group_size: int, exp_num: int, load = True, save_groups: bool = True) -> torch.Tensor:
+    # V, Q_var
+    # 0: [(0, 10), (1, 9), (2, 8), (3, 11), (4, 7), (5, 6)],
+    # 1: [(0, 7), (1, 10), (2, 3), (4, 11), (5, 6), (8, 9)],
+    # 2: [(0, 1), (2, 7), (3, 11), (4, 6), (5, 8), (9, 10)],
+    # 3: [(0, 7), (1, 5), (2, 3), (4, 11), (6, 8), (9, 10)],
+    # 4: [(0, 10), (1, 5), (2, 6), (3, 9), (4, 11), (7, 8)],
+    # 5: [(0, 5), (1, 11), (2, 3), (4, 7), (6, 10), (8, 9)],
+    # 6: [(0, 2), (1, 11), (3, 8), (4, 9), (5, 10), (6, 7)],
+    # 7: [(0, 8), (1, 4), (2, 10), (3, 7), (5, 11), (6, 9)],
+    # 8: [(0, 11), (1, 10), (2, 3), (4, 7), (5, 6), (8, 9)],
+    # 9: [(0, 5), (1, 2), (3, 9), (4, 6), (7, 11), (8, 10)],
+    # 10: [(0, 7), (1, 4), (2, 5), (3, 11), (6, 8), (9, 10)],
+    # 11: [(0, 7), (1, 9), (2, 8), (3, 5), (4, 11), (6, 10)],
+
+    # V, V_var
+    # 0: [(0, 10), (1, 8), (2, 9), (3, 11), (4, 5), (6, 7)],
+    # 1: [(0, 1), (2, 9), (3, 4), (5, 11), (6, 7), (8, 10)],
+    # 2: [(0, 1), (2, 6), (3, 8), (4, 11), (5, 7), (9, 10)],
+    # 3: [(0, 3), (1, 5), (2, 8), (4, 11), (6, 7), (9, 10)],
+    # 4: [(0, 4), (1, 10), (2, 6), (3, 11), (5, 9), (7, 8)],
+    # 5: [(0, 8), (1, 11), (2, 6), (3, 5), (4, 7), (9, 10)],
+    # 6: [(0, 2), (1, 7), (3, 8), (4, 10), (5, 6), (9, 11)],
+    # 7: [(0, 11), (1, 3), (2, 10), (4, 8), (5, 7), (6, 9)],
+    # 8: [(0, 11), (1, 8), (2, 3), (4, 5), (6, 7), (9, 10)],
+    # 9: [(0, 5), (1, 8), (2, 7), (3, 6), (4, 11), (9, 10)],
+    # 10: [(0, 2), (1, 4), (3, 11), (5, 6), (7, 9), (8, 10)],
+    # 11: [(0, 7), (1, 9), (2, 8), (3, 5), (4, 11), (6, 10)],
+
+    # K, KQ_mean
+    # 0: [(0, 4), (1, 8), (2, 10), (3, 6), (5, 7), (9, 11)],
+    # 1: [(0, 5), (1, 3), (2, 9), (4, 6), (7, 8), (10, 11)],
+    # 2: [(0, 5), (1, 2), (3, 10), (4, 6), (7, 8), (9, 11)],
+    # 3: [(0, 4), (1, 7), (2, 3), (5, 10), (6, 9), (8, 11)],
+    # 4: [(0, 8), (1, 11), (2, 6), (3, 9), (4, 10), (5, 7)],
+    # 5: [(0, 7), (1, 9), (2, 10), (3, 8), (4, 11), (5, 6)],
+    # 6: [(0, 10), (1, 9), (2, 5), (3, 4), (6, 7), (8, 11)],
+    # 7: [(0, 4), (1, 7), (2, 10), (3, 8), (5, 6), (9, 11)],
+    # 8: [(0, 3), (1, 5), (2, 8), (4, 6), (7, 10), (9, 11)],
+    # 9: [(0, 7), (1, 10), (2, 3), (4, 8), (5, 11), (6, 9)],
+    # 10: [(0, 4), (1, 6), (2, 3), (5, 9), (7, 10), (8, 11)],
+    # 11: [(0, 5), (1, 2), (3, 8), (4, 10), (6, 11), (7, 9)],
+
+# 0: [(0, 1), (5, 3), (10, 6), (8, 2), (4, 9), (7, 11)],
+
+# # 预定义每一层的分组方案
+# group_schemes = {
+#     0: [(0, 10), (1, 9), (2, 8), (3, 11), (4, 7), (5, 6)],
+#     1: [(0, 7), (1, 10), (2, 3), (4, 11), (5, 6), (8, 9)],
+#     2: [(0, 1), (2, 7), (3, 11), (4, 6), (5, 8), (9, 10)],
+#     3: [(0, 7), (1, 5), (2, 3), (4, 11), (6, 8), (9, 10)],
+#     4: [(0, 10), (1, 5), (2, 6), (3, 9), (4, 11), (7, 8)],
+#     5: [(0, 5), (1, 11), (2, 3), (4, 7), (6, 10), (8, 9)],
+#     6: [(0, 2), (1, 11), (3, 8), (4, 9), (5, 10), (6, 7)],
+#     7: [(0, 8), (1, 4), (2, 10), (3, 7), (5, 11), (6, 9)],
+#     8: [(0, 11), (1, 10), (2, 3), (4, 7), (5, 6), (8, 9)],
+#     9: [(0, 5), (1, 2), (3, 9), (4, 6), (7, 11), (8, 10)],
+#     10: [(0, 7), (1, 4), (2, 5), (3, 11), (6, 8), (9, 10)],
+#     11: [(0, 7), (1, 9), (2, 8), (3, 5), (4, 11), (6, 10)],
+# }
+
+# def shuffle_heads_once(x: torch.Tensor, num_heads: int, layer_index: int, exp_num: int, load=True, save_groups: bool = True) -> torch.Tensor:
     
+#     B, P, C = x.shape
+#     head_dim = C // num_heads  # 每个头的维度
+
+#     # print(layer_index)
+
+#     # 根据layer_index选择相应的分组方案
+#     if layer_index in group_schemes:
+#         groups = group_schemes[layer_index]
+#         permuted_indices = torch.cat([torch.tensor(group) for group in groups])
+#     else:
+#         raise ValueError(f"Invalid layer_index: {layer_index}")
+
+#     x = x.view(B, P, num_heads, head_dim)
+#     x = x[:, :, permuted_indices, :]  # 使用 permuted_indices 对头进行打乱
+#     x = x.view(B, P, C)
+
+#     return x, permuted_indices
+
+import torch
+import ast
+
+import ast
+
+def load_group_schemes_from_txt(file_path: str):
+    """
+    从文本文件中加载分组方案，适用于每行表示一个层级的分组方案，并且每行最外层有 [] 包围。
+    """
+    group_schemes = {}
+    
+    with open(file_path, 'r') as f:
+        for layer_index, line in enumerate(f):
+            # 去掉最外层的括号，保留中间的内容
+            line_content = line.strip()[1:-2]
+            
+            # 使用 ast.literal_eval 将字符串形式的分组数据转换为实际的列表
+            groups = ast.literal_eval(f"[{line_content}]")  # 添加[]，使其变成有效的列表格式
+            
+            # 将分组方案存入字典
+            group_schemes[layer_index] = groups
+
+    return group_schemes
+
+
+
+def shuffle_heads_once(file_path: str, x: torch.Tensor, num_heads: int, layer_index: int, exp_num: int, load=True, save_groups: bool = True) -> torch.Tensor:
+    """
+    打乱头部的顺序，根据读取的分组方案进行排列
+    """
+    # file_path = "/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin/1"
     B, P, C = x.shape
     head_dim = C // num_heads  # 每个头的维度
 
-    # if load is True and permuted_indices is None:
-    # exp_num = args.exp_num 
-    file_path = f"./output/arbitrary/concrete/{exp_num}/group.txt"
-    if not os.path.exists(file_path):
-        print(load)
-        # 创建一个局部生成器，不使用全局随机数种子
-        g = torch.Generator()
-        g.manual_seed(torch.seed() + int(torch.initial_seed() % (2**32)))  # 生成一个新的种子
+    # 从txt文件加载group_schemes
+    file_path1 = os.path.join(file_path, 'group.txt')
+    group_schemes = load_group_schemes_from_txt(file_path1)
 
-        # 使用局部生成器生成打乱顺序
-        permuted_indices = torch.randperm(num_heads, generator=g)
-
-        if save_groups:
-            # group_size = num_heads // 2
-            groups = [permuted_indices[i:i+group_size].cpu().numpy() for i in range(0, num_heads, group_size)]
-            group_lines = [','.join(map(str, group)) for group in groups]
-            filename_with_exp = f"./output/arbitrary/concrete/{exp_num}/group.txt"
-            save_to_file(filename_with_exp, group_lines)
+    # 根据layer_index选择相应的分组方案
+    if layer_index in group_schemes:
+        groups = group_schemes[layer_index]
+        permuted_indices = torch.cat([torch.tensor(group) for group in groups])
     else:
-        # 如果permuted_indices不是None，则读取组文件并恢复permuted_indices
-        filename_with_exp = f"./output/arbitrary/concrete/{exp_num}/group.txt"
-        if os.path.exists(filename_with_exp):
-            with open(filename_with_exp, 'r') as f:
-                group_lines = f.readlines()
-
-            groups = [list(map(int, line.strip().split(','))) for line in group_lines]
-
-            # 根据组重新生成 permuted_indices
-            permuted_indices = torch.cat([torch.tensor(group) for group in groups])
+        raise ValueError(f"Invalid layer_index: {layer_index}")
 
     x = x.view(B, P, num_heads, head_dim)
-    x = x[:, :, permuted_indices, :]
+    x = x[:, :, permuted_indices, :]  # 使用 permuted_indices 对头进行打乱
     x = x.view(B, P, C)
-    # print(permuted_indices)
 
     return x, permuted_indices
-
-
 
 class GQA(nn.Module):
 
     def __init__(
             self,
+            file_path: str,
             exp_num: int,
             dim: int,
             num_heads: int = 8,
             qkv_bias: bool = False,
             attn_drop: float = 0.,
             proj_drop: float = 0.,
-            num_kv_heads: Optional[int] = None,          
+            num_kv_heads: Optional[int] = None,   
+            layer_index: int = 13       
     ) -> None:
         super().__init__()
         assert dim % num_heads == 0, 'dim should be divisible by num_heads'
         self.exp_num = exp_num
         self.dim = dim
+        self.layer_index=layer_index
+        # print(layer_index)
         self.num_heads = num_heads
         self.head_dim = dim // num_heads
         self.scale = self.head_dim ** -0.5
@@ -114,6 +203,7 @@ class GQA(nn.Module):
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop)
+        self.file_path = file_path
         # print("gqa")
 
         # 保存打乱后的头顺序索引
@@ -124,7 +214,7 @@ class GQA(nn.Module):
         H = self.num_heads  # 总共的 heads 数量
         group_size = self.num_heads // self.num_kv_heads
 
-        x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, group_size, self.exp_num, load=False)
+        x_shuffled, self.permuted_indices = shuffle_heads_once(self.file_path, x, H, self.layer_index, self.exp_num, load=False)
         inverse_indices = torch.empty_like(self.permuted_indices)
         inverse_indices[self.permuted_indices] = torch.arange(len(self.permuted_indices))
 
@@ -183,14 +273,14 @@ class GQA(nn.Module):
 
 
         
-    def att_weight_conversion(self, qkv_params, is_bias=False):
+    def att_weight_conversion(self, qkv_params, block_idx, is_bias=False):
         '''
         Split and convert the QKV parameters from ViT checkpoints for the GQA implementation
         '''
         q, k, v = torch.split(qkv_params, qkv_params.shape[0] // 3, dim=0)
 
         # 使用shuffle_heads_once打乱头的顺序，并保存打乱后的顺序
-        _, self.permuted_indices = shuffle_heads_once(torch.empty(1, 1, self.dim), self.num_heads, self.num_heads // self.num_kv_heads, self.exp_num, load = True, save_groups=True)
+        _, self.permuted_indices = shuffle_heads_once(self.file_path, torch.empty(1, 1, self.dim), self.num_heads, block_idx, self.exp_num, load = True, save_groups=True)
 
         # 基于打乱后的头顺序进行池化
         def convert_weight(param):
@@ -244,8 +334,8 @@ class GQA(nn.Module):
         proj_weight = state_dict[f'blocks.{block_idx}.attn.proj.weight']
         proj_bias = state_dict[f'blocks.{block_idx}.attn.proj.bias']
 
-        wdict = self.att_weight_conversion(qkv_weight)
-        bdict = self.att_weight_conversion(qkv_bias, is_bias=True)
+        wdict = self.att_weight_conversion(qkv_weight,block_idx)
+        bdict = self.att_weight_conversion(qkv_bias, block_idx, is_bias=True)
 
         # wproj = self.proj_conversion(proj_weight)
         # bproj = self.proj_conversion(proj_weight, is_bias=True)
