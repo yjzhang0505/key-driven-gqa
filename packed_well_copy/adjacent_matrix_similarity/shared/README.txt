@@ -1,0 +1,1 @@
+获得分组 <-- grouping_experiment.py  mean, var, singular 都是在这个文件夹下
