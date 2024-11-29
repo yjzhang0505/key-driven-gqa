@@ -73,8 +73,7 @@ def calculate_singular_values(model, layer_idx, alpha=0.5):
         'Q': [],
         'V': [],
         'KxQ': [],
-        'KxQxV': [],
-        'importance_scores': []  # 添加用于保存重要性指标的列表
+        'KxQxV': []
     }
 
     # 从模型的 q_layers、k_layers 和 v_layers 中提取指定层的权重
@@ -114,21 +113,25 @@ def calculate_singular_values(model, layer_idx, alpha=0.5):
         all_singulars['KxQ'].append(kq_singular_values)
         all_singulars['KxQxV'].append(kqv_singular_values)
 
-        # 提取前5个奇异值
-        top_five = k_singular_values[:5]
+    # 计算每种重要性标准的前五个奇异值的指数平滑值，并保存
+    smoothed_singulars = {
+        'K': [],
+        'Q': [],
+        'V': [],
+        'KxQ': [],
+        'KxQxV': []
+    }
 
-        # 计算指数平滑值
-        smoothed_value = top_five[0]  # 初始平滑值为第一个奇异值
-        for value in top_five[1:]:
-            smoothed_value = alpha * value + (1 - alpha) * smoothed_value
-        
-        all_singulars['importance_scores'].append(smoothed_value)
-
-    # 将奇异值列表转换为张量
     for key in all_singulars:
-        all_singulars[key] = torch.stack(all_singulars[key])
+        for i in range(model.num_heads):
+            singular_values = all_singulars[key][i][:5]  # 获取前五个奇异值
+            smoothed_value = singular_values[0]  # 初始平滑值为第一个奇异值
+            for value in singular_values[1:]:
+                smoothed_value = alpha * value + (1 - alpha) * smoothed_value
+            smoothed_singulars[key].append(smoothed_value)
 
-    return all_singulars['importance_scores']  # 返回12个头的重要性指标
+    return smoothed_singulars  # 返回每种标准的平滑奇异值，包含12个值
+
 
 
 

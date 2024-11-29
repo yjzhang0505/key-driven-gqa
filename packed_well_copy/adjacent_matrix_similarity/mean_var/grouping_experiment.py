@@ -95,6 +95,27 @@ def group_heads_for_layer(model, similartiry_type, importance_type, layer_idx):
     grouped_heads = group_heads_by_importance_and_similarity(model, importance_matrix, similarity_matrix)
     return grouped_heads
 
+def group_heads_singular(model, similartiry_type, importance_type, layer_idx):
+    """
+    输入层索引，自动加载该层的相似性矩阵和重要性矩阵，并返回头部分组结果。
+    """
+    # 获取相似性矩阵和重要性矩阵
+    similarity_matrices = calculate_similarity(model)
+    importance_matrix = load_singular_values_from_model(model, layer_idx).get(importance_type)
+    print(importance_matrix)
+
+    # 获取指定层的相似性矩阵
+    layer_similarity = similarity_matrices.get(f'Layer_{layer_idx}', {})
+    similarity_matrix = layer_similarity.get(similartiry_type)
+    # similarity_matrix = layer_similarity.get('K_similarity_matrix')
+
+    if similarity_matrix is None or not isinstance(similarity_matrix, torch.Tensor):
+        similarity_matrix = torch.zeros((model.num_heads, model.num_heads))
+
+    # 调用分组函数
+    grouped_heads = group_heads_by_importance_and_similarity(model, importance_matrix, similarity_matrix)
+    return grouped_heads
+
 
 # 示例调用
 # 初始化模型
@@ -103,7 +124,7 @@ model.load_pretrained_qkv_weights()
 
 # 定义所有的相似性矩阵和重要性矩阵的组合
 similarity_keys = ['K_cosine', 'V_cosine']
-importance_keys = [ 'K_var', 'Q_var',  'V_var',  'KxQ_var']
+importance_keys = ['K_singular', 'Q_singular', 'V_singular', 'KxQ_singular']
 # importance_keys = ['K_mean', 'K_var', 'Q_mean', 'Q_var', 'V_mean', 'V_var', 'KxQ_mean', 'KxQ_var']
 
 # 遍历相似性矩阵和重要性矩阵的组合
@@ -115,7 +136,7 @@ for similarity_key in similarity_keys:
         # 遍历 12 层
         for layer_idx in range(12):
             # 假设 group_heads_for_layer 是根据相似性矩阵和重要性矩阵对头部分组的函数
-            grouped_heads = group_heads_for_layer(model, similarity_key, importance_key, layer_idx)
+            grouped_heads = group_heads_singular(model, similarity_key, importance_key, layer_idx)
             group_schemes[layer_idx] = grouped_heads
 
         # 格式化输出的字符串
@@ -124,7 +145,7 @@ for similarity_key in similarity_keys:
             output_str += f"{grouped_heads},\n"
 
         # 创建输出文件夹路径（使用组合名称）
-        output_dir = f"/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin/{similarity_key}_{importance_key}_ascending"
+        output_dir = f"/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin/{similarity_key}_{importance_key}"
         os.makedirs(output_dir, exist_ok=True)
 
         # 定义输出文件路径

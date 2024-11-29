@@ -51,6 +51,9 @@ def load_singular_values_from_model(model, layer_index):
     """
     # 使用 calculate_singular_values 函数从模型中获取奇异值
     all_singulars = calculate_singular_values(model, layer_index)
+    # print(type(all_singulars))
+
+
 
     # 创建存储张量的字典，与原始函数返回的格式保持一致
     singulars_tensor = {
