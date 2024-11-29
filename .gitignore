@@ -167,3 +167,5 @@ cifar100/
 figure/
 logs/
 output/
+merged_model.pth
+head_grouping_graph.png
