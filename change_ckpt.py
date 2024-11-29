@@ -82,8 +82,8 @@
 import torch
 
 # 文件路径
-checkpoint_path = '/data/yjzhang/desktop/PyTorch-Pretrained-ViT/jax_to_pytorch/weights/B_16.pth'  # 你的 pth 文件路径
-output_checkpoint_path = '/data/yjzhang/desktop/PyTorch-Pretrained-ViT/jax_to_pytorch/weights/B_16_renamed_no_merge.pth'  # 输出的 checkpoint 文件路径
+checkpoint_path = '/data/yjzhang/desktop/try/not_share/sam_ViT-B_16.pth'  # 你的 pth 文件路径
+output_checkpoint_path = '/data/yjzhang/desktop/try/not_share/sam_ViT-B_16_1.pth'  # 输出的 checkpoint 文件路径
 
 # 1. 加载原始 checkpoint 文件
 checkpoint = torch.load(checkpoint_path)
@@ -100,24 +100,24 @@ key_replacements = {
 
 # 从 duiying.txt 文件中提取的键映射，自动处理 transformer blocks
 for layer in range(12):
-    key_replacements[f"blocks.{layer}.norm1.weight"] = f"transformer.blocks.{layer}.norm1.weight"
-    key_replacements[f"blocks.{layer}.norm1.bias"] = f"transformer.blocks.{layer}.norm1.bias"
-    key_replacements[f"blocks.{layer}.norm2.weight"] = f"transformer.blocks.{layer}.norm2.weight"
-    key_replacements[f"blocks.{layer}.norm2.bias"] = f"transformer.blocks.{layer}.norm2.bias"
-    key_replacements[f"blocks.{layer}.mlp.fc1.weight"] = f"transformer.blocks.{layer}.pwff.fc1.weight"
-    key_replacements[f"blocks.{layer}.mlp.fc1.bias"] = f"transformer.blocks.{layer}.pwff.fc1.bias"
-    key_replacements[f"blocks.{layer}.mlp.fc2.weight"] = f"transformer.blocks.{layer}.pwff.fc2.weight"
-    key_replacements[f"blocks.{layer}.mlp.fc2.bias"] = f"transformer.blocks.{layer}.pwff.fc2.bias"
-    key_replacements[f"blocks.{layer}.attn.proj.weight"] = f"transformer.blocks.{layer}.proj.weight"
-    key_replacements[f"blocks.{layer}.attn.proj.bias"] = f"transformer.blocks.{layer}.proj.bias"
+    key_replacements[f"blocks.{layer}.norm1.weight"] = f"blocks.{layer}.norm1.weight"
+    key_replacements[f"blocks.{layer}.norm1.bias"] = f"blocks.{layer}.norm1.bias"
+    key_replacements[f"blocks.{layer}.norm2.weight"] = f"blocks.{layer}.norm2.weight"
+    key_replacements[f"blocks.{layer}.norm2.bias"] = f"blocks.{layer}.norm2.bias"
+    key_replacements[f"blocks.{layer}.mlp.fc1.weight"] = f"blocks.{layer}.mlp.fc1.weight"
+    key_replacements[f"blocks.{layer}.mlp.fc1.bias"] = f"blocks.{layer}.mlp.fc1.bias"
+    key_replacements[f"blocks.{layer}.mlp.fc2.weight"] = f"blocks.{layer}.mlp.fc2.weight"
+    key_replacements[f"blocks.{layer}.mlp.fc2.bias"] = f"blocks.{layer}.mlp.fc2.bias"
+    key_replacements[f"blocks.{layer}.attn.proj.weight"] = f"blocks.{layer}.attn.proj.weight"
+    key_replacements[f"blocks.{layer}.attn.proj.bias"] = f"blocks.{layer}.attn.proj.bias"
 
     # 不再合并 qkv，直接替换 q, k, v 键名
-    key_replacements[f"blocks.{layer}.attn.q.weight"] = f"transformer.blocks.{layer}.attn.proj_q.weight"
-    key_replacements[f"blocks.{layer}.attn.q.bias"] = f"transformer.blocks.{layer}.attn.proj_q.bias"
-    key_replacements[f"blocks.{layer}.attn.k.weight"] = f"transformer.blocks.{layer}.attn.proj_k.weight"
-    key_replacements[f"blocks.{layer}.attn.k.bias"] = f"transformer.blocks.{layer}.attn.proj_k.bias"
-    key_replacements[f"blocks.{layer}.attn.v.weight"] = f"transformer.blocks.{layer}.attn.proj_v.weight"
-    key_replacements[f"blocks.{layer}.attn.v.bias"] = f"transformer.blocks.{layer}.attn.proj_v.bias"
+    key_replacements[f"blocks.{layer}.attn.q.weight"] = f"blocks.{layer}.attn.q.weight"
+    key_replacements[f"blocks.{layer}.attn.q.bias"] = f"blocks.{layer}.attn.q.bias"
+    key_replacements[f"blocks.{layer}.attn.k.weight"] = f"blocks.{layer}.attn.k.weight"
+    key_replacements[f"blocks.{layer}.attn.k.bias"] = f"blocks.{layer}.attn.k.bias"
+    key_replacements[f"blocks.{layer}.attn.v.weight"] = f"blocks.{layer}.attn.v.weight"
+    key_replacements[f"blocks.{layer}.attn.v.bias"] = f"blocks.{layer}.attn.v.bias"
 
 # 3. 创建一个新的 state_dict，并处理名称
 new_state_dict = {}
