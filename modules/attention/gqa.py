@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from einops import rearrange, einsum
+# from einops import rearrange, einsum
 
 from utils import assign_check
 
