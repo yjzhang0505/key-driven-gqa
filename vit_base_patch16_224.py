@@ -5,10 +5,6 @@ from timm.models.vision_transformer import Block
 # from timm.models.vision_transformer import Block, Attention, Mlp, PatchEmbed
 # from timm.models.layers import DropPath, LayerNorm
 
-import torch
-import torch.nn as nn
-
-
 class Attention(nn.Module):
 
     def __init__(
@@ -16,38 +12,39 @@ class Attention(nn.Module):
             dim: int,
             num_heads: int = 8,
             qkv_bias: bool = False,
-            qk_norm: bool = False,
             attn_drop: float = 0.,
-            proj_drop: float = 0.,
-            norm_layer: nn.Module = nn.LayerNorm,
+            proj_drop: float = 0.
     ) -> None:
         super().__init__()
         assert dim % num_heads == 0, 'dim should be divisible by num_heads'
+        self.dim = dim
         self.num_heads = num_heads
         self.head_dim = dim // num_heads
         self.scale = self.head_dim ** -0.5
 
-        self.qkv = nn.Linear(dim, dim * 3, bias=qkv_bias)
-        self.q_norm = norm_layer(self.head_dim) if qk_norm else nn.Identity()
-        self.k_norm = norm_layer(self.head_dim) if qk_norm else nn.Identity()
+        self.q = nn.Linear(dim, dim, bias=qkv_bias)
+        self.k = nn.Linear(dim, dim, bias=qkv_bias)
+        self.v = nn.Linear(dim, dim, bias=qkv_bias)
+
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop)
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        B, N, C = x.shape
-        qkv = self.qkv(x).reshape(B, N, 3, self.num_heads, self.head_dim).permute(2, 0, 3, 1, 4)
-        q, k, v = qkv.unbind(0)
-        q, k = self.q_norm(q), self.k_norm(k)
-
-
+        B, P, C = x.shape
+        H = self.num_heads
+        q = self.q(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
+        k = self.k(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
+        v = self.v(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
+        
         q = q * self.scale
+
         attn = q @ k.transpose(-2, -1)
         attn = attn.softmax(dim=-1)
         attn = self.attn_drop(attn)
         x = attn @ v
 
-        x = x.transpose(1, 2).reshape(B, N, C)
+        x = x.transpose(1, 2).reshape(B, P, C)
         x = self.proj(x)
         x = self.proj_drop(x)
         return x
@@ -74,7 +71,6 @@ class Block(nn.Module):
             num_heads: int,
             mlp_ratio: float = 4.,
             qkv_bias: bool = False,
-            qk_norm: bool = False,
             proj_drop: float = 0.,
             attn_drop: float = 0.,
             init_values: Optional[float] = None,
@@ -89,10 +85,8 @@ class Block(nn.Module):
             dim,
             num_heads=num_heads,
             qkv_bias=qkv_bias,
-            qk_norm=qk_norm,
             attn_drop=attn_drop,
             proj_drop=proj_drop,
-            norm_layer=norm_layer,
         )
         self.ls1 = LayerScale(dim, init_values=init_values) if init_values else nn.Identity()
         self.drop_path1 = DropPath(drop_path) if drop_path > 0. else nn.Identity()
