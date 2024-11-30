@@ -15,7 +15,7 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 
-from vit_base_patch16_224 import VisionTransformer
+from vitb_gqa import VisionTransformer
 
 IMAGE_SIZE = 224
 TRAIN_TFMS = transforms.Compose([
@@ -74,7 +74,7 @@ transform = transforms.Compose([
 
 # train_dataset = CIFAR100ParquetDataset(train_parquet, transform=transform)
 # test_dataset = CIFAR100ParquetDataset(test_parquet, transform=transform)
-root = 'try/ckpt/cifar100/4/cifar100'
+root = '/data/yjzhang/desktop/try/not_share/key-driven-gqa/cifar100'
 
 train_dataset = torchvision.datasets.CIFAR100(
     root, train=True, download=True, transform=TRAIN_TFMS
@@ -129,7 +129,7 @@ model = VisionTransformer(
 )
 
 # 检查点路径
-pth_path = "/data/yjzhang/desktop/try/ckpt/cifar100/4/model.pth"  # 替换为你的检查点文件路径
+pth_path = "/data/yjzhang/desktop/try/ckpt/split_qkv.pth"  # 替换为你的检查点文件路径
 
 # 加载检查点
 state_dict = torch.load(pth_path, map_location=device)
