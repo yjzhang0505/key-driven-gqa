@@ -3,11 +3,11 @@
 ## git 指令
 
 - 查看当前分支 git branch
-- 创建并进入新的分支 git checkout -b <new_branch_name>
+- 创建并进入新的分支 git checkout -b vitb-1.
 - 查看当前暂存区状态 git status
 - 将文件添加到暂存区 git add <file_name>
-- 提交更改并添加修改说明 git commit -m "提交说明"
-- 将特定分支推送到网页 git push origin <branch_name>
+- 提交更改并添加修改说明 git commit -m "vitb-1."
+- 将特定分支推送到网页 git push origin vitb-1.
 
 
 ## 更新版本
@@ -32,3 +32,11 @@
 - train_freeze.py 调用mhsa，检查点为分立/data/yjzhang/desktop/try/ckpt/split_qkv.pth
 - vitb_mhsa.py 加载检查点分散到各个子函数中（类原始github）
 - vitb_gqa.py 暂未实现（只是mhsa的复制）
+
+
+#### vitb-1.3
+
+终于，原来是init里的加载检查点部分有问题。现在把所有外部接口维护好了。可以直接把以前的mhsa整个部分（包括加载检查点）粘过来直接用了。。。
+
+- train_freeze.py vitb_gqa.py vitb_mhsa.py
+- vitb_gqa.py为vitb_mhsa.py的复制版
