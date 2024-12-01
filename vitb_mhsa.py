@@ -48,18 +48,6 @@ class Attention(nn.Module):
         x = self.proj_drop(x)
         return x
 
-    def att_weight_conversion(self, qkv_params):
-        '''
-        Split and convert the QKV parameters from ViT checkpoints for the GQA implementation
-        '''
-        q, k, v = torch.split(qkv_params, qkv_params.shape[0] // 3, dim=0)
-        
-        return {
-            "q": q,
-            "k": k,
-            "v": v
-        }
-            
     def load_pretrained_weights(self, state_dict, block_idx):
 
         self.q.weight = torch.nn.Parameter(state_dict[f'blocks.{block_idx}.attn.q.weight'])
