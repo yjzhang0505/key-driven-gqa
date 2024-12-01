@@ -50,3 +50,11 @@
 
 - packed_well_copy/adjacent_matrix_similarity/mean_var/grouping_experiment.py 重要性相似性分组，保存在/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2
 - vitb_my_gqa.py 自己的gqa，来自分支not-shared-2.1（对接口进行了改动，参数的传入传出）
+
+
+#### vitb-1.5
+串联运行多文件，文件名由终端（.sh文件中遍历）输入，输出logging文件
+
+- 单独运行方式： python /data/yjzhang/desktop/try/not_share/key-driven-gqa/train_freeze.py --file_path /data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2/V_cosine_K_singular
+- 串联运行方式： /data/yjzhang/desktop/try/not_share/key-driven-gqa/vitb_run.sh
+- 输出logging文件地址：与group.txt相同文件夹下/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2的子文件夹的result.txt

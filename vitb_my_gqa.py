@@ -47,11 +47,11 @@ def load_group_schemes_from_txt(file_path: str):
 
 
 
-def shuffle_heads_once( x: torch.Tensor, num_heads: int, layer_index: int, load=True, save_groups: bool = True) -> torch.Tensor:
+def shuffle_heads_once( x: torch.Tensor, num_heads: int, layer_index: int, file_path: str, load=True, save_groups: bool = True) -> torch.Tensor:
     """
     打乱头部的顺序，根据读取的分组方案进行排列
     """
-    file_path = "/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2/V_cosine_V_singular"
+    # file_path = "/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2/V_cosine_V_singular"
     B, P, C = x.shape
     head_dim = C // num_heads  # 每个头的维度
 
@@ -80,12 +80,14 @@ class Attention(nn.Module):
             qkv_bias: bool = False,
             attn_drop: float = 0.,
             proj_drop: float = 0.,   
-            layer_index: int = 13       
+            layer_index: int = 13,
+            file_path: str = "1",       
     ) -> None:
         super().__init__()
         assert dim % num_heads == 0, 'dim should be divisible by num_heads'
         self.dim = dim
         self.layer_index=layer_index
+        self.file_path=file_path
         # print(layer_index)
         self.num_heads = num_heads
         self.head_dim = dim // num_heads
@@ -109,7 +111,7 @@ class Attention(nn.Module):
         H = self.num_heads  # 总共的 heads 数量 
         group_size = self.num_heads // self.num_kv_heads
 
-        x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, self.layer_index, load=False)
+        x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, self.layer_index, self.file_path, load=False)
         inverse_indices = torch.empty_like(self.permuted_indices)
         inverse_indices[self.permuted_indices] = torch.arange(len(self.permuted_indices))
 
@@ -175,7 +177,7 @@ class Attention(nn.Module):
         q, k, v = torch.split(qkv_params, qkv_params.shape[0] // 3, dim=0)
 
         # 使用shuffle_heads_once打乱头的顺序，并保存打乱后的顺序
-        _, self.permuted_indices = shuffle_heads_once(torch.empty(1, 1, self.dim), self.num_heads, block_idx, load = True, save_groups=True)
+        _, self.permuted_indices = shuffle_heads_once(torch.empty(1, 1, self.dim), self.num_heads, block_idx, self.file_path, load = True, save_groups=True)
 
         # 基于打乱后的头顺序进行池化
         def convert_weight(param):
@@ -284,16 +286,19 @@ class Block(nn.Module):
             norm_layer: nn.Module = nn.LayerNorm,
             mlp_layer: nn.Module = Mlp,
             layer_index: int = 13,
+            file_path: str="1",
     ) -> None:
         super().__init__()
         self.norm1 = norm_layer(dim)
+        self.file_path=file_path
         self.attn = Attention(
             dim,
             num_heads=num_heads,
             qkv_bias=qkv_bias,
             attn_drop=attn_drop,
             proj_drop=proj_drop,
-            layer_index=layer_index
+            layer_index=layer_index,
+            file_path=self.file_path
         )
         self.ls1 = LayerScale(dim, init_values=init_values) if init_values else nn.Identity()
         self.drop_path1 = DropPath(drop_path) if drop_path > 0. else nn.Identity()
@@ -407,6 +412,7 @@ class VisionTransformer(nn.Module):
         drop_path_rate=0.,
         init_values=None,
         representation_size=None,
+        file_path="1"
     ):
         super(VisionTransformer, self).__init__()
 
@@ -431,7 +437,8 @@ class VisionTransformer(nn.Module):
                 proj_drop=attn_drop_rate,
                 drop_path=drop_path_rate,
                 norm_layer=norm_layer,
-                layer_index = i
+                layer_index = i,
+                file_path=file_path,
             ) for i in range(depth)
         ])
 
