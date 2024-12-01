@@ -1,0 +1,31 @@
+lr=1e-4, step_size=5, gamma=0.1, num_epochs = 10
+Epoch 1/10
+Train Loss: 0.9841, Train Acc: 0.7269                                                                                                                                                           
+Test Loss: 0.5852, Test Acc: 0.8284
+Epoch 2/10
+Train Loss: 0.5256, Train Acc: 0.8448                                                                                                                                                           
+Test Loss: 0.5202, Test Acc: 0.8463
+Epoch 3/10
+Train Loss: 0.4387, Train Acc: 0.8682                                                                                                                                                           
+Test Loss: 0.5127, Test Acc: 0.8530
+Epoch 4/10
+Train Loss: 0.3164, Train Acc: 0.9039                                                                                                                                                           
+Test Loss: 0.5387, Test Acc: 0.8537
+Epoch 5/10
+Train Loss: 0.2742, Train Acc: 0.9167                                                                                                                                                           
+Test Loss: 0.5863, Test Acc: 0.8448
+Epoch 6/10
+Train Loss: 0.1277, Train Acc: 0.9615                                                                                                                                                           
+Test Loss: 0.4093, Test Acc: 0.8883
+Epoch 7/10
+Train Loss: 0.0781, Train Acc: 0.9774                                                                                                                                                           
+Test Loss: 0.4028, Test Acc: 0.8952
+Epoch 8/10
+Train Loss: 0.0697, Train Acc: 0.9798                                                                                                                                                           
+Test Loss: 0.3976, Test Acc: 0.8947
+Epoch 9/10
+Train Loss: 0.0553, Train Acc: 0.9844                                                                                                                                                           
+Test Loss: 0.4062, Test Acc: 0.8960
+Epoch 10/10
+Train Loss: 0.0524, Train Acc: 0.9857                                                                                                                                                           
+Test Loss: 0.4050, Test Acc: 0.8976

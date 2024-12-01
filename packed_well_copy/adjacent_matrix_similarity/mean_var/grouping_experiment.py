@@ -102,6 +102,7 @@ def group_heads_singular(model, similartiry_type, importance_type, layer_idx):
     # 获取相似性矩阵和重要性矩阵
     similarity_matrices = calculate_similarity(model)
     importance_matrix = load_singular_values_from_model(model, layer_idx).get(importance_type)
+    # importance_matrix = load_singular_values_from_model(model, layer_idx).get(importance_type)
     print(importance_matrix)
 
     # 获取指定层的相似性矩阵
@@ -123,9 +124,10 @@ model = YourTransformerModel(num_heads=12, dim=768)
 model.load_pretrained_qkv_weights()
 
 # 定义所有的相似性矩阵和重要性矩阵的组合
-similarity_keys = ['K_cosine', 'V_cosine']
-importance_keys = ['K_singular', 'Q_singular', 'V_singular', 'KxQ_singular']
-# importance_keys = ['K_mean', 'K_var', 'Q_mean', 'Q_var', 'V_mean', 'V_var', 'KxQ_mean', 'KxQ_var']
+similarity_keys = ['V_cosine']
+importance_keys = ['K_var', 'Q_var', 'V_var', 'KxQ_var']
+# similarity_keys = ['K_cosine', 'V_cosine']
+# importance_keys = ['K_singular', 'Q_singular', 'V_singular', 'KxQ_singular']
 
 # 遍历相似性矩阵和重要性矩阵的组合
 for similarity_key in similarity_keys:
@@ -136,7 +138,8 @@ for similarity_key in similarity_keys:
         # 遍历 12 层
         for layer_idx in range(12):
             # 假设 group_heads_for_layer 是根据相似性矩阵和重要性矩阵对头部分组的函数
-            grouped_heads = group_heads_singular(model, similarity_key, importance_key, layer_idx)
+            grouped_heads = group_heads_for_layer(model, similarity_key, importance_key, layer_idx)
+            # grouped_heads = group_heads_singular(model, similarity_key, importance_key, layer_idx)
             group_schemes[layer_idx] = grouped_heads
 
         # 格式化输出的字符串
@@ -145,7 +148,7 @@ for similarity_key in similarity_keys:
             output_str += f"{grouped_heads},\n"
 
         # 创建输出文件夹路径（使用组合名称）
-        output_dir = f"/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin/{similarity_key}_{importance_key}"
+        output_dir = f"/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2/{similarity_key}_{importance_key}"
         os.makedirs(output_dir, exist_ok=True)
 
         # 定义输出文件路径

@@ -42,3 +42,11 @@
 - vitb_gqa.py 实现原始gqa
 - train_freeze.py 主代码，在import部分切换mhsa和gqa
 - ckpt用原始的合并qkv
+- cifar100_gqa训练检测结果保存在/data/yjzhang/desktop/try/not_share/key-driven-gqa/cifar100_results/gqa_1e-4_5_0.1_10.txt
+
+
+#### vitb-1.4
+自己的gqa
+
+- packed_well_copy/adjacent_matrix_similarity/mean_var/grouping_experiment.py 重要性相似性分组，保存在/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2
+- vitb_my_gqa.py 自己的gqa，来自分支not-shared-2.1（对接口进行了改动，参数的传入传出）

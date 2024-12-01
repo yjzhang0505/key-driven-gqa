@@ -15,7 +15,7 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 
-from vitb_gqa import VisionTransformer
+from vitb_my_gqa import VisionTransformer
 # from vit_base_patch16_224 import VisionTransformer
 
 IMAGE_SIZE = 224
