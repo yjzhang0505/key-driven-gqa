@@ -15,7 +15,8 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 
-from vitb_gqa import VisionTransformer
+from vitb_mhsa import VisionTransformer
+# from vit_base_patch16_224 import VisionTransformer
 
 IMAGE_SIZE = 224
 TRAIN_TFMS = transforms.Compose([
@@ -68,12 +69,6 @@ transform = transforms.Compose([
     transforms.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]),
 ])
 
-# 定义训练和测试数据集
-# train_parquet = "/data/yjzhang/desktop/try/ckpt/cifar100/2/cifar100/train-00000-of-00001.parquet"
-# test_parquet = "/data/yjzhang/desktop/try/ckpt/cifar100/2/cifar100/test-00000-of-00001.parquet"
-
-# train_dataset = CIFAR100ParquetDataset(train_parquet, transform=transform)
-# test_dataset = CIFAR100ParquetDataset(test_parquet, transform=transform)
 root = '/data/yjzhang/desktop/try/not_share/key-driven-gqa/cifar100'
 
 train_dataset = torchvision.datasets.CIFAR100(
@@ -89,32 +84,6 @@ train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True)
 
 
-
-
-
-
-# # 数据预处理
-# transform = transforms.Compose([
-#     transforms.RandomCrop(32, padding=4),
-#     transforms.RandomHorizontalFlip(),
-#     transforms.Resize((224, 224)),  # 模型要求输入为 224x224
-#     transforms.ToTensor(),
-#     transforms.Normalize(mean=[0.5071, 0.4865, 0.4409], std=[0.2673, 0.2564, 0.2762]),
-# ])
-
-# # 加载 CIFAR-100 数据集
-# train_dataset = datasets.CIFAR100(root="/data/yjzhang/desktop/try/key-driven-gqa/cifar100", train=True, download=True, transform=transform)
-# test_dataset = datasets.CIFAR100(root="/data/yjzhang/desktop/try/key-driven-gqa/cifar100", train=False, download=True, transform=transform)
-# train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
-# test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
-
-
-# 创建模型
-# model = timm.create_model(
-#     "vit_base_patch16_224.orig_in21k_ft_in1k",  # 模型名称
-#     pretrained=False,  # 不加载预训练权重，直接创建空模型
-#     num_classes=100    # CIFAR-100 数据集要求 100 个类别
-# )
 model = VisionTransformer(
     img_size=224,
     patch_size=16,
@@ -132,6 +101,15 @@ model = VisionTransformer(
 pth_path = "/data/yjzhang/desktop/try/ckpt/split_qkv.pth"  # 替换为你的检查点文件路径
 
 # 加载检查点
+checkpoint = torch.load(pth_path)
+
+# 获取 state_dict
+state_dict = checkpoint['state_dict'] if 'state_dict' in checkpoint else checkpoint
+
+# 将拆分后的权重加载到模型中
+model.load_pretrained_weights(state_dict)
+print("Checkpoint loaded successfully!")
+
 state_dict = torch.load(pth_path, map_location=device)
 missing_keys, unexpected_keys = model.load_state_dict(state_dict, strict=True)
 
