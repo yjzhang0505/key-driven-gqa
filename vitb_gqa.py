@@ -20,7 +20,8 @@ class Attention(nn.Module):
             num_heads: int = 8,
             qkv_bias: bool = False,
             attn_drop: float = 0.,
-            proj_drop: float = 0.
+            proj_drop: float = 0.,
+
     ) -> None:
         super().__init__()
         assert dim % num_heads == 0, 'dim should be divisible by num_heads'
@@ -28,10 +29,11 @@ class Attention(nn.Module):
         self.num_heads = num_heads
         self.head_dim = dim // num_heads
         self.scale = self.head_dim ** -0.5
+        self.num_kv_heads = num_heads // 2 # have at least two heads in each group
 
         self.q = nn.Linear(dim, dim, bias=qkv_bias)
-        self.k = nn.Linear(dim, dim, bias=qkv_bias)
-        self.v = nn.Linear(dim, dim, bias=qkv_bias)
+        self.k = nn.Linear(dim, self.num_kv_heads*self.head_dim, bias=qkv_bias)
+        self.v = nn.Linear(dim, self.num_kv_heads*self.head_dim, bias=qkv_bias)
 
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(dim, dim)
@@ -41,31 +43,73 @@ class Attention(nn.Module):
         B, P, C = x.shape
         H = self.num_heads
         q = self.q(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
-        k = self.k(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
-        v = self.v(x).view(B, P, H, -1).transpose(1, 2) # (B, H, P, head_size)
+        k = self.k(x).view(B, P, self.num_kv_heads, -1).transpose(1, 2) # (B, num_kv_heads, P, head_size)
+        v = self.v(x).view(B, P, self.num_kv_heads, -1).transpose(1, 2) # (B, num_kv_heads, P, head_size)
         
         q = q * self.scale
 
-        attn = q @ k.transpose(-2, -1)
-        attn = attn.softmax(dim=-1)
-        attn = self.attn_drop(attn)
-        x = attn @ v
+        group_size = self.num_heads // self.num_kv_heads
+        q_grps = torch.split(q, group_size, dim=1)
+        k_grps = torch.split(k, 1, dim=1) 
+        v_grps = torch.split(v, 1, dim=1)
 
-        x = x.transpose(1, 2).reshape(B, P, C)
+        outputs = [None] * len(k_grps)
+        for i in range(len(k_grps)):
+                
+            # Collect items (note q has a larger head axis)
+            curr_q = q_grps[i]  # (B, num_heads//num_kv_heads, num_patches, head_size)
+            curr_k = k_grps[i]  # (B, 1, num_patches, head_size)
+            curr_v = v_grps[i]  # (B, 1, num_patches, head_size)
+            
+            scores = (curr_q @ curr_k.transpose(-2, -1))
+            weights = F.softmax(scores, dim=-1) # (B, num_heads//num_kv_heads, num_patches, num_patches)
+            weights = self.attn_drop(weights)
+            curr_att = weights @ curr_v # (B, num_heads//num_kv_heads, num_patches, head_size)
+            outputs[i] = curr_att
+
+        x = torch.cat(outputs, dim=1) # (B, num_heads, num_patches, head_size)
+        x = x.transpose(1, 2).contiguous().view(B, P, C) # (B, num_patches, emb_dim)
         x = self.proj(x)
         x = self.proj_drop(x)
         return x
     
-    def att_weight_conversion(self, qkv_params):
+    def att_weight_conversion(self, qkv_params, is_bias=False):
         '''
         Split and convert the QKV parameters from ViT checkpoints for the GQA implementation
         '''
         q, k, v = torch.split(qkv_params, qkv_params.shape[0] // 3, dim=0)
+
+        group_size = self.num_heads // self.num_kv_heads
+
+        def convert_weight(param):
+            x = param.clone() # (dim, dim)
+
+            # This totally breaks if you reshape as (dim, H, dim/H) and split across dim=1
+            # You have to shape it as (H, dim/H, dim) and split the across dim=0
+            x = x.view(self.num_heads, self.dim//self.num_heads, self.dim)
+            xs = torch.split(x, group_size, dim=0) # split across head axis
+            xs = [xs[i].mean(dim=0) for i in range(self.num_kv_heads)]
+            x = torch.cat(xs, dim=0)
+
+            expected_shape = (self.num_kv_heads*self.dim//self.num_heads, self.dim)
+            assert x.shape == expected_shape, f'Expected {expected_shape}, got {x.shape}'
+            return x
+        
+        def convert_bias(param):
+            x = param.clone()
+            x = x.view(self.num_heads, self.dim//self.num_heads)
+            xs = torch.split(x, group_size, dim=0) # split across head axis
+            xs = [xs[i].mean(dim=0) for i in range(self.num_kv_heads)]
+            x = torch.cat(xs, dim=0)
+
+            expected_shape = (self.num_kv_heads*self.dim//self.num_heads,)
+            assert x.shape == expected_shape, f'Expected {expected_shape}, got {x.shape}'
+            return x
         
         return {
             "q": q,
-            "k": k,
-            "v": v
+            "k": convert_weight(k) if not is_bias else convert_bias(k),
+            "v": convert_weight(v) if not is_bias else convert_bias(v)
         }
     
     def load_pretrained_weights(self, state_dict, block_idx):
@@ -75,7 +119,7 @@ class Attention(nn.Module):
         qkv_bias = state_dict[f'blocks.{block_idx}.attn.qkv.bias']
 
         wdict = self.att_weight_conversion(qkv_weight)
-        bdict = self.att_weight_conversion(qkv_bias)
+        bdict = self.att_weight_conversion(qkv_bias, is_bias=True)
 
         self.q.weight = assign_check(self.q.weight, wdict['q'])
         self.q.bias = assign_check(self.q.bias, bdict['q'])
@@ -89,7 +133,8 @@ class Attention(nn.Module):
         # Load in parameters for the output projection
         self.proj.weight = assign_check(self.proj.weight, state_dict[f'blocks.{block_idx}.attn.proj.weight'])
         self.proj.bias = assign_check(self.proj.bias, state_dict[f'blocks.{block_idx}.attn.proj.bias'])
-        
+
+
 class Mlp(nn.Module):
     def __init__(self, in_features: int, hidden_features: int, act_layer: nn.Module = nn.GELU, drop: float = 0.):
         super().__init__()

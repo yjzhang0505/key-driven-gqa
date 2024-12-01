@@ -38,6 +38,7 @@
 
 终于，原来是init里的加载检查点部分有问题。现在把所有外部接口维护好了。可以直接把以前的mhsa整个部分（包括加载检查点）粘过来直接用了。。。
 
-- train_freeze.py vitb_gqa.py vitb_mhsa.py
-- vitb_gqa.py为vitb_mhsa.py的复制版
+- vitb_mhsa.py 实现原始mhsa
+- vitb_gqa.py 实现原始gqa
+- train_freeze.py 主代码，在import部分切换mhsa和gqa
 - ckpt用原始的合并qkv
