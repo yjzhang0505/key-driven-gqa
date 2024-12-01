@@ -3,6 +3,14 @@ import torch
 import torch.nn as nn
 from timm.models.vision_transformer import Block
 import torch.nn.functional as F
+import math
+from typing import Optional
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+from utils import assign_check
 
 class Attention(nn.Module):
 
@@ -47,16 +55,41 @@ class Attention(nn.Module):
         x = self.proj(x)
         x = self.proj_drop(x)
         return x
-
+    
+    def att_weight_conversion(self, qkv_params):
+        '''
+        Split and convert the QKV parameters from ViT checkpoints for the GQA implementation
+        '''
+        q, k, v = torch.split(qkv_params, qkv_params.shape[0] // 3, dim=0)
+        
+        return {
+            "q": q,
+            "k": k,
+            "v": v
+        }
+    
     def load_pretrained_weights(self, state_dict, block_idx):
 
-        self.q.weight = torch.nn.Parameter(state_dict[f'blocks.{block_idx}.attn.q.weight'])
-        self.k.weight = torch.nn.Parameter(state_dict[f'blocks.{block_idx}.attn.k.weight'])
-        self.v.weight = torch.nn.Parameter(state_dict[f'blocks.{block_idx}.attn.v.weight'])
-        self.q.bias = torch.nn.Parameter(state_dict[f'blocks.{block_idx}.attn.q.bias'])
-        self.k.bias = torch.nn.Parameter(state_dict[f'blocks.{block_idx}.attn.k.bias'])
-        self.v.bias = torch.nn.Parameter(state_dict[f'blocks.{block_idx}.attn.v.bias'])
+        # Load in parameters for the Query Key Value layers
+        qkv_weight = state_dict[f'blocks.{block_idx}.attn.qkv.weight']
+        qkv_bias = state_dict[f'blocks.{block_idx}.attn.qkv.bias']
 
+        wdict = self.att_weight_conversion(qkv_weight)
+        bdict = self.att_weight_conversion(qkv_bias)
+
+        self.q.weight = assign_check(self.q.weight, wdict['q'])
+        self.q.bias = assign_check(self.q.bias, bdict['q'])
+
+        self.k.weight = assign_check(self.k.weight, wdict['k'])
+        self.k.bias = assign_check(self.k.bias, bdict['k'])
+        
+        self.v.weight = assign_check(self.v.weight, wdict['v'])
+        self.v.bias = assign_check(self.v.bias, bdict['v'])
+
+        # Load in parameters for the output projection
+        self.proj.weight = assign_check(self.proj.weight, state_dict[f'blocks.{block_idx}.attn.proj.weight'])
+        self.proj.bias = assign_check(self.proj.bias, state_dict[f'blocks.{block_idx}.attn.proj.bias'])
+        
 class Mlp(nn.Module):
     def __init__(self, in_features: int, hidden_features: int, act_layer: nn.Module = nn.GELU, drop: float = 0.):
         super().__init__()
@@ -116,7 +149,19 @@ class Block(nn.Module):
 
     def load_pretrained_weights(self, state_dict, block_idx):
 
+        # print("1")
         self.attn.load_pretrained_weights(state_dict, block_idx)
+
+        self.norm1.weight = assign_check(self.norm1.weight, state_dict[f'blocks.{block_idx}.norm1.weight'])
+        self.norm1.bias = assign_check(self.norm1.bias, state_dict[f'blocks.{block_idx}.norm1.bias'])
+        
+        self.norm2.weight = assign_check(self.norm2.weight, state_dict[f'blocks.{block_idx}.norm2.weight'])
+        self.norm2.bias = assign_check(self.norm2.bias, state_dict[f'blocks.{block_idx}.norm2.bias'])
+
+        self.mlp.fc1.weight = assign_check(self.mlp.fc1.weight, state_dict[f'blocks.{block_idx}.mlp.fc1.weight'])
+        self.mlp.fc1.bias = assign_check(self.mlp.fc1.bias, state_dict[f'blocks.{block_idx}.mlp.fc1.bias'])
+        self.mlp.fc2.weight = assign_check(self.mlp.fc2.weight, state_dict[f'blocks.{block_idx}.mlp.fc2.weight'])
+        self.mlp.fc2.bias = assign_check(self.mlp.fc2.bias, state_dict[f'blocks.{block_idx}.mlp.fc2.bias'])
 
 
 
@@ -275,11 +320,15 @@ class VisionTransformer(nn.Module):
         return x
 
     def load_pretrained_weights(self, state_dict):
-        
         print("Loading in weights...")
         
         for b, block in enumerate(self.blocks):
             block.load_pretrained_weights(state_dict, b)
-            print(f"Finished with {b+1} blocks...")
+        print(f"Finished with {b+1} blocks...")
+
+        self.patch_embed.proj.weight = assign_check(self.patch_embed.proj.weight, state_dict['patch_embed.proj.weight'])
+        self.patch_embed.proj.bias = assign_check(self.patch_embed.proj.bias, state_dict['patch_embed.proj.bias'])
+        self.cls_token = assign_check(self.cls_token, state_dict['cls_token'])
+        self.pos_embed = assign_check(self.pos_embed, state_dict['pos_embed'])
 
         print("Success!")

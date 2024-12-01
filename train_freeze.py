@@ -15,7 +15,7 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 
-from vitb_mhsa import VisionTransformer
+from vitb_gqa import VisionTransformer
 # from vit_base_patch16_224 import VisionTransformer
 
 IMAGE_SIZE = 224
@@ -98,23 +98,18 @@ model = VisionTransformer(
 )
 
 # 检查点路径
-pth_path = "/data/yjzhang/desktop/try/ckpt/split_qkv.pth"  # 替换为你的检查点文件路径
+pth_path = "/data/yjzhang/desktop/try/ckpt/cifar100/4/model.pth"  # 替换为你的检查点文件路径
 
+ 
 # 加载检查点
 checkpoint = torch.load(pth_path)
 
-# 获取 state_dict
-state_dict = checkpoint['state_dict'] if 'state_dict' in checkpoint else checkpoint
+model.load_state_dict(checkpoint, strict=False)
 
-# 将拆分后的权重加载到模型中
-model.load_pretrained_weights(state_dict)
-print("Checkpoint loaded successfully!")
+model.load_pretrained_weights(checkpoint)
+print(f"Loaded pretrained weights from {pth_path}!")
 
-state_dict = torch.load(pth_path, map_location=device)
-missing_keys, unexpected_keys = model.load_state_dict(state_dict, strict=True)
 
-print(f"Missing keys: {missing_keys}")  # 检查模型中缺失的键
-print(f"Unexpected keys: {unexpected_keys}")  # 检查检查点中多余的键
 
 # 将模型移到设备
 model.to(device)
