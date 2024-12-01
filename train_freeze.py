@@ -117,7 +117,7 @@ model.to(device)
 # 定义损失函数和优化器
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=1e-4)
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
 
 # 训练函数
 def train(model, loader, criterion, optimizer, device):
@@ -180,7 +180,7 @@ def test(model, loader, criterion, device):
     return total_loss / total_samples, correct / total_samples
 
 # 开始训练
-num_epochs = 5
+num_epochs = 10
 for epoch in range(num_epochs):
     print(f"Epoch {epoch + 1}/{num_epochs}")
     train_loss, train_acc = train(model, train_loader, criterion, optimizer, device)
