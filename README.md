@@ -40,3 +40,4 @@
 
 - train_freeze.py vitb_gqa.py vitb_mhsa.py
 - vitb_gqa.py为vitb_mhsa.py的复制版
+- ckpt用原始的合并qkv
