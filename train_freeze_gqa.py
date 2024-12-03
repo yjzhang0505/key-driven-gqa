@@ -1,3 +1,24 @@
+
+import torch
+from torch import nn, optim
+from torchvision import datasets, transforms
+from torch.utils.data import DataLoader
+from tqdm import tqdm
+import timm
+
+# 检查设备
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+import torchvision
+import io
+from PIL import Image
+import pandas as pd
+import torch
+from torch.utils.data import Dataset
+
+from vitb_gqa import VisionTransformer
+# from vit_base_patch16_224 import VisionTransformer
+
 import torch
 from torch import nn, optim
 from torchvision import datasets, transforms
@@ -16,20 +37,6 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import Subset
-
-# 检查设备
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-import torchvision
-import io
-from PIL import Image
-import pandas as pd
-import torch
-from torch.utils.data import Dataset
-
-from vitb_my_gqa import VisionTransformer
-import argparse
-import os
 
 def set_seed(seed=42):
     random.seed(seed)
@@ -51,6 +58,38 @@ TEST_TFMS = transforms.Compose([
     transforms.ToTensor(),
     transforms.Normalize([0.5, 0.5, 0.5], [0.5, 0.5, 0.5])
 ])
+
+# 添加早停
+class EarlyStopping:
+    def __init__(self, patience=3, delta=0, path='checkpoint.pth'):
+        self.patience = patience  # 允许的容忍次数
+        self.delta = delta  # 需要的最小改善量
+        self.path = path  # 检查点保存路径
+        self.best_acc = None  # 用于存储最佳准确率
+        self.epochs_without_improvement = 0  # 没有改进的周期数
+
+    def __call__(self, test_acc, model):
+        # 如果没有记录最佳准确率，初始化
+        if self.best_acc is None:
+            self.best_acc = test_acc
+            self.save_checkpoint(model)
+        # 如果当前准确率比最佳准确率高，并且高于 `delta`，则更新最佳准确率
+        elif test_acc > self.best_acc + self.delta:
+            self.best_acc = test_acc
+            self.epochs_without_improvement = 0
+            self.save_checkpoint(model)
+        else:
+            # 如果没有改善，增加未改进的周期数
+            self.epochs_without_improvement += 1
+            # 如果连续 `patience` 个周期没有改进，执行早停
+            if self.epochs_without_improvement >= self.patience:
+                print("Early stopping")
+                return True
+        return False
+
+    def save_checkpoint(self, model):
+        torch.save(model.state_dict(), self.path)
+
 
 class CIFAR100ParquetDataset(Dataset):
     def __init__(self, parquet_file, transform=None):
@@ -76,6 +115,8 @@ class CIFAR100ParquetDataset(Dataset):
 
         return img, label
 
+
+
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
@@ -94,10 +135,10 @@ train_dataset = torchvision.datasets.CIFAR100(
     root, train=True, download=True, transform=TRAIN_TFMS
 )
 
+import random
 test_dataset = torchvision.datasets.CIFAR100(
     root, train=False, download=True, transform=TEST_TFMS
 )
-
 def get_proxy_dataset(dataset, proxy_ratio=0.1):
     """
     从原始数据集中随机选择一定比例的样本，创建代理数据集。
@@ -126,6 +167,42 @@ print(f"Using proxy dataset with ratio {proxy_ratio}")
 # 定义数据加载器
 train_loader = DataLoader(proxy_train_dataset, batch_size=32, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True)
+
+
+model = VisionTransformer(
+    img_size=224,
+    patch_size=16,
+    in_chans=3,
+    num_classes=100,  # CIFAR-100 数据集
+    embed_dim=768,
+    depth=12,
+    num_heads=12,
+    mlp_ratio=4.,
+    qkv_bias=True,
+    norm_layer=nn.LayerNorm,
+)
+
+# 检查点路径
+pth_path = "/home/yjzhang/desktop/try/ckpt/cifar100/4/model.pth"  # 替换为你的检查点文件路径
+
+ 
+# 加载检查点
+checkpoint = torch.load(pth_path)
+
+model.load_state_dict(checkpoint, strict=False)
+
+model.load_pretrained_weights(checkpoint)
+print(f"Loaded pretrained weights from {pth_path}!")
+
+model = torch.nn.DataParallel(model, device_ids=[0,1,2])  # 指定 GPU 设备 0, 1
+
+# 将模型移到设备
+model.to(device)
+
+# 定义损失函数和优化器
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.AdamW(model.parameters(), lr=1e-4)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
 
 # 训练函数
 def train(model, loader, criterion, optimizer, device):
@@ -187,91 +264,15 @@ def test(model, loader, criterion, device):
 
     return total_loss / total_samples, correct / total_samples
 
-
-# 添加早停
-class EarlyStopping:
-    def __init__(self, patience=3, delta=0, path='checkpoint.pth'):
-        self.patience = patience  # 允许的容忍次数
-        self.delta = delta  # 需要的最小改善量
-        self.path = path  # 检查点保存路径
-        self.best_acc = None  # 用于存储最佳准确率
-        self.epochs_without_improvement = 0  # 没有改进的周期数
-
-    def __call__(self, test_acc, model):
-        # 如果没有记录最佳准确率，初始化
-        if self.best_acc is None:
-            self.best_acc = test_acc
-            self.save_checkpoint(model)
-        # 如果当前准确率比最佳准确率高，并且高于 `delta`，则更新最佳准确率
-        elif test_acc > self.best_acc + self.delta:
-            self.best_acc = test_acc
-            self.epochs_without_improvement = 0
-            self.save_checkpoint(model)
-        else:
-            # 如果没有改善，增加未改进的周期数
-            self.epochs_without_improvement += 1
-            # 如果连续 `patience` 个周期没有改进，执行早停
-            if self.epochs_without_improvement >= self.patience:
-                print("Early stopping")
-                return True
-        return False
-
-    def save_checkpoint(self, model):
-        torch.save(model.state_dict(), self.path)
-
-
-parser = argparse.ArgumentParser(description='put in filepath.')
-parser.add_argument('--file_path', type=str, help='Path to the group txt')
-args = parser.parse_args()
-
-# 加载模型
-model = VisionTransformer(
-    img_size=224,
-    patch_size=16,
-    in_chans=3,
-    num_classes=100,  # CIFAR-100 数据集
-    embed_dim=768,
-    depth=12,
-    num_heads=12,
-    mlp_ratio=4.,
-    qkv_bias=True,
-    norm_layer=nn.LayerNorm,
-    file_path=args.file_path,
-)
-
-# 检查点路径
-pth_path = "/home/yjzhang/desktop/try/ckpt/cifar100/4/model.pth"  # 替换为你的检查点文件路径
-
-# 加载检查点
-checkpoint = torch.load(pth_path)
-model.load_state_dict(checkpoint, strict=False)
-model.load_pretrained_weights(checkpoint)
-print(f"Loaded pretrained weights from {pth_path}!")
-
-# model = torch.nn.DataParallel(model)
-model = torch.nn.DataParallel(model, device_ids=[0, 1, 2])  # 指定 GPU 设备 0, 1
-# 将模型移到设备
-model.to(device)
-
-# 定义损失函数和优化器
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.AdamW(model.parameters(), lr=1e-4)
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)
-
-# 配置早停
 early_stopping = EarlyStopping(patience=5, path='early_stopped_model.pth')
 
-# 训练循环
-num_epochs = 100  # 设置一个大值，实际会因早停机制提前停止
+# 开始训练
+num_epochs = 100
 import logging
-
-file_name = "Result.txt"
-# 使用 os.path.join 来连接文件夹路径和文件名，生成完整的文件路径
-full_file_path = os.path.join(args.file_path, file_name)
 
 # 配置 logging
 logging.basicConfig(
-    filename=full_file_path,  # 输出到的文件
+    filename="/home/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2/gqa/proxy=0.1.txt",  # 输出到的文件
     level=logging.INFO,           # 日志级别
     format="%(asctime)s - %(levelname)s - %(message)s",  # 日志格式
 )
@@ -288,5 +289,4 @@ for epoch in range(num_epochs):
     logging.info(f"Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}")
     # 使用验证损失进行早停判断
     if early_stopping(test_acc, model):
-        break  # 提前停止训练
-
+        break  # 提前停止训练    

@@ -58,3 +58,9 @@
 - 单独运行方式： python /data/yjzhang/desktop/try/not_share/key-driven-gqa/train_freeze.py --file_path /data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2/V_cosine_K_singular
 - 串联运行方式： /data/yjzhang/desktop/try/not_share/key-driven-gqa/vitb_run.sh
 - 输出logging文件地址：与group.txt相同文件夹下/data/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2的子文件夹的result.txt
+
+
+#### vitb-2.0
+
+- ckpt_to_txt.py train.py train_freeze.py train_freeze_copy.py vitb_my_gqa.py vitb_run.sh
+- swap_ckpt.py train_asym.py train_freeze_gqa.py vitb_asymmetric_gqa.py vitb_run_freeze.sh

@@ -86,175 +86,180 @@ class Attention(nn.Module):
         super().__init__()
         assert dim % num_heads == 0, 'dim should be divisible by num_heads'
         self.dim = dim
-        self.layer_index=layer_index
-        self.file_path=file_path
-        # print(layer_index)
+        self.layer_index = layer_index
+        self.file_path = file_path
         self.num_heads = num_heads
         self.head_dim = dim // num_heads
         self.scale = self.head_dim ** -0.5
-        self.num_kv_heads = num_heads // 2 # have at least two heads in each group
+        self.num_kv_heads = num_heads // 2  # Ensure at least two heads in each group
 
         self.q = nn.Linear(dim, dim, bias=qkv_bias)
-        self.k = nn.Linear(dim, self.num_kv_heads*self.head_dim, bias=qkv_bias)
-        self.v = nn.Linear(dim, self.num_kv_heads*self.head_dim, bias=qkv_bias)
+        self.k = nn.Linear(dim, self.num_kv_heads * self.head_dim, bias=qkv_bias)
+        self.v = nn.Linear(dim, self.num_kv_heads * self.head_dim, bias=qkv_bias)
 
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop)
-        # print("gqa")
-
-        # 保存打乱后的头顺序索引
-        # self.permuted_indices = None
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         B, P, C = x.shape
-        H = self.num_heads  # 总共的 heads 数量 
-        # print(self.q.weight)
-        group_size = self.num_heads // self.num_kv_heads
+        H = self.num_heads  # Total number of heads
 
+        # Define the new group sizes
+        group_sizes = [1, 1, 2, 2, 3, 3]
+        assert sum(group_sizes) == H, f"The sum of group sizes should equal the number of heads, but got {sum(group_sizes)} != {H}"
+
+        # Shuffle the heads and store the permutation indices
         x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, self.layer_index, self.file_path, load=False)
         inverse_indices = torch.empty_like(self.permuted_indices)
         inverse_indices[self.permuted_indices] = torch.arange(len(self.permuted_indices))
 
-        # 获取 query, key, value 并为每个 head 计算
+        # Get query, key, value for each head
         q = self.q(x).view(B, P, H, -1).transpose(1, 2)  # (B, H, P, head_size)
         k = self.k(x_shuffled).view(B, P, self.num_kv_heads, -1).transpose(1, 2)  # (B, num_kv_heads, P, head_size)
         v = self.v(x_shuffled).view(B, P, self.num_kv_heads, -1).transpose(1, 2)  # (B, num_kv_heads, P, head_size)
-        
-        # 缩放 query 
+
+        # Scale query
         q = q * self.scale
 
-        # q_heads 是一个包含 H 个元素的列表，每个元素是 (B, P, head_size)
-        q_heads = torch.split(q, 1, dim=1)  # 拆分为 (B, 1, P, head_size)
-        k_heads = torch.split(k, 1, dim=1)  # 拆分为 (B, 1, P, head_size)
-        v_heads = torch.split(v, 1, dim=1)  # 拆分为 (B, 1, P, head_size)
+        # Split heads into individual groups based on the specified group sizes
+        q_heads = torch.split(q, 1, dim=1)  # Split into H elements (B, 1, P, head_size)
+        k_heads = torch.split(k, 1, dim=1)  # Split into num_kv_heads elements (B, 1, P, head_size)
+        v_heads = torch.split(v, 1, dim=1)  # Split into num_kv_heads elements (B, 1, P, head_size)
 
-        # 根据 permuted_indices 将每个 q 分配到对应的 k 和 v
-        q_groups = [tuple(self.permuted_indices[i:i + group_size].tolist()) for i in range(0, len(self.permuted_indices), group_size)]
-        # print(f"q_groups: {q_groups}")
+        # Group the heads according to the new group sizes
+        q_groups = []
+        k_groups = []
+        v_groups = []
+        
+        # Create groups according to the specified group sizes (e.g., [1, 1, 2, 2, 3, 3])
+        idx = 0
+        for group_size in group_sizes:
+            q_groups.append(q_heads[idx:idx + group_size])
+            k_groups.append(k_heads[idx:idx + group_size])
+            v_groups.append(v_heads[idx:idx + group_size])
+            idx += group_size
 
         head_outputs = [None] * H
 
-        # 遍历每个组
-        for i, q_group in enumerate(q_groups):
-            curr_k = k_heads[i]  # 对应的 k head (B, P, head_size)
-            curr_v = v_heads[i]  # 对应的 v head (B, P, head_size)
+        # Process each group
+        for group_idx, (q_group, k_group, v_group) in enumerate(zip(q_groups, k_groups, v_groups)):
+            curr_q = torch.cat(q_group, dim=1)  # (B, group_size, P, head_size)
+            curr_k = torch.cat(k_group, dim=1)  # (B, group_size, P, head_size)
+            curr_v = torch.cat(v_group, dim=1)  # (B, group_size, P, head_size)
 
-            # 对每个 q_idx 进行遍历
-            for q_idx in q_group:
-                curr_q = q_heads[q_idx]  # 获取当前 q head (B, P, head_size)
+            # Compute attention scores for each group
+            attn_scores = torch.matmul(curr_q, curr_k.transpose(-2, -1))  # (B, group_size, P, P)
+            attn_weights = F.softmax(attn_scores, dim=-1)  # Normalize attention scores
+            attn_weights = self.attn_drop(attn_weights)  # Dropout on attention weights
 
-                # 计算注意力分数 
-                attn_scores = torch.matmul(curr_q, curr_k.transpose(-2, -1))  # (B, P, P)
-                attn_weights = F.softmax(attn_scores, dim=-1)  # 归一化注意力分数
-                attn_weights = self.attn_drop(attn_weights)  # 注意力 dropout
+            # Calculate attention output for each group
+            curr_att = torch.matmul(attn_weights, curr_v)  # (B, group_size, P, head_size)
 
-                # 计算当前 q 的注意力输出
-                curr_att = torch.matmul(attn_weights, curr_v)  # (B, P, head_size)
+            # Split the output back into individual heads
+            curr_att = curr_att.split(1, dim=1)  # Split by group size
 
-                # 将输出按 q 的顺序存储
-                head_outputs[q_idx] = curr_att.squeeze(1)  # 去除多余的维度
+            # Store the output in the correct place in the head_outputs list
+            for idx, att in zip(range(len(q_group)), curr_att):
+                head_outputs[self.permuted_indices[group_idx * len(q_group) + idx]] = att.squeeze(1)
 
-        # 合并所有 head 的输出，保持原始顺序
-        x = torch.stack(head_outputs, dim=1)  # 在 q 的维度上拼接 (B, H, P, head_size)
-        
-        # 保存 head_outputs 到文件中 (仅在第一次调用时)
-        # x_str = "\n".join([str(batch.tolist()) for batch in x])
-        # output_file = f"./output/arbitrary/proxy/{self.exp_num}/head_outputs2.txt"
-        # save_to_file_once(output_file, x_str)
+        # Combine all head outputs into the final output tensor
+        x = torch.stack(head_outputs, dim=1)  # (B, H, P, head_size)
 
-        x = x.transpose(1, 2).contiguous().view(B, P, C)  # 恢复原来的形状 (B, P, C)
-        x = self.proj(x)  # 线性映射
-        x = self.proj_drop(x)  # dropout
+        # Restore the original shape and apply the final projection
+        x = x.transpose(1, 2).contiguous().view(B, P, C)  # (B, P, C)
+        x = self.proj(x)  # Linear projection
+        x = self.proj_drop(x)  # Apply dropout
 
         return x
 
 
+
         
-    def att_weight_conversion(self, qkv_params, block_idx, is_bias=False):
-        '''
-        Split and convert the QKV parameters from ViT checkpoints for the GQA implementation
-        '''
-        q, k, v = torch.split(qkv_params, qkv_params.shape[0] // 3, dim=0)
+def att_weight_conversion(self, qkv_params, block_idx, is_bias=False):
+    '''
+    Split and convert the QKV parameters from ViT checkpoints for the GQA implementation
+    '''
+    q, k, v = torch.split(qkv_params, qkv_params.shape[0] // 3, dim=0)
 
-        # 使用shuffle_heads_once打乱头的顺序，并保存打乱后的顺序
-        _, self.permuted_indices = shuffle_heads_once(torch.empty(1, 1, self.dim), self.num_heads, block_idx, self.file_path, load = True, save_groups=True)
+    # 使用shuffle_heads_once打乱头的顺序，并保存打乱后的顺序
+    _, self.permuted_indices = shuffle_heads_once(torch.empty(1, 1, self.dim), self.num_heads, block_idx, self.file_path, load=True, save_groups=True)
 
-        # 基于打乱后的头顺序进行池化
-        def convert_weight(param):
-            x = param.clone()  # (dim, dim)
+    # 基于打乱后的头顺序进行池化
+    def convert_weight(param):
+        x = param.clone()  # (dim, dim)
 
-            x = x.view(self.dim, self.num_heads, self.dim // self.num_heads)
-            x = x[:, self.permuted_indices, :]  # 按照打乱后的顺序重新排列
-            x = x.view(self.dim, self.dim)
+        x = x.view(self.dim, self.num_heads, self.dim // self.num_heads)
+        x = x[:, self.permuted_indices, :]  # 按照打乱后的顺序重新排列
+        x = x.view(self.dim, self.dim)
 
-            # 将权重视为 (num_heads, dim//num_heads, dim)
-            x = x.view(self.num_heads, self.dim // self.num_heads, self.dim)
+        # 将权重视为 (num_heads, dim//num_heads, dim)
+        x = x.view(self.num_heads, self.dim // self.num_heads, self.dim)
 
-            # 使用打乱后的顺序进行分组
-            x = x[self.permuted_indices,:,:]  # 按照打乱后的顺序重新排列
-            xs = torch.split(x, self.num_heads // self.num_kv_heads, dim=0)  # 按打乱后的分组进行分割
-            xs = [xs[i].mean(dim=0) for i in range(self.num_kv_heads)]  # 平均池化
-            x = torch.cat(xs, dim=0)
+        # 使用打乱后的顺序进行分组
+        group_sizes = [1, 1, 2, 2, 3, 3]  # 每组包含头的个数（例如 1, 1, 2, 2, 3, 3）
 
-            expected_shape = (self.num_kv_heads * self.dim // self.num_heads, self.dim)
-            assert x.shape == expected_shape, f'Expected {expected_shape}, got {x.shape}'
-            return x
+        # 调整分组大小，不同的组包含不同数量的头
+        split_groups = [x[i:i + size, :, :] for i, size in zip(range(0, self.num_heads, 1), group_sizes)]
+        xs = [group.mean(dim=0) for group in split_groups]  # 对每组进行平均池化
 
-        def convert_bias(param):
-            x = param.clone()
-            x = x.view(self.num_heads, self.dim // self.num_heads)
+        # 合并所有池化后的部分
+        x = torch.cat(xs, dim=0)
 
-            # 使用打乱后的头顺序
-            
-            x = x[self.permuted_indices,:]
-            # print(f"permuted_indices: {self.permuted_indices}")
-            # print(x)
-            xs = torch.split(x, self.num_heads // self.num_kv_heads, dim=0)
-            xs = [xs[i].mean(dim=0) for i in range(self.num_kv_heads)]
-            x = torch.cat(xs, dim=0)
+        expected_shape = (sum(group_sizes) * self.dim // self.num_heads, self.dim)
+        assert x.shape == expected_shape, f'Expected {expected_shape}, got {x.shape}'
+        return x
 
-            expected_shape = (self.num_kv_heads * self.dim // self.num_heads,)
-            assert x.shape == expected_shape, f'Expected {expected_shape}, got {x.shape}'
-            return x
+    def convert_bias(param):
+        x = param.clone()
+        x = x.view(self.num_heads, self.dim // self.num_heads)
 
-        return {
-            "q": q,
-            "k": convert_weight(k) if not is_bias else convert_bias(k),
-            "v": convert_weight(v) if not is_bias else convert_bias(v)
-        }
+        # 使用打乱后的头顺序
+        x = x[self.permuted_indices, :]
+        # print(f"permuted_indices: {self.permuted_indices}")
+        # print(x)
+        # 调整分组大小，不同的组包含不同数量的头
+        group_sizes = [1, 1, 2, 2, 3, 3]  # 每组包含头的个数（例如 1, 1, 2, 2, 3, 3）
 
-    def load_pretrained_weights(self, state_dict, block_idx):
+        split_groups = [x[i:i + size, :] for i, size in zip(range(0, self.num_heads, 1), group_sizes)]
+        xs = [group.mean(dim=0) for group in split_groups]  # 对每组进行平均池化
 
-        # Load in parameters for the Query Key Value layers
-        qkv_weight = state_dict[f'blocks.{block_idx}.attn.qkv.weight']
-        qkv_bias = state_dict[f'blocks.{block_idx}.attn.qkv.bias']
-        proj_weight = state_dict[f'blocks.{block_idx}.attn.proj.weight']
-        proj_bias = state_dict[f'blocks.{block_idx}.attn.proj.bias']
+        # 合并所有池化后的部分
+        x = torch.cat(xs, dim=0)
 
-        wdict = self.att_weight_conversion(qkv_weight,block_idx)
-        bdict = self.att_weight_conversion(qkv_bias, block_idx, is_bias=True)
+        expected_shape = (sum(group_sizes) * self.dim // self.num_heads,)
+        assert x.shape == expected_shape, f'Expected {expected_shape}, got {x.shape}'
+        return x
 
-        # wproj = self.proj_conversion(proj_weight)
-        # bproj = self.proj_conversion(proj_weight, is_bias=True)
+    return {
+        "q": q,
+        "k": convert_weight(k) if not is_bias else convert_bias(k),
+        "v": convert_weight(v) if not is_bias else convert_bias(v)
+    }
 
-        self.q.weight = assign_check(self.q.weight, wdict['q'])
-        self.q.bias = assign_check(self.q.bias, bdict['q'])
+def load_pretrained_weights(self, state_dict, block_idx):
+    # Load in parameters for the Query Key Value layers
+    qkv_weight = state_dict[f'blocks.{block_idx}.attn.qkv.weight']
+    qkv_bias = state_dict[f'blocks.{block_idx}.attn.qkv.bias']
+    proj_weight = state_dict[f'blocks.{block_idx}.attn.proj.weight']
+    proj_bias = state_dict[f'blocks.{block_idx}.attn.proj.bias']
 
-        self.k.weight = assign_check(self.k.weight, wdict['k'])
-        self.k.bias = assign_check(self.k.bias, bdict['k'])
-        
-        self.v.weight = assign_check(self.v.weight, wdict['v'])
-        self.v.bias = assign_check(self.v.bias, bdict['v'])
+    wdict = self.att_weight_conversion(qkv_weight, block_idx)
+    bdict = self.att_weight_conversion(qkv_bias, block_idx, is_bias=True)
 
-        # Load in parameters for the output projection
-        self.proj.weight = assign_check(self.proj.weight, state_dict[f'blocks.{block_idx}.attn.proj.weight'])
-        self.proj.bias = assign_check(self.proj.bias, state_dict[f'blocks.{block_idx}.attn.proj.bias'])
-        # print(f"self.proj.weight shape: {self.proj.weight.shape}")
-        # print(f"wproj['proj'] shape: {wproj.shape}")
+    self.q.weight = assign_check(self.q.weight, wdict['q'])
+    self.q.bias = assign_check(self.q.bias, bdict['q'])
 
-        # self.proj.weight = assign_check(self.proj.weight,wproj)
-        # self.proj.bias = assign_check(self.proj.bias, bproj['proj'])
+    self.k.weight = assign_check(self.k.weight, wdict['k'])
+    self.k.bias = assign_check(self.k.bias, bdict['k'])
+
+    self.v.weight = assign_check(self.v.weight, wdict['v'])
+    self.v.bias = assign_check(self.v.bias, bdict['v'])
+
+    # Load in parameters for the output projection
+    self.proj.weight = assign_check(self.proj.weight, state_dict[f'blocks.{block_idx}.attn.proj.weight'])
+    self.proj.bias = assign_check(self.proj.bias, state_dict[f'blocks.{block_idx}.attn.proj.bias'])
+
 
 
 class Mlp(nn.Module):
