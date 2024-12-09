@@ -249,7 +249,8 @@ model.load_pretrained_weights(checkpoint)
 print(f"Loaded pretrained weights from {pth_path}!")
 
 # model = torch.nn.DataParallel(model)
-model = torch.nn.DataParallel(model, device_ids=[0, 1, 2])  # 指定 GPU 设备 0, 1
+# model = torch.nn.DataParallel(model, device_ids=[0, 1, 2])  # 指定 GPU 设备 0, 1
+# model = torch.nn.DataParallel(model, device_ids=[0, 1, 2])  # 指定 GPU 设备 0, 1
 # 将模型移到设备
 model.to(device)
 
@@ -259,13 +260,13 @@ optimizer = optim.AdamW(model.parameters(), lr=1e-4)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)
 
 # 配置早停
-early_stopping = EarlyStopping(patience=5, path='early_stopped_model.pth')
+# early_stopping = EarlyStopping(patience=10, path='early_stopped_model.pth')
 
 # 训练循环
-num_epochs = 100  # 设置一个大值，实际会因早停机制提前停止
+num_epochs = 45  # 设置一个大值，实际会因早停机制提前停止
 import logging
 
-file_name = "Result.txt"
+file_name = "Result_0.1.txt"
 # 使用 os.path.join 来连接文件夹路径和文件名，生成完整的文件路径
 full_file_path = os.path.join(args.file_path, file_name)
 
@@ -287,6 +288,5 @@ for epoch in range(num_epochs):
     logging.info(f"Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f}")
     logging.info(f"Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}")
     # 使用验证损失进行早停判断
-    if early_stopping(test_acc, model):
-        break  # 提前停止训练
-
+    # if early_stopping(test_acc, model):
+        # break  # 提前停止训练

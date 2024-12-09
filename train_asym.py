@@ -27,7 +27,7 @@ import pandas as pd
 import torch
 from torch.utils.data import Dataset
 
-from vitb_my_gqa import VisionTransformer
+from vitb_asymmetric_gqa import VisionTransformer
 import argparse
 import os
 
@@ -119,13 +119,13 @@ def get_proxy_dataset(dataset, proxy_ratio=0.1):
     return proxy_dataset
 
 set_seed()
-proxy_ratio = 0.1
+proxy_ratio = 1
 proxy_train_dataset = get_proxy_dataset(train_dataset, proxy_ratio=proxy_ratio)
 print(f"Using proxy dataset with ratio {proxy_ratio}")
 
 # 定义数据加载器
-train_loader = DataLoader(proxy_train_dataset, batch_size=32, shuffle=True)
-test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True)
+train_loader = DataLoader(proxy_train_dataset, batch_size=128, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=128, shuffle=True)
 
 # 训练函数
 def train(model, loader, criterion, optimizer, device):
@@ -190,7 +190,7 @@ def test(model, loader, criterion, device):
 
 # 添加早停
 class EarlyStopping:
-    def __init__(self, patience=3, delta=0, path='checkpoint.pth'):
+    def __init__(self, patience=5, delta=0, path='checkpoint.pth'):
         self.patience = patience  # 允许的容忍次数
         self.delta = delta  # 需要的最小改善量
         self.path = path  # 检查点保存路径
@@ -249,7 +249,7 @@ model.load_pretrained_weights(checkpoint)
 print(f"Loaded pretrained weights from {pth_path}!")
 
 # model = torch.nn.DataParallel(model)
-model = torch.nn.DataParallel(model, device_ids=[0, 1, 2])  # 指定 GPU 设备 0, 1
+# model = torch.nn.DataParallel(model, device_ids=[0, 1, 2])  # 指定 GPU 设备 0, 1
 # 将模型移到设备
 model.to(device)
 
@@ -259,19 +259,30 @@ optimizer = optim.AdamW(model.parameters(), lr=1e-4)
 scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)
 
 # 配置早停
-early_stopping = EarlyStopping(patience=5, path='early_stopped_model.pth')
+early_stopping = EarlyStopping(patience=15, path='early_stopped_model.pth')
 
 # 训练循环
 num_epochs = 100  # 设置一个大值，实际会因早停机制提前停止
 import logging
 
-file_name = "Result.txt"
-# 使用 os.path.join 来连接文件夹路径和文件名，生成完整的文件路径
-full_file_path = os.path.join(args.file_path, file_name)
+# 使用 os.path.basename 提取文件名，并替换 "group_" 为 "Result_asym_"
+# file_name = os.path.basename(args.file_path)  # 获取文件名 'group_11112222.txt'
+# new_file_name = file_name.replace('group_', 'Result_asym_')  # 替换部分
+new_file_name = "Result_proxy=1.txt"
+
+# 使用 os.path.dirname 获取父目录路径
+directory = os.path.dirname(args.file_path)
+
+# 构建新的文件路径
+new_file_path = os.path.join(directory, new_file_name)
+# file_name = "Result_asym_11112222.txt"
+# parent_folder = os.path.dirname(args.file_path)
+# # 使用 os.path.join 来连接文件夹路径和文件名，生成完整的文件路径
+# full_file_path = os.path.join(parent_folder, file_name)
 
 # 配置 logging
 logging.basicConfig(
-    filename=full_file_path,  # 输出到的文件
+    filename=new_file_path,  # 输出到的文件
     level=logging.INFO,           # 日志级别
     format="%(asctime)s - %(levelname)s - %(message)s",  # 日志格式
 )

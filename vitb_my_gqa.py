@@ -157,7 +157,7 @@ class Attention(nn.Module):
 
         # 合并所有 head 的输出，保持原始顺序
         x = torch.stack(head_outputs, dim=1)  # 在 q 的维度上拼接 (B, H, P, head_size)
-        
+        # x = x[:, inverse_indices]
         # 保存 head_outputs 到文件中 (仅在第一次调用时)
         # x_str = "\n".join([str(batch.tolist()) for batch in x])
         # output_file = f"./output/arbitrary/proxy/{self.exp_num}/head_outputs2.txt"

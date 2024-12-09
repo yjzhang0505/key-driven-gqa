@@ -30,15 +30,15 @@ def load_stats_from_model(model, layer_index):
 
     for head in range(12):
         stats_tensor['K_mean'].append(abs(all_stats['K'][head][0]))  # 取绝对值
-        stats_tensor['K_var'].append(abs(all_stats['K'][head][1]))
+        stats_tensor['K_var'].append(-abs(all_stats['K'][head][1]))
         stats_tensor['Q_mean'].append(abs(all_stats['Q'][head][0]))
-        stats_tensor['Q_var'].append(abs(all_stats['Q'][head][1]))
+        stats_tensor['Q_var'].append(-abs(all_stats['Q'][head][1]))
         stats_tensor['V_mean'].append(abs(all_stats['V'][head][0]))
-        stats_tensor['V_var'].append(abs(all_stats['V'][head][1]))
+        stats_tensor['V_var'].append(-abs(all_stats['V'][head][1]))
         stats_tensor['KxQ_mean'].append(abs(all_stats['KxQ'][head][0]))
-        stats_tensor['KxQ_var'].append(abs(all_stats['KxQ'][head][1]))
+        stats_tensor['KxQ_var'].append(-abs(all_stats['KxQ'][head][1]))
         stats_tensor['KxQxV_mean'].append(abs(all_stats['KxQxV'][head][0]))
-        stats_tensor['KxQxV_var'].append(abs(all_stats['KxQxV'][head][1]))
+        stats_tensor['KxQxV_var'].append(-abs(all_stats['KxQxV'][head][1]))
 
     # 将列表转换为张量，并 reshape 成每层有 12 个头的形式
     stats_tensor = {key: torch.tensor(value).view(-1, 12) for key, value in stats_tensor.items()}

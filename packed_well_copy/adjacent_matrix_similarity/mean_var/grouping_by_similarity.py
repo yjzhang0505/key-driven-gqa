@@ -6,6 +6,7 @@ from _4_ordering import load_stats_from_model, load_singular_values_from_model
 from _3_similarity import calculate_similarity
 from tools import save_to_txt
 import argparse
+from sklearn.cluster import SpectralClustering
 
 
 def group_heads_by_importance_and_similarity(model, importance_matrix, group_sizes, similarity_matrix):
@@ -17,69 +18,97 @@ def group_heads_by_importance_and_similarity(model, importance_matrix, group_siz
     # group_sizes = [1, 1, 1, 1, 4, 4]
     num_heads = model.num_heads
     grouped_heads = []
-    
-    # 标记哪些头部是活动的
-    active_heads = np.ones(num_heads, dtype=bool)  # 每个头部是否活跃
-
-    # 按重要性排序，重要性高的头排前面
-    importance_matrix = process_importance_matrix(importance_matrix)
-    sorted_heads_by_importance = torch.argsort(importance_matrix, descending=True).tolist()
-
-    # 在加载相似性矩阵后，将对角线设置为负无穷，避免与自己分组
     similarity_matrix = similarity_matrix.clone()  # 保证不修改原矩阵
-    for i in range(num_heads):
-        similarity_matrix[i, i] = -float('inf')
+    # for i in range(num_heads):
+    #     similarity_matrix[i, i] = -float('inf')    
+    num_groups = 6
 
-    # 遍历每个组的大小
-    group_idx = 0
-    while group_idx < len(group_sizes):
-        group_size = group_sizes[group_idx]  # 当前组的目标大小
-        group = []
+    # 使用谱聚类进行分组
+    spectral_clustering = SpectralClustering(n_clusters=num_groups, affinity='precomputed', random_state=42)
 
-        # 选择最重要的未分组头，并加入当前组
-        while len(group) < group_size:
-            # 选择最重要的未分组头
-            head_idx = sorted_heads_by_importance.pop(0)
+    min_val = similarity_matrix.min()
+    max_val = similarity_matrix.max()
+    
+    # 归一化公式: (x - min) / (max - min)
+    normalized_matrix = (similarity_matrix - min_val) / (max_val - min_val)
+    
+    # 将对角线元素设置为 0
+    eye = torch.eye(normalized_matrix.size(0), dtype=normalized_matrix.dtype)
+    normalized_matrix = normalized_matrix * (1 - eye)
+
+    print(similarity_matrix)
+
+    # 将相似性矩阵作为输入，并进行聚类
+    labels = spectral_clustering.fit_predict(normalized_matrix)
+
+    # 按照聚类标签分组
+    grouped_heads = [[] for _ in range(num_groups)]
+    for head_idx, label in enumerate(labels):
+        grouped_heads[label].append(head_idx)
+
+    return grouped_heads    
+    # # 标记哪些头部是活动的
+    # active_heads = np.ones(num_heads, dtype=bool)  # 每个头部是否活跃
+
+    # # 按重要性排序，重要性高的头排前面
+    # importance_matrix = process_importance_matrix(importance_matrix)
+    # sorted_heads_by_importance = torch.argsort(importance_matrix, descending=True).tolist()
+
+    # # 在加载相似性矩阵后，将对角线设置为负无穷，避免与自己分组
+    # similarity_matrix = similarity_matrix.clone()  # 保证不修改原矩阵
+    # for i in range(num_heads):
+    #     similarity_matrix[i, i] = -float('inf')
+
+    # # 遍历每个组的大小
+    # group_idx = 0
+    # while group_idx < len(group_sizes):
+    #     group_size = group_sizes[group_idx]  # 当前组的目标大小
+    #     group = []
+
+    #     # 选择最重要的未分组头，并加入当前组
+    #     while len(group) < group_size:
+    #         # 选择最重要的未分组头
+    #         head_idx = sorted_heads_by_importance.pop(0)
             
-            # 如果该头已经失活，跳过它
-            if not active_heads[head_idx]:
-                continue
+    #         # 如果该头已经失活，跳过它
+    #         if not active_heads[head_idx]:
+    #             continue
             
-            # 将当前头添加到组内
-            group.append(head_idx)
+    #         # 将当前头添加到组内
+    #         group.append(head_idx)
 
-            # 找到与当前组内头相似度之和最大的新头
-            while len(group) < group_size:
-                max_similarity_sum = -float('inf')
-                best_head_idx = -1
+    #         # 找到与当前组内头相似度之和最大的新头
+    #         while len(group) < group_size:
+    #             max_similarity_sum = -float('inf')
+    #             best_head_idx = -1
 
-                # 遍历所有活动的头，计算每个头与当前组内所有头的相似度之和
-                for candidate_idx in range(num_heads):
-                    if active_heads[candidate_idx] and candidate_idx not in group:
-                        # 计算与当前组内所有头的相似度之和
-                        similarity_sum = sum([similarity_matrix[candidate_idx, h] for h in group])
+    #             # 遍历所有活动的头，计算每个头与当前组内所有头的相似度之和
+    #             for candidate_idx in range(num_heads):
+    #                 if active_heads[candidate_idx] and candidate_idx not in group:
+    #                     # 计算与当前组内所有头的相似度之和
+    #                     similarity_sum = sum([similarity_matrix[candidate_idx, h] for h in group])
                         
-                        if similarity_sum > max_similarity_sum:
-                            max_similarity_sum = similarity_sum
-                            best_head_idx = candidate_idx
+    #                     if similarity_sum > max_similarity_sum:
+    #                         max_similarity_sum = similarity_sum
+    #                         best_head_idx = candidate_idx
                 
-                # 将相似度和最大的头加入组内
-                if best_head_idx != -1:
-                    group.append(best_head_idx)
+    #             # 将相似度和最大的头加入组内
+    #             if best_head_idx != -1:
+    #                 group.append(best_head_idx)
 
-            # 将这些头失活
-            for idx in group:
-                active_heads[idx] = False
+    #         # 将这些头失活
+    #         for idx in group:
+    #             active_heads[idx] = False
 
-            # 在相似性矩阵中同时失活这些头的行和列
-            for idx in group:
-                similarity_matrix[idx, :] = 0  # 清空该行
-                similarity_matrix[:, idx] = 0  # 清空该列
+    #         # 在相似性矩阵中同时失活这些头的行和列
+    #         for idx in group:
+    #             similarity_matrix[idx, :] = 0  # 清空该行
+    #             similarity_matrix[:, idx] = 0  # 清空该列
             
-        grouped_heads.append(group)
-        group_idx += 1  # 切换到下一个组
+    #     grouped_heads.append(group)
+    #     group_idx += 1  # 切换到下一个组
 
-    return grouped_heads
+    # return grouped_heads
 
 
 
@@ -137,17 +166,18 @@ def group_heads_singular(model, similartiry_type, importance_type, group_sizes, 
     return grouped_heads
 
 
-parser = argparse.ArgumentParser(description='put in filepath.')
-parser.add_argument('--group', type=str, help='222222')
-args = parser.parse_args()
+# parser = argparse.ArgumentParser(description='put in filepath.')
+# parser.add_argument('--group', type=str, help='222222')
+# args = parser.parse_args()
 
-# 提取--group后的数字并转为group_sizes
-group_str = args.group
-group_sizes = []
+# # 提取--group后的数字并转为group_sizes
+# group_str = args.group
+# group_sizes = []
 
-# 遍历group_str，按字符顺序添加数字
-for char in group_str:
-    group_sizes.append(int(char))
+# # 遍历group_str，按字符顺序添加数字
+# for char in group_str:
+#     group_sizes.append(int(char))
+group_sizes = [2, 2, 2, 2, 2, 2]
 
 # print(group_sizes)
 
@@ -185,7 +215,7 @@ for similarity_key in similarity_keys:
         os.makedirs(output_dir, exist_ok=True)
 
         # 定义输出文件路径
-        output_path = os.path.join(output_dir, f'group_{args.group}.txt')
+        output_path = os.path.join(output_dir, f'group_by_6.txt')
         # output_path = os.path.join(output_dir, 'group_112244.txt')
 
         # 保存到文件

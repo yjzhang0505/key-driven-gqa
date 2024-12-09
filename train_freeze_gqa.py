@@ -160,13 +160,13 @@ def get_proxy_dataset(dataset, proxy_ratio=0.1):
     return proxy_dataset
 
 set_seed()
-proxy_ratio = 0.1
+proxy_ratio = 1
 proxy_train_dataset = get_proxy_dataset(train_dataset, proxy_ratio=proxy_ratio)
 print(f"Using proxy dataset with ratio {proxy_ratio}")
 
 # 定义数据加载器
-train_loader = DataLoader(proxy_train_dataset, batch_size=32, shuffle=True)
-test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True)
+train_loader = DataLoader(proxy_train_dataset, batch_size=128, shuffle=True)
+test_loader = DataLoader(test_dataset, batch_size=128, shuffle=True)
 
 
 model = VisionTransformer(
@@ -194,7 +194,7 @@ model.load_state_dict(checkpoint, strict=False)
 model.load_pretrained_weights(checkpoint)
 print(f"Loaded pretrained weights from {pth_path}!")
 
-model = torch.nn.DataParallel(model, device_ids=[0,1,2])  # 指定 GPU 设备 0, 1
+# model = torch.nn.DataParallel(model, device_ids=[0,1,2])  # 指定 GPU 设备 0, 1
 
 # 将模型移到设备
 model.to(device)
@@ -264,7 +264,7 @@ def test(model, loader, criterion, device):
 
     return total_loss / total_samples, correct / total_samples
 
-early_stopping = EarlyStopping(patience=5, path='early_stopped_model.pth')
+early_stopping = EarlyStopping(patience=15, path='early_stopped_model.pth')
 
 # 开始训练
 num_epochs = 100
@@ -272,7 +272,7 @@ import logging
 
 # 配置 logging
 logging.basicConfig(
-    filename="/home/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2/gqa/proxy=0.1.txt",  # 输出到的文件
+    filename="/home/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2/gqa/Result_proxy=1.txt",  # 输出到的文件
     level=logging.INFO,           # 日志级别
     format="%(asctime)s - %(levelname)s - %(message)s",  # 日志格式
 )

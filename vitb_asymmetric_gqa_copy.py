@@ -56,8 +56,8 @@ def shuffle_heads_once( x: torch.Tensor, num_heads: int, layer_index: int, file_
     head_dim = C // num_heads  # 每个头的维度
 
     # 从txt文件加载group_schemes
-    # file_path1 = os.path.join(file_path, 'group_11112222.txt')
-    group_schemes = load_group_schemes_from_txt(file_path)
+    file_path1 = os.path.join(file_path, 'group3.txt')
+    group_schemes = load_group_schemes_from_txt(file_path1)
 
     # 根据layer_index选择相应的分组方案
     if layer_index in group_schemes:
@@ -92,22 +92,17 @@ class Attention(nn.Module):
         self.num_heads = num_heads
         self.head_dim = dim // num_heads
         self.scale = self.head_dim ** -0.5
+        self.num_kv_heads = num_heads // 2 # have at least two heads in each group
+
+        self.q = nn.Linear(dim, dim, bias=qkv_bias)
+        self.k = nn.Linear(dim, self.num_kv_heads*self.head_dim, bias=qkv_bias)
+        self.v = nn.Linear(dim, self.num_kv_heads*self.head_dim, bias=qkv_bias)
 
         self.attn_drop = nn.Dropout(attn_drop)
         self.proj = nn.Linear(dim, dim)
         self.proj_drop = nn.Dropout(proj_drop)
         # self.group_sizes =  [2, 2, 2, 2, 2, 2]
-        # 提取文件名（去掉路径和扩展名）
-        file_name = os.path.basename(file_path)  # group_222222.txt
-        group_str = file_name.split('_')[1].split('.')[0]  # 提取 '222222' 或 '112233'
-
-        # 将字符串中的每个字符转换为整数，并保存为列表
-        self.group_sizes = [int(char) for char in group_str]
-        self.num_kv_heads = len(self.group_sizes)
-        self.q = nn.Linear(dim, dim, bias=qkv_bias)
-        self.k = nn.Linear(dim, self.num_kv_heads*self.head_dim, bias=qkv_bias)
-        self.v = nn.Linear(dim, self.num_kv_heads*self.head_dim, bias=qkv_bias)        
-        # self.group_sizes =  [1, 1, 1, 1, 2, 2, 4]
+        self.group_sizes =  [3, 3, 2, 2, 1, 1]
         # print("gqa")
 
         # 保存打乱后的头顺序索引
@@ -116,7 +111,10 @@ class Attention(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         B, P, C = x.shape
         H = self.num_heads  # 总共的 heads 数量 
-        
+        # print(self.q.weight)
+        # group_sizes =  [2, 2, 2, 2, 2, 2]
+        # group_size = self.num_heads // self.num_kv_heads
+
         x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, self.layer_index, self.file_path, load=False)
         inverse_indices = torch.empty_like(self.permuted_indices)
         inverse_indices[self.permuted_indices] = torch.arange(len(self.permuted_indices))
@@ -138,12 +136,11 @@ class Attention(nn.Module):
         # 使用 zip 同时遍历 permuted_indices 和 group_sizes
         q_groups = []
         start_idx = 0
-        # 使用 self.group_sizes 的反向顺序进行分组
-        # reversed_group_sizes = self.group_sizes[::-1]
         for group_size in self.group_sizes:
             end_idx = start_idx + group_size
             q_groups.append(tuple(self.permuted_indices[start_idx:end_idx].tolist()))
             start_idx = end_idx
+
 
         head_outputs = [None] * H
 
@@ -182,19 +179,21 @@ class Attention(nn.Module):
         return x
 
 
-
+        
     def att_weight_conversion(self, qkv_params, block_idx, is_bias=False):
         '''
         Split and convert the QKV parameters from ViT checkpoints for the GQA implementation
         '''
         q, k, v = torch.split(qkv_params, qkv_params.shape[0] // 3, dim=0)
-        
-        # 使用 shuffle_heads_once 打乱头的顺序，并保存打乱后的顺序
-        _, self.permuted_indices = shuffle_heads_once(torch.empty(1, 1, self.dim), self.num_heads, block_idx, self.file_path, load=True, save_groups=True)
+        # group_sizes =  [2, 2, 2, 2, 2, 2]
+
+        # 使用shuffle_heads_once打乱头的顺序，并保存打乱后的顺序
+        _, self.permuted_indices = shuffle_heads_once(torch.empty(1, 1, self.dim), self.num_heads, block_idx, self.file_path, load = True, save_groups=True)
 
         # 基于打乱后的头顺序进行池化
         def convert_weight(param):
             x = param.clone()  # (dim, dim)
+
             x = x.view(self.dim, self.num_heads, self.dim // self.num_heads)
             x = x[:, self.permuted_indices, :]  # 按照打乱后的顺序重新排列
             x = x.view(self.dim, self.dim)
@@ -203,90 +202,38 @@ class Attention(nn.Module):
             x = x.view(self.num_heads, self.dim // self.num_heads, self.dim)
 
             # 使用打乱后的顺序进行分组
-            x = x[self.permuted_indices, :, :]  # 按照打乱后的顺序重新排列
+            x = x[self.permuted_indices,:,:]  # 按照打乱后的顺序重新排列
             xs = torch.split(x, self.group_sizes, dim=0)  # 按打乱后的分组进行分割
             xs = [xs[i].mean(dim=0) for i in range(self.num_kv_heads)]  # 平均池化
             x = torch.cat(xs, dim=0)
 
+            # expected_shape = (self.num_kv_heads * self.dim // self.num_heads, self.dim)
+            # assert x.shape == expected_shape, f'Expected {expected_shape}, got {x.shape}'
             return x
 
         def convert_bias(param):
             x = param.clone()
             x = x.view(self.num_heads, self.dim // self.num_heads)
+            # group_sizes =  [2, 2, 2, 2, 2, 2]
+
             # 使用打乱后的头顺序
-            x = x[self.permuted_indices, :]
+            
+            x = x[self.permuted_indices,:]
+            # print(f"permuted_indices: {self.permuted_indices}")
+            # print(x)
             xs = torch.split(x, self.group_sizes, dim=0)
             xs = [xs[i].mean(dim=0) for i in range(self.num_kv_heads)]
             x = torch.cat(xs, dim=0)
 
+            # expected_shape = (self.num_kv_heads * self.dim // self.num_heads,)
+            # assert x.shape == expected_shape, f'Expected {expected_shape}, got {x.shape}'
             return x
 
-        def reverse_and_distort_q(q):
-            """对q进行打乱、分组合并、复制和轻微扰动"""
-            # 根据打乱的顺序重新排列
-            x = q.clone()
-            x = x.view(self.dim, self.num_heads, self.dim // self.num_heads)
-            x = x[:, self.permuted_indices, :]  # 按打乱后的顺序重新排列
-            x = x.view(self.dim, self.dim)
-
-            # 将 q 视为 (num_heads, dim//num_heads, dim)
-            x = x.view(self.num_heads, self.dim // self.num_heads, self.dim)
-
-            # 使用打乱后的顺序进行分组
-            x = x[self.permuted_indices, :, :]  # 按照打乱后的顺序重新排列
-            xs = torch.split(x, self.group_sizes, dim=0)  # 按打乱后的分组进行分割
-            xs = [xs[i].mean(dim=0) for i in range(len(self.group_sizes))]  # 平均池化
-            x = torch.cat(xs, dim=0)
-
-            # 复制每组的 q 为倒序的组大小
-            inverse_group_sizes = self.group_sizes[::-1]
-            q_reversed = []
-            for i, avg_q in enumerate(xs):
-                q_reversed.extend([avg_q] * inverse_group_sizes[i])  # 按逆序大小复制
-
-            q_reversed = torch.stack(q_reversed, dim=0)
-
-            # 添加轻微扰动
-            noise = torch.randn_like(q_reversed) * (q_reversed * 0.1) # 调整标准差控制扰动幅度
-            q_reversed = q_reversed + noise
-            q_reversed = q_reversed.view(self.dim, self.dim )
-
-            return q_reversed
-
-        def reverse_and_distort_q_bias(bias):
-            """对q的bias进行打乱顺序后合并，再复制为inverse_group_sizes并加扰动"""
-            # 根据打乱的顺序重新排列
-            x = bias.clone()
-            x = x.view(self.num_heads, self.dim // self.num_heads)
-            x = x[self.permuted_indices, :]
-            
-            # 按打乱后的顺序分组并计算均值
-            xs = torch.split(x, self.group_sizes, dim=0)
-            xs = [xs[i].mean(dim=0) for i in range(len(self.group_sizes))]
-            x = torch.cat(xs, dim=0)
-
-            # 复制每组的 bias 为倒序的组大小
-            inverse_group_sizes = self.group_sizes[::-1]
-            bias_reversed = []
-            for i, avg_bias in enumerate(xs):
-                bias_reversed.extend([avg_bias] * inverse_group_sizes[i])  # 按逆序大小复制
-
-            bias_reversed = torch.stack(bias_reversed, dim=0)
-
-            # 添加轻微扰动
-            noise = torch.randn_like(bias_reversed) * (bias_reversed * 0.5)  # 噪声幅度为每个元素的1%  # 调整标准差控制扰动幅度
-            bias_reversed = bias_reversed + noise
-            bias_reversed = bias_reversed.view(self.dim)
-
-            return bias_reversed
-
         return {
-            # "q": reverse_and_distort_q(q) if not is_bias else reverse_and_distort_q_bias(q),
             "q": q,
             "k": convert_weight(k) if not is_bias else convert_bias(k),
             "v": convert_weight(v) if not is_bias else convert_bias(v)
         }
-
 
     def load_pretrained_weights(self, state_dict, block_idx):
 

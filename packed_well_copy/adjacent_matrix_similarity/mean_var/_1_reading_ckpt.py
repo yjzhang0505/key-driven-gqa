@@ -20,7 +20,7 @@ class YourTransformerModel:
         """
         遍历每一层的 Q, K, V 权重，并为模型的每一层分别设置权重
         """
-        checkpoint_path = '/data/yjzhang/desktop/try/ckpt/cifar100/4/model.pth'
+        checkpoint_path = '/home/yjzhang/desktop/try/ckpt/cifar100/4/model.pth'
         state_dict = torch.load(checkpoint_path)
 
         for block_idx in range(self.num_layers):

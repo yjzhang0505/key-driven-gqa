@@ -3,11 +3,11 @@
 ## git 指令
 
 - 查看当前分支 git branch
-- 创建并进入新的分支 git checkout -b vitb-1.
+- 创建并进入新的分支 git checkout -b vitb-2.
 - 查看当前暂存区状态 git status
 - 将文件添加到暂存区 git add <file_name>
-- 提交更改并添加修改说明 git commit -m "vitb-1."
-- 将特定分支推送到网页 git push origin vitb-1.
+- 提交更改并添加修改说明 git commit -m "vitb-2."
+- 将特定分支推送到网页 git push origin vitb-2.
 
 
 ## 更新版本
@@ -64,3 +64,28 @@
 
 - ckpt_to_txt.py train.py train_freeze.py train_freeze_copy.py vitb_my_gqa.py vitb_run.sh
 - swap_ckpt.py train_asym.py train_freeze_gqa.py vitb_asymmetric_gqa.py vitb_run_freeze.sh
+
+#### vitb-2.1
+       修改：      README.md
+       修改：      packed_well_copy/adjacent_matrix_similarity/mean_var/_1_reading_ckpt.py
+       修改：      packed_well_copy/adjacent_matrix_similarity/mean_var/_4_ordering.py
+       修改：      packed_well_copy/adjacent_matrix_similarity/mean_var/grouping_experiment.py
+       修改：      train_asym.py
+       修改：      train_freeze.py
+       修改：      train_freeze_gqa.py
+       修改：      vitb_asymmetric_gqa.py
+       修改：      vitb_my_gqa.py
+       修改：      vitb_run_freeze.sh
+
+ 未跟踪的文件:
+   （使用 "git add <file>..." 以包含要提交的内容）
+
+       early_stopped_model.pth
+       packed_well_copy/adjacent_matrix_similarity/mean_var/grouping_by_similarity.py
+       tryy.py
+       vitb_asymmetric_gqa copy.py
+
+- train_freeze_gqa.py实现gqa，train_freeze.py实现重要性相似性，train_asym.py实现非均匀分组
+- 运行方法见vitb_run_freeze.sh前面注释掉的部分，包含分组保存为group.txt和读取分组进行实验
+- 分组和结果保存位置：/home/yjzhang/desktop/try/not_share/key-driven-gqa/output/dustbin2
+- 要改的地方：三个train中 ①是否分布式训练；②batch_size；③是否修改输出文件名称；④proxy
