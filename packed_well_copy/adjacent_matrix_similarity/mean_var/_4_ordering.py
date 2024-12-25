@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from _1_reading_ckpt import YourTransformerModel
-from _2_importance import calculate_stats, calculate_singular_values
+from _2_importance import calculate_stats, calculate_singular_values, calculate_head_independence_by_nuclear_norm
 import torch
 import numpy as np
 import pandas as pd
@@ -50,7 +50,40 @@ def load_singular_values_from_model(model, layer_index):
     从模型中计算 Q、K、V 的奇异值，并将其转换为张量。
     """
     # 使用 calculate_singular_values 函数从模型中获取奇异值
-    all_singulars = calculate_singular_values(model, layer_index)
+    all_head_importance = calculate_head_independence_by_nuclear_norm(model, layer_index)
+    # print(type(all_singulars))
+
+
+
+    # 创建存储张量的字典，与原始函数返回的格式保持一致
+    nuclear_norm_tensor = {
+        'K_head_importance': [],
+        'Q_head_importance': [],
+        'V_head_importance': [],
+        'KxQ_head_importance': [],
+        'KxQxV_head_importance': []
+    }
+
+    # 提取每个头的奇异值
+    for head in range(12):
+        nuclear_norm_tensor['K_head_importance'].append(all_head_importance['K'][head])
+        nuclear_norm_tensor['Q_head_importance'].append(all_head_importance['Q'][head])
+        nuclear_norm_tensor['V_head_importance'].append(all_head_importance['V'][head])
+        nuclear_norm_tensor['KxQ_head_importance'].append(all_head_importance['KxQ'][head])
+        nuclear_norm_tensor['KxQxV_head_importance'].append(all_head_importance['KxQxV'][head])
+
+    # 将列表转换为张量，并 reshape 成每层有 12 个头的形式
+    nuclear_norm_tensor = {key: torch.tensor(value).view(-1, 12) for key, value in nuclear_norm_tensor.items()}
+
+    return nuclear_norm_tensor
+
+
+def load_nuclear_norm_from_model(model, layer_index):
+    """
+    从模型中计算 Q、K、V 的奇异值，并将其转换为张量。
+    """
+    # 使用 calculate_singular_values 函数从模型中获取奇异值
+    all_singulars = calculate_head_independence_by_nuclear_norm(model, layer_index)
     # print(type(all_singulars))
 
 

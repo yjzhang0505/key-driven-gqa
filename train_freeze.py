@@ -3,7 +3,19 @@ from torch import nn, optim
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-import timm
+# import timm
+import random
+from typing import Optional
+# import shutil
+import argparse
+# import csv
+import random
+
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import Subset
 
 # 检查设备
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -19,7 +31,13 @@ from vitb_my_gqa import VisionTransformer
 import argparse
 import os
 
-# from vit_base_patch16_224 import VisionTransformer
+def set_seed(seed=42):
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
 
 IMAGE_SIZE = 224
 TRAIN_TFMS = transforms.Compose([
@@ -58,8 +76,6 @@ class CIFAR100ParquetDataset(Dataset):
 
         return img, label
 
-
-
 from torch.utils.data import DataLoader
 from torchvision import transforms
 
@@ -82,8 +98,33 @@ test_dataset = torchvision.datasets.CIFAR100(
     root, train=False, download=True, transform=TEST_TFMS
 )
 
+def get_proxy_dataset(dataset, proxy_ratio=0.1):
+    """
+    从原始数据集中随机选择一定比例的样本，创建代理数据集。
+    
+    :param dataset: 原始数据集
+    :param proxy_ratio: 代理数据集占原始数据集的比例
+    :return: Subset对象，表示代理数据集
+    """
+    dataset_size = len(dataset)
+    proxy_size = int(proxy_ratio * dataset_size)
+    
+    # 随机选择代理数据集的样本索引
+    indices = list(range(dataset_size))
+    random.shuffle(indices)
+    proxy_indices = indices[:proxy_size]
+
+    # 返回代理数据集
+    proxy_dataset = Subset(dataset, proxy_indices)
+    return proxy_dataset
+
+set_seed()
+proxy_ratio = 0.5
+proxy_train_dataset = get_proxy_dataset(train_dataset, proxy_ratio=proxy_ratio)
+print(f"Using proxy dataset with ratio {proxy_ratio}")
+
 # 定义数据加载器
-train_loader = DataLoader(train_dataset, batch_size=32, shuffle=True)
+train_loader = DataLoader(proxy_train_dataset, batch_size=32, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=64, shuffle=True)
 
 # 训练函数
@@ -146,11 +187,44 @@ def test(model, loader, criterion, device):
 
     return total_loss / total_samples, correct / total_samples
 
+
+# 添加早停
+class EarlyStopping:
+    def __init__(self, patience=3, delta=0, path='checkpoint.pth'):
+        self.patience = patience  # 允许的容忍次数
+        self.delta = delta  # 需要的最小改善量
+        self.path = path  # 检查点保存路径
+        self.best_acc = None  # 用于存储最佳准确率
+        self.epochs_without_improvement = 0  # 没有改进的周期数
+
+    def __call__(self, test_acc, model):
+        # 如果没有记录最佳准确率，初始化
+        if self.best_acc is None:
+            self.best_acc = test_acc
+            self.save_checkpoint(model)
+        # 如果当前准确率比最佳准确率高，并且高于 `delta`，则更新最佳准确率
+        elif test_acc > self.best_acc + self.delta:
+            self.best_acc = test_acc
+            self.epochs_without_improvement = 0
+            self.save_checkpoint(model)
+        else:
+            # 如果没有改善，增加未改进的周期数
+            self.epochs_without_improvement += 1
+            # 如果连续 `patience` 个周期没有改进，执行早停
+            if self.epochs_without_improvement >= self.patience:
+                print("Early stopping")
+                return True
+        return False
+
+    def save_checkpoint(self, model):
+        torch.save(model.state_dict(), self.path)
+
+
 parser = argparse.ArgumentParser(description='put in filepath.')
 parser.add_argument('--file_path', type=str, help='Path to the group txt')
 args = parser.parse_args()
 
-
+# 加载模型
 model = VisionTransformer(
     img_size=224,
     patch_size=16,
@@ -168,31 +242,31 @@ model = VisionTransformer(
 # 检查点路径
 pth_path = "/data/yjzhang/desktop/try/ckpt/cifar100/4/model.pth"  # 替换为你的检查点文件路径
 
- 
 # 加载检查点
 checkpoint = torch.load(pth_path)
-
 model.load_state_dict(checkpoint, strict=False)
-
 model.load_pretrained_weights(checkpoint)
 print(f"Loaded pretrained weights from {pth_path}!")
 
-
-
+# model = torch.nn.DataParallel(model)
+# model = torch.nn.DataParallel(model, device_ids=[0, 1, 2])  # 指定 GPU 设备 0, 1
+# model = torch.nn.DataParallel(model, device_ids=[0, 1, 2])  # 指定 GPU 设备 0, 1
 # 将模型移到设备
 model.to(device)
 
 # 定义损失函数和优化器
 criterion = nn.CrossEntropyLoss()
 optimizer = optim.AdamW(model.parameters(), lr=1e-4)
-scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=5, gamma=0.1)
+scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=4, gamma=0.5)
 
+# 配置早停
+early_stopping = EarlyStopping(patience=5, path='early_stopped_model.pth')
 
-# 开始训练
-num_epochs = 10
+# 训练循环
+num_epochs = 100  # 设置一个大值，实际会因早停机制提前停止
 import logging
 
-file_name = "result.txt"
+file_name = "Result_0.5.txt"
 # 使用 os.path.join 来连接文件夹路径和文件名，生成完整的文件路径
 full_file_path = os.path.join(args.file_path, file_name)
 
@@ -213,7 +287,6 @@ for epoch in range(num_epochs):
 
     logging.info(f"Train Loss: {train_loss:.4f}, Train Acc: {train_acc:.4f}")
     logging.info(f"Test Loss: {test_loss:.4f}, Test Acc: {test_acc:.4f}")
-
-# 保存训练后的模型
-# torch.save(model.state_dict(), "vit_cifar100_finetuned.pth")
-logging.info("Training complete. Model saved as vit_cifar100_finetuned.pth")
+    # 使用验证损失进行早停判断
+    if early_stopping(test_acc, model):
+        break  # 提前停止训练

@@ -1,12 +1,15 @@
 from typing import Optional
 import torch
 import torch.nn as nn
-from timm.models.vision_transformer import Block
+# import timm
+# from timm.models.vision_transformer import Block
 import torch.nn.functional as F
 import math
 from typing import Optional
 import re
 import ast
+
+# print("Timm 路径:", timm.__file__)
 
 import torch
 import torch.nn as nn
@@ -109,6 +112,7 @@ class Attention(nn.Module):
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         B, P, C = x.shape
         H = self.num_heads  # 总共的 heads 数量 
+        # print(self.q.weight)
         group_size = self.num_heads // self.num_kv_heads
 
         x_shuffled, self.permuted_indices = shuffle_heads_once(x, H, self.layer_index, self.file_path, load=False)

@@ -1,7 +1,7 @@
 from typing import Optional
 import torch
 import torch.nn as nn
-from timm.models.vision_transformer import Block
+# from timm.models.vision_transformer import Block
 import torch.nn.functional as F
 import math
 from typing import Optional

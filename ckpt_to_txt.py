@@ -1,7 +1,7 @@
 import torch
 
 # 加载检查点
-checkpoint_path = '/data/yjzhang/desktop/try/not_share/sam_ViT-B_16_1.pth'  # 修改为你的检查点路径
+checkpoint_path = '/data/yjzhang/desktop/try/ckpt/cifar100/model.pth'  # 修改为你的检查点路径
 state_dict = torch.load(checkpoint_path)
 
 # 指定输出 txt 文件路径

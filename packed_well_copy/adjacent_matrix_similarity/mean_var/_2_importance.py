@@ -63,6 +63,88 @@ def calculate_stats(model, layer_idx):
 
     return all_stats
 
+def calculate_head_independence_by_nuclear_norm(model, layer_idx, alpha=0.5):
+    """
+    计算指定层每个头的 Q、K、V 权重的核范数，以及 K * Q 和 K * Q * V 的核范数，
+    使用全局核范数与去掉第 i 个头后的核范数之差来度量头的重要性。
+    """
+    all_head_importance = {
+        'K': [],
+        'Q': [],
+        'V': [],
+        'KxQ': [],
+        'KxQxV': []
+    }
+
+    # 从模型的 q_layers、k_layers 和 v_layers 中提取指定层的权重
+    q_weight = model.q_layers[layer_idx].weight.data
+    k_weight = model.k_layers[layer_idx].weight.data
+    v_weight = model.v_layers[layer_idx].weight.data
+
+    # 将 Q、K、V 权重 reshape 为 (num_heads, dim_per_head, dim) 形状
+    dim_per_head = model.dim // model.num_heads
+    q_weight_heads = q_weight.view(model.num_heads, dim_per_head, model.dim)
+    k_weight_heads = k_weight.view(model.num_heads, dim_per_head, model.dim)
+    v_weight_heads = v_weight.view(model.num_heads, dim_per_head, model.dim)
+
+    # 定义计算核范数差值的函数
+    def compute_nuc_norm_diff(matrix_heads, head_idx):
+        """
+        计算全局核范数与去掉第 head_idx 个头后的核范数之差。
+        """
+        # 计算全局核范数
+        global_matrix = matrix_heads.view(model.num_heads, -1)
+        global_nuclear_norm = torch.linalg.norm(global_matrix, ord='nuc')
+
+        # 去掉第 head_idx 个头
+        masked_matrix = torch.cat([global_matrix[:head_idx], global_matrix[head_idx + 1:]], dim=0)
+        masked_matrix = masked_matrix.view(masked_matrix.size(0), -1)  # 保证 reshape 符合规则
+
+        # 计算去掉头后的核范数
+        masked_nuclear_norm = torch.linalg.norm(masked_matrix, ord='nuc')
+
+        # 返回核范数差值
+        return global_nuclear_norm - masked_nuclear_norm
+
+    # 遍历每个头并计算核范数差值
+    for i in range(model.num_heads):
+        k_importance = 0
+        q_importance = 0
+        v_importance = compute_nuc_norm_diff(v_weight_heads, i)
+
+        # 计算 K * Q
+        kq = 0
+        kq_importance = 0
+
+        # 计算 K * Q * V
+        kqv = 0
+        kqv_importance = 0
+
+        # 保存每个头的核范数差值
+        all_head_importance['K'].append(k_importance)
+        all_head_importance['Q'].append(q_importance)
+        all_head_importance['V'].append(v_importance)
+        all_head_importance['KxQ'].append(kq_importance)
+        all_head_importance['KxQxV'].append(kqv_importance)
+
+    # 提取 V 部分的数据
+    v_values = all_head_importance['V']
+    
+    # 计算最大值和最小值
+    max_v = max(v_values)
+    min_v = min(v_values)
+    
+    # 归一化
+    normalized_v = [(v - min_v) / (max_v - min_v) if max_v != min_v else 0 for v in v_values]
+    
+    # 更新 V 部分
+    all_head_importance['V'] = normalized_v
+    
+    return all_head_importance
+
+    # 返回每种标准下每个头的重要性
+    return all_head_importance
+
 
 def calculate_singular_values(model, layer_idx, alpha=0.5):
     """
@@ -91,12 +173,12 @@ def calculate_singular_values(model, layer_idx, alpha=0.5):
     def compute_singular_values(matrix):
         _, s, _ = torch.linalg.svd(matrix, full_matrices=False)
         return s  # 返回奇异值张量
-
+    
     # 计算每个头的奇异值，并保存
     for i in range(model.num_heads):
         k_singular_values = compute_singular_values(k_weight_heads[i])
         q_singular_values = compute_singular_values(q_weight_heads[i])
-        v_singular_values = compute_singular_values(v_weight_heads[i])
+        v_singular_values = compute_singular_values(v_weight_heads[i]) #singular
 
         # 计算 K * Q
         kq = torch.matmul(k_weight_heads[i], q_weight_heads[i].transpose(-2, -1))
@@ -134,7 +216,7 @@ def calculate_singular_values(model, layer_idx, alpha=0.5):
 
 
 
-
+import torch
 
 # def calculate_singular_values(model):
 #     """
