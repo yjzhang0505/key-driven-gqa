@@ -169,3 +169,6 @@ logs/
 output/
 merged_model.pth
 head_grouping_graph.png
+
+early_stopped_model.pth
+vitb_ok.pth
